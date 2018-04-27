@@ -1,0 +1,700 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index4.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Цифровая подпись и шифрование
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Аналогии из повседневной жизни помогают лучше понять, как должны быть 
+устроены криптографические протоколы, чтобы обеспечивать максимальную защиту от 
+мошенников и злоумышленников. Возьмем, к примеру. обыкновенное письмо, 
+приготовленное Антоном для отправки Борис) по почте. Антон всегда подписывает 
+свои письма Борису, прежде чем вкладывает их в конверты. А почему бы Антону не 
+подписывать сами конверты? Да потому, что получив конверт с подписью Антона и 
+обнаружив в нем неподписанное письмо, Борис не сможет убедиться в том, что 
+подлинное письмо Антона не было подменено на пути следования от отправителя к 
+адресату.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Аналогичная ситуация сложилась и в криптографии: если Антон хочет послать 
+шифрованное сообщение, завизированное своей подписью, то ему лучше сначала подписать открытый текст этого сообщения и только затем 
+зашифровать его вместе с поставленной пол ним подписью.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон подписывает сообщение Р при помощи своего тайного ключа К
+<sub>
+А:
+</font></p>
+</sub>
+<p>
+<span lang="en-us">
+<font  face="Verdana, Arial, Helvetica, sans-serif">S
+<sub>
+K
+</sub>
+</span>
+</font>
+<span lang="en-us">
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+</font></p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон шифрует подписанное сообщение, используя открытый ключ Бориса К
+<sub>
+Б
+</sub>
+, и 
+посылает его Борису
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+ 
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+S
+<sub>
+K
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+)
+</font>
+</p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Борис расшифровывает сообщение Антона с помощью своего тайного ключа К
+<sub>
+Б
+</sub>
+:
+</font></p>
+<p>
+<span lang="en-us">
+<font  face="Verdana, Arial, Helvetica, sans-serif">D
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+ 
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+Б
+<span lang="en-us">
+</span>
+</font>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+(
+</font>
+</span>
+</font>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+S
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+K
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+ 
+)
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+) = S
+<sub>
+K
+</sub>
+</span>
+</font>
+<span lang="en-us">
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+</font></p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. С помощью открытого ключа Антона К
+<sub>
+А,
+</sub>
+Борис проверяет подпись Антона и получает открытый текст его сообщения:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">V
+<sub>
+K
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(S
+<sub>
+K
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P) ) = Р
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В результате подпись становится неотъемлемой частью сообщения (злоумышленник 
+не может вместо шифрованного сообщения подставить свое собственное, сохранив под 
+ним подлинную подпись отправителя). Кроме того, отправитель видит открытый текст 
+сообщения, когда ставит под ним свою подпись.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон может использовать разные ключи для зашифрования документа и для того, 
+чтобы поставить под ним подпись. Это позволит ему при необходимости передать 
+ключ шифрования правоохранительным органам, не компрометируя собственную 
+подпись, а также по своему выбору отдать один из двух ключей на хранение 
+доверенным третьим лицам, сохранив второй и тайне от посторонних.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Однако совместное использование шифрования и цифровой подписи таит в себе 
+особую опасность, если для зашифрования и генерации цифровой подписи 
+используется один и тот же криптографический алгоритм. Рассмотрим для примера 
+протокол, согласно которому после приема сообщения Борис немедленно должен 
+послать отправителю этого сообщения подтверждение о его получении.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон подписывает сообщение при помощи своего тайного ключа, шифрует это 
+сообщение, используя открытый ключ Бориса, и посылает его Борису:
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+ 
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+S
+<sub>
+K
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+)
+</font>
+</p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Борис расшифровывает сообщение Антона на своем тайном ключе, 
+удостоверяется в подлинности подписи Антона с помощью его открытого ключа и 
+восстанавливает открытый текст сообщения:
+</font></p>
+</font>
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+S
+<sub>
+K
+</sub>
+</span>
+</font>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<sub>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</span>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+(D
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(Е
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+K
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+Б
+<span lang="en-us">
+</span>
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+S
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+K
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+)
+<span lang="en-us">
+ ) ) = P
+</span>
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Борис подписывает сообщение Антона с использованием своего тайного ключа, 
+шифрует это сообщение вместе со своей подписью на открытом ключе Антона и 
+отсылает обратно:
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+</font>
+<sub>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</span>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(
+<span lang="en-us">
+S
+<sub>
+K
+</sub>
+</span>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+Б
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+(P)
+</span>
+)
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Антон расшифровывает сообщение Бориса при помощи своего тайного ключа и 
+проверяет подлинность подписи Бориса, используя его открытый ключ. Если в 
+результате он получит сообщение, идентичное тому, которое он ранее отправил 
+Борису, значит, сеанс связи прошел корректно.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">К сожалению, если для шифрования и проверки цифровой подписи применяется 
+одинаковый криптографический алгоритм (т. е., V
+<sub>
+K
+</sub>
+= E
+<sub>
+К
+</sub>
+ и S
+<sub>
+К 
+</sub>
+= D
+<sub>
+К
+</sub>
+), Зиновий, 
+являясь законным пользователем сети связи, при определенных условиях сможет 
+читать шифрованную переписку Антона. Для этого, перехватив сообщение Антона
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+ 
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+S
+<sub>
+K
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P)
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+)
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+, Зиновий шлет его от своего имени Борису. Борис после расшифрования и проверки цифровой подписи Зиновия 
+получит:
+</font></p>
+<p>
+<span lang="en-us">
+<font  face="Verdana, Arial, Helvetica, sans-serif">E
+<sub>
+K
+</sub>
+</span>
+</font>
+</font>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+З
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+(D
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<sub>
+Б
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(Е
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+K
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+Б
+<span lang="en-us">
+</span>
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+(
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+D
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+K
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+A
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(P) 
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+)
+<span lang="en-us">
+ 
+) ) = E
+<sub>
+K
+</sub>
+</span>
+</font>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="1">
+З
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+(D
+</span>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+А
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+(P)
+</span>
+ 
+)
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В соответствии с протоколом Борис должен отправить Зиновию подтверждение 
+правильности приема пришедшего ему сообщения:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В результате Зиновию останется только преобразовать сообщение, присланное ему 
+Борисом, при помощи своего тайного ключа и известных открытых ключей Антона и 
+Бориса — и вот он, заветный открытый текст Р сообщения, отправленного Антоном!
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Конечно, все это стало возможным не только потому, что для шифрования и 
+проверки цифровой подписи использовался один и тот же криптографический 
+алгоритм. Борису следовало бы быть более внимательным и не отсылать 
+подтверждение правильности приема сообщения, присланного Зиновием. Попытка 
+расшифровать это сообщение привела к тому, что Борис получил открытый текст, не 
+имеющий никакого смысла.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Отсюда вывод. Ни в коем случае не пытайтесь подписывать или шифровать 
+произвольные сообщения, а затем делиться полученными результатами с другими 
+людьми. Это для вас может плохо кончиться.
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index4.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

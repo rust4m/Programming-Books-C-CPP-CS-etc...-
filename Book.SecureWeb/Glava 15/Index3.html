@@ -1,0 +1,110 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index2.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index4.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+Поиск известных изъянов</P>
+
+<p class="Text_n">
+Как всегда, особое внимание следует уделять очевидным брешам в системе защиты. Это необходимо в основном потому, что и хакеры обращают на них внимание в первую очередь. Несколько разрушительных изъянов Web существует до сих пор, хотя о них стало широко известно еще несколько лет назад. Отличительной особенностью атак этого типа является то, что многие из них легко обнаружить.
+<br>
+<P align="center">
+<span class="Text_b">
+Сценарии автоматизации, применяемые новичками</span></P>
+<br>
+<p class="Text_n">
+В данный момент как никогда уместна фраза &quot;Пусть друзья будут рядом, а враги —
+еще ближе&quot;. Используемые в основном начинающими взломщиками, сканирующие сценарии (чаще всего написанные известными хакерами) зачастую могут помочь в обнаружении некоторых известных изъянов. Многие средства поиска таких брешей можно найти на Web-узле компании Technotronic
+(<span class="Text_b">www.technotronic.com</span>).
+<br>
+<P align="center">
+<span class="Text_b">
+Phfscan.c</span></P>
+<br>
+<p class="Text_n">
+Изъян PHF (более подробно описанный ниже) был одной из первых применяемых для взлома брешей в сценариях Web-серверов. Этот изъян позволяет взломщику локально запускать любую команду, как если бы он был пользователем Web-сервера. Часто это приводит к тому, что файл паролей /etc/passwd оказывается загруженным на компьютер взломщика. В выявлении такого изъяна как администратору, так и хакеру, может помочь несколько программ и сценариев. Программа pfhscan.c является одной из наиболее популярных. Перед использованием ее нужно откомпилировать (gcc phfscan.c -о phfscan), подготовить список узлов, которые нужно просканировать (для создания такого списка подойдет утилита gping), назвать файл со сгенерированным списком host.phf и поместить его в один каталог с программой. После запуска двоичного файла (phfscan) программа начнет выдавать предупреждения о найденных уязвимых серверах.
+<br>
+<P align="center">
+<span class="Text_b">
+cgiscan.c</span></P>
+<br>
+<p class="Text_n">
+cgiscan — это удобная небольшая утилита, созданная в 1998 году Бронком Бастером (Bronc Buster). Она предназначена для сканирования узлов и поиска среди них тех, которые подвержены старым изъянам, таким как PHF, count, cgi, test-cgi, PHP, handler, webdist.cgi, nph-test-cgi и многих других. Программа осуществляет поиск уязвимых сценариев в тех каталогах, где они обычно находятся, и пытается ими воспользоваться. Результат работы утилиты выглядит примерно следующим образом.
+<br>
+<p class="Code">
+[root@funbox-b ch!4]# cgiscan www.somedomain.com<br>
+New web server hole and info scanner for<br>
+elite kode kiddies coded by Bronc<br>
+Buster of LcF - :iov 1998 updated Jan 1999<br>
+Getting HTTP version<br>
+Version:<br>
+HTTP/1.1 200 OK<br>
+Date: Fri, 16 Jul 1999 05:20:25 GMT<br>
+Server:   Apache/1.3.6   (UNIX)    secured_by_ Raveri/1. 4 . 1<br>
+Last-Modified: Thu, 24 Jun 1999 22:25:11 GMT<br>
+ETag: &quot;17d007-2a9c-3772bC47&quot;<br>
+Accept-Ranges: bytes<br>
+Content-Length: 10908<br>
+Connection: close<br>
+Content-Type: text/html<br>
+Searching for phf :.. No:.E'our.rf..<br>
+Searching for Count.cgi :..Not Found.<br>
+Searching for test-cgi :..Nc:Found..<br>
+Searching for php.cgi :..Nov.Found.<br>
+Searching for handler :..NotFound..<br>
+Searching for webgais :..Not Found..<br>
+Searching for websendmail:..Not Found..<br>
+Searching for webdist.cgi:..Not Found..<br>
+Searching for faxsurvey:..Not Found..<br>
+Searching for htmlscript:..Not Found..<br>
+Searching for pfdisplay:..Not Found..<br>
+Searching for perl.exe:..Not Found.. <br>
+Searching for wwwboard.pl:. Not Found.. <br>
+Searching for www-sql:..Not Found.. <br>
+Searching for service.pwd:..Not Found..<br>
+Searching for users.pwd:..Not Found.. <br>
+Searching for aglimpse:..Not Found.. <br>
+Searching for man.sh :..Not Found.. <br>
+Searching for view-source:..Not Found.. <br>
+Searching for campas :..Not Found.. <br>
+Searching for nph-test-cgi :..Not Found..<br>
+[gH] - aka gLoBaL hElL - are lame kode kiddies<br>
+</p>
+
+В Internet можно найти десятки сценариев, предназначенных для сканирования.  На узле
+<span class="Text_b"> http://www.hackingexposed.com/</span> содержатся ссылки на самые популярные Web-узлы, на которых содержится самая разнообразная информация по вопросам безопасности.
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index2.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index4.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

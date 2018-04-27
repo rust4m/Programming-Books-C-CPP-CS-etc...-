@@ -1,0 +1,536 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+<script language="JavaScript" fptype="dynamicoutline">
+
+function dynOutline() {}
+//
+</script>
+<script language="JavaScript1.2" fptype="dynamicoutline" src="../outline.js">
+
+</script>
+<script language="JavaScript1.2" fptype="dynamicoutline" for="document" event="onreadystatechange()">
+
+initOutline()
+//
+</script>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" onclick="dynOutline()" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index3.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index5.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif">
+Основные криптографические протоколы 
+</font>
+</P>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Обмен ключами
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Распространенным приемом в криптографии является шифрование каждого 
+передаваемого сообщения с помощью отдельного ключа. Такой ключ называется 
+<i>
+сеансовым, 
+</i>
+поскольку используется только на протяжении одного сеанса связи. Каким образом сеансовый ключ попадает в распоряжение отправителя 
+и получателя шифрованного сообщения?
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Обмен ключами для симметричных криптосистем
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Предположим, что Антон и Борис, являющиеся пользователями компьютерной сети, 
+получили секретные ключи от Дмитрия (доверенного липа, наделенного правами 
+арбитра). Секретные ключи попали к Антону и Борису еще до начала сеанса связи, а 
+злоумышленник Зиновий ровным счетом ничего не знает о том, какие это ключи. 
+Тогда для обмена шифрованными сообщениями по компьютерной сети Антон и Борис 
+могут воспользоваться следующим криптографическим протоколом:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон связывается с Дмитрием и запрашивает у него сеансовый ключ для связи 
+с Борисом.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Дмитрий генерирует случайный сеансовый ключ и создает две шифрованных 
+копии этого ключа — один раз Дмитрий шифрует сеансовый ключ с помощью секретного 
+ключа Антона, второй — с помощью секретного ключа Бориса. Затем Дмитрий отсылает 
+обе копии Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон расшифровывает свою копию сеансового ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Антон отправляет Борису его копию сеансового ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Борис расшифровывает свою копию сеансового ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">6. Антон отправляет Борису сообщение, зашифрованное с использованием 
+сеансового ключа, копия которого имеется у них обоих.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">И Антон, и Борис полностью полагаются на честность Дмитрия. Если Зиновию 
+удастся его подкупить или обмануть, ни о какой секретности обмена сообщениями 
+между Антоном и Борисом не может быть и речи. В этом ел у чае Зиновий получит 
+доступ ко всем ключам, используемым абонентами компьютерной сети, и сможет 
+прочесть шифрованные сообщения, которыми они обмениваются по сети. Для этого 
+Зиновию достаточно аккуратно копировать всю передаваемую через нее информацию.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Другой существенный недостаток этого протокола состоит в том, что арбитр 
+является потенциальным узким местом в обмене сообщениями между Антоном и 
+Борисом. Если Дмитрий по какой-либо причине не сможет вовремя снабдить их 
+ключами, шифрованная связь между ними будет прервана.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Обмен ключами для криптосистем с открытым ключом
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Обычно Антон и Борис используют криптографический алгоритм с открытым ключом, 
+чтобы договориться о сеансовом ключе, при помощи которого они будут шифровать 
+свои данные. В этом случае протокол обмена сеансовыми ключами значительно 
+упрощается, и Антон может послать шифрованное сообщение Борису, даже если Борис и не слышал о существовании 
+Антона:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон находит открытый ключ Бориса в справочнике, в базе данных или 
+получает его от Дмитрия.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон генерирует случайный сеансовый ключ, шифрует его при помощи 
+открытого ключа Бориса и отправляет ему в зашифрованном виде.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Борис расшифровывает сообщение Антона с использованием своего тайного ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4.
+<i>
+</i>
+Антон и Борис обмениваются сообщениями, зашифрованными на одном и том же сеансовом ключе.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Атака методом сведения к середине
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Петр, возможности которого ограничены лишь перехватом передаваемых 
+сообщений, может попытаться вскрыть применяемый криптографический алгоритм с 
+открытым ключом или организовать атаку со знанием только шифртекста. По 
+сравнению с Петром у Зиновия выбор гораздо богаче: он ' может не только 
+&quot;подслушивать&quot; за Антоном и Борисом, но также видоизменять и даже уничтожать 
+сообщения, которыми они обмениваются между собой. Более того, Зиновий может 
+перевоплотиться в Антона, когда общается с Борисом. Он также может попытаться 
+выдать себя за Бориса, вступая в контакт с Антоном. При этом Зиновий может 
+действовать, например, следующим образом:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон посылает Борису свой открытый ключ. Зиновий перехватывает этот 
+ключ, а вместо него отсылает Борису свой собственный открытый ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Борис посылает Антону свой открытый ключ. Зиновий перехватывает лог ключ, 
+а вместо него отсылает Антону свой собственный открытый ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон шлет Борису сообщение, зашифрованное с помощью открытого ключа, 
+который Антон ошибочно считает принадлежащим Борису. Зиновий перехватывает это 
+сообщение, расшифровывает его при помощи своего тайного ключа, произвольным 
+образом изменяет его, снова зашифровывает на открытом ключе Бориса и затем 
+отсылает адресату.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4.
+<i>
+</i>
+Борис шлет Антону сообщение, зашифрованное с помощью открытого ключа, 
+который Борис ошибочно считает принадлежащим Антону. Зиновий перехватывает это 
+сообщение, расшифровывает его при помощи своего тайного ключа, произвольным 
+образом изменяет его, снопа зашифровывает на открытом ключе Антона и затем 
+отсылает адресат.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Даже если в процессе обмена сообщениями Антон и Борис не передают свои 
+открытые ключи по каналам связи, а просто извлекают их из базы данных, Зиновий 
+может оказаться в состоянии перехватывать запросы в эту базу данных и подменять 
+открытые ключи Антона и Бориса своими собственными. А еще Зиновий может проникнуть в базу данных, где хранятся открытые 
+ключи Антона и Бориса, заменить их на свои собственные, а затем преспокойно 
+дожидаться, пока Антон и Борис не захотят обменяться сообщениями.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Такая атака методом сведения к середине стала возможна потому, что Антон и 
+Борис не в состоянии достоверно убедиться в том, что общаются друг с другом 
+напрямую. И если, модифицируя сообщения Антона и Бориса. Зиновий научится делать 
+это с такой быстротой, что задержка в передаче сообщений будет незаметной, ни 
+Антон, ни Борис так никогда и не догадаются, что кто-то вклинился между ними и 
+читает всю их якобы секретную переписку.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Блокировочный протокол
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Блокировочный протокол, изобретенный американскими криптологами Р. Райвестом 
+и А. Шамиром, позволяет существенно осложнить жизнь Зиновию и ему подобным 
+личностям:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон посылает Борису свой открытый ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Борис посылает Антону свой открытый ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон зашифровывает свое сообщение и отсылает половину этого сообщения 
+Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Борис зашифровывает свое сообщение и отсылает половину этого сообщения 
+Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Антон отсылает вторую половину своего сообщения Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">6. Борис расшифровывает сообщение Антона с помощью своего тайного ключа. 
+Борис отсылает вторую половину своего сообщения Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">7. Антон расшифровывает сообщение Бориса с помощью своего тайного ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Необходимо, чтобы одну часть сообщения, посланного Антоном или Борисом, 
+нельзя было прочитать, не имея на руках другой его части. Тогда Борис не сможет 
+прочитать сообщение Антона до тех пор, пока не дойдет до шага 6 блокировочного 
+протокола, а Борис не сможет ознакомиться с сообщением Антона до шага 7. 
+Существует несколько способов добиться этого:
+</font></p>
+<ul type="square">
+<li>
+<font  face="Verdana, Arial, Helvetica, sans-serif">если для шифрования используется блочный криптографический алгоритм, то 
+первую часть отсылаемого сообщения можно, например, составить из первых половин 
+блоков шифртекста, а вторую — из вторых;
+</li>
+<li>
+расшифрование сообщения можно поставить в зависимость от случайного 
+битового вектора, который отсылается вместе со второй частью сообщения;
+</li>
+<li>
+первая часть сообщения представляет собой хэш-значение, полученное для 
+шифртекста этого сообщения, а вторая часть содержит собственно сам шифртекст.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</li>
+</ul>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">На шаге 1 блокировочного протокола Зиновий по-прежнему может подставить свой 
+собственный открытый ключ вместо открытого ключа Антона. Однако теперь на шаге 3 
+Зиновий будет не в состоянии дешифровать перехваченное сообщение Антона и 
+зашифровать его заново при помощи открытого ключа Бориса. Зиновию непременно 
+придется придумать свое собственное сообщение (случайный битовый вектор или 
+хэш-значение) и послан, его половину Борису. То же самое касается и сообщения 
+Бориса Антону. которое Зиновий перехватит на шаге 4 блокировочного протокола. А 
+после того как Зиновий получит в свое распоряжение вторые половины подлинных 
+сообщений Антона и Бориса, будет уже слишком поздно изменить придуманные им 
+ранее фальшивые сообщения, которые он уже отослал от их имени. Следовательно, 
+Зиновию придется дать волю своей фантазии и продолжить вести всю переписку 
+от имени Антона и Бориса.
+</font></p>
+<i>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">&nbsp;
+</i>
+Конечно, может случиться так, что, у Зиновия очень живое воображение и 
+что, он весьма близко знаком с Антоном и Борисом. В результате они никогда 
+не заподозрят, что на самом деле общаются не друг с другом, а с 
+Зиновием. Однако в любом 
+случае Зиновию будет значительно труднее, чем тогда, когда Антон и Борис 
+используют обычный, а не блокировочный протокол.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Протокол обмена ключами с цифровой подписью
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">При обмене сеансовыми ключами атаку методом сведения к середине можно 
+попытаться отразить также с помощью цифровой подписи. В этом случае Антон и 
+Борис получают сеансовые ключи, подписанные Дмитрием, который является 
+доверенным лицом, наделенным правами арбитра. Каждый сеансовый ключ снабжается 
+свидетельством о его принадлежности определенному лицу. Получая от Дмитрия 
+ключ, Антон и Борис могут проверить его подпись и убедиться, что этот ключ 
+принадлежит именно тому человеку, которому они собираются послать сообщение.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В результате Зиновию придется весьма 
+несладко. Он не сможет выдать себя
+</font>
+<i>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+&nbsp;
+</font>
+</i>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+за Антона или Бориса, поскольку не знает 
+их тайных ключей. Зиновий будет лишен возможности подменить открытые 
+ключи Антона и Бориса на свои собственные, поскольку в его 
+распоряжении есть только сеансовые ключи с подписью Дмитрия, удостоверяющей 
+их принадлежность Зиновию.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Зиновию остается только перехватывать 
+шифрованные сообщения, которыми обмениваются Антон и Борис, и пытаться их читать 
+с помощью криптоаналитических методов.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Однако следует отметить, что в протоколе обмена сеансовыми ключами с 
+цифровой подписью появился новый участник — Дмитрий. Если Зиновий сумеет 
+перевоплотиться в Дмитрия, он сможет подписывать и навязывать участникам 
+протокола известные ему фальшивые сеансовые ключи. Таким образом, несмотря ни на 
+что, у Зиновия все же остается возможность атаковать этот протокол, 
+воспользовавшись методом сведения к середине.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<b>
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+Одновременная передача ключа и сообщения
+</font>
+</p>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон и Борис совершенно необязательно передают друг другу сеансовые ключи 
+перед тем, как приступить к обмену сообщениями. Вместо этого они могут 
+воспользоваться следующим протоколом:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон генерирует случайный сеансовый ключ Кис помощью него зашифровывает 
+сообщение М, получая в результате Е
+<sub>
+К
+</sub>
+(М).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон извлекает открытый ключ Бориса В из базы данных.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон шифрует сеансовый ключ К при помощи В, получая в результате Е
+<sub>
+В
+</sub>
+(К)
+<sub>
+.
+</font></p>
+</sub>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Антон посылает Борису Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+к
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(М) и Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+в
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(К).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Борис расшифровывает сеансовый ключ К с помощью своего тайного ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">6. Борис расшифровывает сообщение Антона на сеансовом ключе К.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Данный протокол наглядно демонстрирует использование современных гибридных 
+криптосистем на практике. Для достижения большей стойкости в него может быть 
+добавлена цифровая подпись, а также применены другие приемы, которые помогут 
+сделать его более стойким против различных атак.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Множественная рассылка ключей и сообщений
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Почему бы Антону не послать шифрованное сообщение сразу нескольким адресатам? 
+Он может сделать это, например так:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон генерирует случайный сеансовый ключ Кис его помощью зашифровывает 
+сообщение М, получая в результате Е
+<sub>
+К
+</sub>
+(М).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон извлекает открытые ключи Бориса, Владимира и Георгия из базы данных.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон шифрует К при помощи открытых ключей Бориса, Владимира и Георгия, 
+получая в результате Е
+<sub>
+Б
+</sub>
+(К), Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+в
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(К)и Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+г
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(К).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Антон, посылает шифрованное сообщение Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+к
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(М), а также многократно 
+зашифрованный сеансовый ключ (E
+<sub>
+Б
+</sub>
+(K), Е
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<sub>
+в
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(К)и Е
+<sub>
+Г
+</sub>
+(К)) всем, кто пожелает их 
+получить.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Только Борис, Владимир и Георгий смогут расшифровать сеансовый ключ К при 
+помощи своих тайных ключей.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">6. Только Борис, Владимир и Георгий смогут прочесть шифрованное сообщение 
+Антона с помощью сеансового ключа К.
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index3.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index5.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

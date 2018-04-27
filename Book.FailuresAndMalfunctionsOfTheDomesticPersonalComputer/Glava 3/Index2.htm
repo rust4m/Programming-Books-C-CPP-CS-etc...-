@@ -1,0 +1,444 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index1.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index3.htm"><img src="For.gif" border=0 ></a></font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text">
+      <p class="tit_A">Сообщения MS - DOS </p>
+      <p>С операционной системой MS - DOS , несмотря на многочисленные попытки компании Microsoft , пользователь сталкивается практически каждый раз, гда приходится или переустанавливать &quot;упавшую&quot; операционную систему, и восстанавливать данные с жесткого диска, на котором повреждена таблица размещения данных. Однако все реже в литературе можно встретить описание методов работы в среде DOS , т. к. все повально стали переходить на работу в операционных системах семейства NT . </p>
+      <p>В данной части главы мы рассмотрим основные типы сообщений, с кото рыми можно встретиться при загрузке с компакт-диска или флоппи-диска. </p>
+      <ul>
+        <li class="nonum"><span class="Text_b">Abort , Retry , Ignore , Fail </span><br>
+        Данное сообщение обычно появляется сразу после другого сообщения, которое сигнализирует об ошибке чтения/записи. Вам предлагается четыре варианта. При нажатии клавиши &lt;А&gt; программа прекратит свою работу и на экран монитора будет выведена строка приглашения MS - DOS примерно такого вида: c :\ windows \ command \, где с:— текущий диск, a \ windows \ command \ — текущий каталог. <br>
+        При нажатии клавиши &lt; R &gt; активизируется последняя команда, при вы полнении которой возникла ошибка, что позволяет продолжить выполнение программы. Так следует поступить, если вы устранили причину ошибки (например, вставили дискету в дисковод). В противном случае нажимать эту клавишу бесполезно. <br>
+        При нажатии клавиши &lt;1&gt; программа просто игнорирует ошибку и продолжит свою работу. Так следует поступить, когда вы уверены в том, что данное действие не приведет к потере ценной информации (например, ошибка при чтении одного из нескольких файлов нисколько не мешает копированию остальных файлов). <br>
+        При нажатии клавиши &lt; F &gt; программа получит команду продолжения операции, но без фиксации факта ошибки. Фактически данная команда заставляет систему, например, заново инициализировать дисковод и про должить чтение с того места, на котором возникла ошибка. </li>
+        <li class="nonum"><span class="Text_b">Access Denied </span><br>
+        Нет доступа. Такая ситуация возникает, например, если файл имеет ат рибут &quot;только для чтения&quot;, а также, если файл зашифрован программны ми средствами или же он поврежден (имеет неверный формат). </li>
+        <li class="nonum"><span class="Text_b">Active Code Page Not Available From CON Device </span><br>Активная кодовая страница не доступна для использования с устройст вом CON </li>
+        <li class="nonum"><span class="Text_b">Active Code Page : X </span><br>В настоящий момент активной является кодовая страница X . </li>
+        <li class="nonum"><span class="Text_b">All Files In Directory Will Be Deleted! Are You Sure (Y/N)? </span><br>Все файлы в текущем каталоге будут удалены! Вы уверены ( да / нет )? </li>
+        <li class="nonum"><span class="Text_b">Archive Is Not Damaged, Repairing Not Possible </span><br>Архив не поврежден, процедура восстановления прекращена. Обычно сообщение можно увидеть при попытке восстановления архива, созданного программой RAR .</li>
+        <li class="nonum"> A<span class="Text_b">re You Sure ? <br>
+        </span>Вы уверены, что хотите продолжить действие (операцию)? </li>
+        <li class="nonum"> A<span class="Text_b">ttempt to Remove Current Directory <br>
+        </span>Попытка удалить текущий каталог . Подобное сообщение может быть выведено на экран монитора антивирусной программой. Возможно, вы пытаетесь удалить каталог, в котором хранятся временные файлы запущенных программ. </li>
+        <li class="nonum"><span class="Text_b">Authenticity Verification - Check Error </span><br>Ошибка при подсчете контрольной суммы файла. Такая проверка осуществляется, например, при распаковке архивов, запуске некоторых дист рибутивов и т. п. </li>
+        <li class="nonum"><span class="Text_b">Bad Command or File Name</span> <br>Вы ввели неверную команду или имя файла. Возможно, файл находится в другом каталоге или на другом диске. </li>
+        <li class="nonum"><span class="Text_b">Bad or Missing Command Interpreter<br>
+        </span>He удается найти командный файл C 0 MMAND . COM или он поврежден. Может быть, вы ввели команду, которая выполняется при помощи этого файла, а дискета, с которой вы загружали компьютер, была заменена на другую, несистемную. </li>
+        <li class="nonum"><span class="Text_b">Bad or Missing Keyboard Definition File <br>
+        </span>He удается найти файл, необходимый для нормальной работы клавиату ры, или этот файл поврежден. Возможно, файл находится в другом ката логе или на другом диске. </li>
+        <li class="nonum"><span class="Text_b">Batch File Missing </span><br>Система не может найти указанный пакетный файл (с расширением ВАТ). При загрузке компьютера обычно запускается файл с именем AUTOEXEC . BAT . </li>
+        <li class="nonum"><span class="Text_b">CDR 100: Unknown Error <br>
+        </span>Возникла неизвестная ошибка при работе привода CD - ROM . </li>
+        <li class="nonum"><span class="Text_b">CDR 101: Not Ready </span><br>Устройство не готово. Подождите немного и повторите попытку. Если все равно появляется данное сообщение, проверьте наличие диска в при воде и качество его поверхности (возможны царапины в системной об ласти диска). </li>
+        <li class="nonum"><span class="Text_b">CDR102: EMS Memory No Longer Valid </span><br>Количество расширенной памяти EMS превышает допустимый предел. </li>
+        <li class="nonum"><span class="Text_b">CDR103: CDROM Not High Sierra or ISO-9660 Format</span> <br>Привод CD - ROM не совместим со стандартом ISO -9660. </li>
+        <li class="nonum"><span class="Text_b">CDR 104: Door Open </span><br>Лоток привода CD - ROM открыт. </li>
+        <li class="nonum"><span class="Text_b">CRC - Check Error</span><br>Ошибка при проверке целостности данных. Обычно возникает при копи ровании файлов с компакт-диска на жесткий диск или попытке запус тить файл с него. </li>
+        <li class="nonum"><span class="Text_b">Can Not Find File &lt;NAME&gt;</span> <br>
+        Система не может найти файл с названием &lt; NAME &gt;. Возможно, носи тель (диск) поврежден. </li>
+        <li class="nonum"><span class="Text_b">Cannot CHDIR to Root </span><br>
+        Система не может открыть корневой каталог диска. Возможно, носитель (диск) поврежден или его содержимое изменилось. </li>
+
+        <li class="nonum"><span class="Text_b">Cannot Do Binary Reads From a Device </span><br>
+        Система не может считать двоичный файл с устройства. Возможно, носи тель (диск) поврежден. </li>
+        <li class="nonum"><span class="Text_b">Cannot Find System Files <br>
+        </span>He удается найти системные файлы. Возможно, носитель (диск) повреж ден или же его содержимое изменилось. </li>
+        <li class="nonum"><span class="Text_b">Cannot Load COMMAND, System Halted </span><br>
+          He удается найти командный файл CОMMAND.COM , система остановлена. 
+		</li>
+        <li class="nonum"><span class="Text_b">Cannot LoadHigh Batch File</span><br>
+He удается загрузить пакетный файл в расширенную память. Возможно, носитель (диск) поврежден или же его содержимое изменилось. Есть ва риант, что неверно работает драйвер расширенной памяти. </li>
+        <li class="nonum"><span class="Text_b"><span class="Text_b">Cannot Make Directory Entry</span> <br>
+        </span>He удается войти в указанный каталог. Возможно, носитель (диск) поврежден или же его содержимое изменилось. </li>
+        <li class="nonum"><span class="Text_b">Cannot Open Specified Country Information File</span> <br>
+        He удается открыть указанный языковой файл. Возможно, носитель (диск) поврежден или же его содержимое изменилось (файл отсутствует). </li>
+        <li class="nonum"><span class="Text_b">Cannot Share Drives</span> <br>Совместное использование дисков в данном случае недопустимо. </li>
+        <li class="nonum"><span class="Text_b">Cannot Start COMMAND, Exiting <br>
+        </span>He удается запустить командный файл C0MMAND.COM. </li>
+        <li class="nonum"><span class="Text_b">Code Page X Not Prepared For All Devices <br>
+        </span>Кодовая страница Х не готова для использования всеми устройствами.</li>
+        <li class="nonum"><span class="Text_b">Code Page X Not Prepared For System</span> <br>
+        Кодовая страница Х не готова к использованию.</li>
+        <li class="nonum"><span class="Text_b">  Code Page Mismatch </span><br>Несоответствие кодовой страницы. </li>
+        <li class="nonum"><span class="Text_b">Code Page Requested ( X ) Is Not Valid For Given Keyboard Code </span><br>
+  Запрос кодовой страницы X не соответствует клавиатурному коду. </li>
+        <li class="nonum"><span class="Text_b">Code Page Specified Has Not Been Prepared </span><br>
+          Указанная кодовая страница не готова к использованию. </li>
+        <li class="nonum"><span class="Text_b">Code Page Specified Is Inconsistent With The Selected Code Page </span><br>
+          Несовпадение кодовых страниц . </li>
+        <li class="nonum"><span class="Text_b"> Command Line Too Long </span><br>
+        Слишком длинная команда. В командной строке MS - DOS введено слиш ком много параметров. </li>
+        <li class="nonum"><span class="Text_b">Configures a Keyboard For a Specific Language </span><br>
+          Настройка клавиатуры для указанного языка . </li>
+        <li class="nonum"><span class="Text_b">Copy Is Not Possible</span><br>
+        Не удается скопировать файл. Возможно , носитель ( диск ) поврежден . </li>
+        <li class="nonum"> <span class="Text_b">Could Not Create Destination File</span><br>He удается создать файл. Возможно, носитель</li>
+        <li class="nonum"> <span class="Text_b">Could Not Create Directory</span><br>He удается создать каталог . </li>
+        <li><span class="Text_b">Could Not Create File In Current Temporary Directory <br>
+          </span>He удается создать файл во временном каталоге</li>
+        <li class="nonum"><span class="Text_b">Could Not Delete File or Directory </span><br>He удается удалить файл или каталог. </li>
+        <li class="nonum"> <span class="Text_b">Current Dive is No Longer Valid </span><br>
+        Указанный диск (дисковод) имеет недопустимые рабочие параметры</li>
+        <li class="nonum"><span class="Text_b">DOS Memory — Arena Error </span><br>
+        Ошибка в памяти, используемой операционной системой DOS</li>
+        <li class="nonum"><span class="Text_b">DOS is In Low MemoryDOS</span><span class="nonum"><br>
+        </span>Операционная система MS - DOS находится в младших адресах памяти.</li>
+        <li class="nonum"> <span class="Text_b">Data Error DOS</span><br>
+          Ошибка в данных. 
+        </li>
+        <li class="nonum"> <span class="Text_b">Data Error Reading Device X:DOS</span><br>
+        Ошибка чтения данных с устройства X :. </li>
+        <li class="nonum"> <span class="Text_b"> Data Error Writing Device X:</span> <br>Ошибка записи данных в устройство X :. </li>
+        <li class="nonum"> <span class="Text_b">Decompression Not Possible </span><br>
+          Декомпрессия файла невозможна . </li>
+        <li class="nonum"> <span class="Text_b">Deleting Will Not Happen </span><br>
+        He удается осуществить удаление файла </li>
+        <li class="nonum"> <span class="Text_b">Disk Boot Failure</span><br> 
+        Загрузочная запись на диске повреждена</li>
+        <li class="nonum"><span class="Text_b">Disk Error Writing FAT </span><br>
+        Ошибка при записи данных в FAT -таблицу. </li>
+        <li class="nonum"> <span class="Text_b">Disk I / O Error </span><br>
+        Ошибка записи/чтения с устройства (диска)</li>
+        <li class="nonum"><span class="Text_b">Disk Is Write-Protected or Directory Does Not Exist </span><br>
+        Диск защищен от записи или указанного каталога</li>
+        <li class="nonum"><span class="Text_b">Disk - Access - Error </span><br>
+        Ошибка доступа к диску (дисководу). </li>
+        <li class="Text_b"> Divide Overflow </li>
+        <li class="nonum">Ошибка — деление на ноль. </li>
+        <li class="nonum"> <span class="Text_b">Drive Not Ready Error Reading Device X : </span><br>
+        Ошибка чтения из-за неготовности устройства х:. </li>
+        <li class="nonum"><span class="Text_b"> Drive Not Ready Error Writing Device X : </span><br>
+        Ошибка записи из-за неготовности устройства X :. </li>
+        <li class="nonum"><span class="Text_b">Duplicate File Name or File Not Found </span><br>
+        Обнаружено два файла с указанным именем и</li>
+        <li class="nonum"> <span class="Text_b">Encryption Failed </span><br>
+          Кодирование файла закончилось неудачей. </li>
+        <li class="nonum"><span class="Text_b"> Error Creating Archive</span><br>Ошибка при создании архива. </li>
+        <li class="nonum"><span class="Text_b"> Error Creating Volume </span><br>Ошибка при создании архивного тома. </li>
+        <li class="nonum"><span class="Text_b"> Error Excluding Paths: Two or More </span><br>Ошибка: обнаружено два или более одинаковых пути.</li>
+                <li class="nonum"><span class="Text_b">Error Found, F Parameter Not Specified. Corrections Will Not </span><br>
+        Найдена ошибка . Требуемый параметр не задан</li>
+        <li class="nonum"><span class="Text_b">Error In EXE File Error Loading Operating System </span><br>
+        Ошибка при загрузке операционной системы. </li>
+        <li class="nonum">Error Occurred In Environment Variable <br>
+        Произошла ошибка среди переменных . </li>
+        <li class="nonum"> Error Opening File <br>
+        Ошибка при открытии файла. </li>
+        <li class="nonum"><span class="Text_b">  Error While Opening <br>
+        Ошибка при открытии файла (каталога).</span><br>Error While Reading <br>
+        Ошибка при чтении файла . </li>
+        <li class="nonum"><span class="Text_b">Error While Reading Archive </span><br>
+Ошибка при чтении архива. </li>
+        <li class="nonum"><span class="Text_b"> Error While Recreating Archive </span><br>
+          Ошибка при обновлении архива . </li>
+        <li class="Text_b"> Error While Writing </li>
+        <li class="nonum">Ошибка при записи данных в файл. </li>
+        <li class="nonum"><span class="Text_b"> Error Writing Fixed Disk </span><br>Ошибка записи на жесткий диск. </li>
+        <li class="nonum"><span class="Text_b"> Error Writing Partition Table </span><br>Ошибка при записи данных в таблицу раздел         
+        <li class="nonum">Error Writing to Device <br>
+          Ошибка записи в устройство .
+        <li class="nonum"><span class="Text_b"> Expanded Memory Allocation Error </span><br>
+          Ошибка при распределении дополнительной памяти</li>
+        <li class="nonum"> <span class="Text_b">Expanded Memory Not Present or Not-Usable </span><br>
+          Дополнительная память не готова к использованию</li>
+        <li class="nonum"><span class="Text_b"> FCB Unavailable</span><br>
+          Блок управления недоступен. </li>
+        <li class="nonum"><span class="Text_b"> Fail on INT 24</span><br> Сбой на INT 24. </li>
+        <li class="nonum"><span class="Text_b"> File Allocation Table Bad, Drive X: </span><br>Таблица размещения файлов на устройстве X : повреждена. </li>
+        <li class="nonum"><span class="Text_b"> File Compressed With Unknown Method </span><br>Файл упакован неизвестным методом. </li>
+        <li class="nonum"><span class="Text_b"> File Creation Error </span><br>Ошибка при создании файла.</li>
+        <li class="nonum"><span class="Text_b">  File Exists </span><br>Файл уже существует. </li>
+        <li class="nonum"><span class="Text_b"> File Not Found </span><br>Не удается найти файл . </li>
+        <li class="nonum"><span class="Text_b"> File Not Found or Archive Broken </span><br>He удается найти файл или архив поврежден.</li>
+        <li class="nonum"><span class="Text_b">  Files Can Be Found At </span><br>He удается найти файлы в текущем каталоге. </li>
+        <li class="nonum"><span class="Text_b"> Floating - Point Support Not Loaded</span><br>Поддержка вычислений с плавающей запятой не загружена.</li>
+        <li class="nonum"><span class="Text_b">  Format Another (Y/N)? </span><br>Форматировать следующий диск (да/нет)?</li>
+        <li class="nonum"><span class="Text_b">  Found No Recovery Data</span><br>Информация для восстановления архива не найдена. </li>
+        <li class="nonum"><span class="Text_b"> Found Recovery Data </span><br>Найдена информация для восстановления 
+	    <li class="nonum"><span class="Text_b">Function Not Supported By Network </span><br>Функция не поддерживает работу с сетью. </li>
+        <li class="nonum"><span class="Text_b"> Function Not Supported By Network </span><br>Функция не поддерживает работу с сетью. </li>
+        <li class="nonum"><span class="Text_b"> General Failure </span><br>Общий отказ системы. </li>
+        <li class="nonum"><span class="Text_b"> General Failure Error Reading Device X: </span><br>Общий отказ при чтении данных из устройстве 
+	    <li class="nonum"><span class="Text_b">General Failure Error Writing Device X: </span><br>Общий отказ при записи данных в устройстве
+	    <li class="nonum"><span class="Text_b"> Header Broken </span><br>
+  Поврежденный заголовок. </li>
+        <li class="nonum"><span class="Text_b">Illegal Option </span><br>Недопустимая опция. </li>
+        <li class="nonum"><span class="Text_b">Incorrect DOS Version </span><br>Неверная версия MS - DOS . </li>
+        <li class="nonum"><span class="Text_b">Insert Disk With &lt;NAME&gt; In Drive X:</span><br>Вставьте диск с именем &lt; NAME &gt; в дисковод X :. </li>
+        <li class="nonum"><span class="Text_b">Insert Disk With Batch File </span><br>Вставьте диск с пакетным файлом . </li>
+        <li class="nonum"><span class="Text_b">Insert New Diskette To Drive X: And Strike ENTER When Ready </span><br>Вставьте новую дискету в дисковод X : и нажмите клавишу &lt; ENTER &gt;. </li>
+        <li class="nonum"><span class="Text_b">Insufficient Disk Space </span><br>Недостаточно свободного места на диске. </li>
+        <li class="nonum"><span class="Text_b">Insufficient Far Memory </span><br>Недостаточно оперативной памяти. </li>
+        <li class="nonum"><span class="Text_b">Insufficient Memory </span><br>Недостаточно оперативной памяти. </li>
+        <li class="nonum"><span class="Text_b">Integer Divide By 0 </span><br>Попытка деления на ноль. </li>
+        <li class="nonum"><span class="Text_b">Intermediate File Error During Pipe</span><br>Ошибка при исполнении файла . </li>
+        <li class="nonum"><span class="Text_b">Invalid C 0 MMAND . COM </span><br>Файл C 0 MMAND . COM поврежден или несоответствующая версия файла. </li>
+        <li class="nonum"><span class="Text_b">Invalid Code Page </span><br>Недопустимая кодовая страница. </li>
+        <li class="nonum"><span class="Text_b">Invalid Code Page Specified</span><br>Недопустимая кодовая страница. </li>
+        <li class="nonum"><span class="Text_b">Invalid Data </span><br>Данные повреждены . </li>
+        <li class="nonum"><span class="Text_b">Invalid Device </span><br>Указано неверное устройство. </li>
+        <li class="nonum"><span class="Text_b">Invalid Device Request Parameters </span><br>Недопустимые параметры запроса устройства. </li>
+        <li class="nonum"><span class="Text_b">Invalid Disk Change </span><br>Недопустимое дисковое изменение. </li>
+        <li class="nonum"><span class="Text_b">         Invalid Drive In Search Path </span><br>Неверно указан диск в параметрах поиска. П Invalid Drive Specification </li>
+        <li class="nonum"><span class="Text_b">Недопустимая спецификация диска.</span><br> Invalid Environment <br>
+        Недопустимая среда .         
+        <li class="nonum"><span class="Text_b"> Invalid Filename or File Not Found</span><br>Недопустимое имя файла или файл не найден</li>
+        <li class="nonum"> <span class="Text_b">Invalid Format </span><br>
+          Недопустимый формат. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Function</span><br>
+          Недопустимая функция. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Function Parameter </span><br>
+          Недопустимый функциональный параметр. 
+	    <li class="nonum"><span class="Text_b">Invalid Handle</span><br>
+          Недопустимый дескриптор. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Keyboard Code Specified</span><br>
+          Недопустимый клавиатурный код. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Keyboard ID Specified </span><br>
+          Недопустимый идентификатор клавиатуры 
+	    <li class="nonum"><span class="Text_b">  Invalid Keyword </span><br>
+          Недопустимое ключевое слово. </li>
+        <li class="nonum"><span class="Text_b"> Invalid List File </span><br>Недопустимый файл списка. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Media Type</span><br>Недопустимый тип носителя. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Memory Block Address</span><br>Недопустимый адрес блока памяти. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Parameter Combination </span><br>Недопустимая комбинация параметров. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Partition Table</span><br>
+          Недопустимый формат таблицы разделов. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Password </span><br>
+  Неверный пароль.</li>
+        <li class="nonum"><span class="Text_b"> Invalid Path </span><br>Неверный путь .
+	    <li class="nonum"><span class="Text_b"> Invalid Path or File Name </span><br>Неверный путь или имя файла. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Path, Not Directory or Directory Not Empty </span><br>Неверный путь, отсутствует указанный каталог        
+        <li class="nonum"><span class="Text_b">Invalid Switch</span> <br>
+        Недопустимый параметр
+        <li class="nonum"><span class="Text_b">          Invalid System Disk</span><br>
+          Системный диск имеет неверный формат.         
+        <li class="nonum"><span class="Text_b"> Invalid Time</span><br>
+          Неверное время. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Unit </span><br>
+          Недопустимый модуль. </li>
+        <li class="nonum"><span class="Text_b"> Invalid Volume Size </span><br>
+          Недопустимый размер тома. </li>
+        <li class="nonum"><span class="Text_b"> KEYB Has Not Been Installed </span><br>
+          Отсутствует клавиатура . </li>
+        <li class="nonum"><span class="Text_b"> Keyboard ID Specified Is Inconsistent With The Selected Keyboard Layout </span><br>
+      Идентификатор клавиатуры противоречит
+	   <li class="nonum"><span class="Text_b">Label Not Found</span><br>Метка диска не найдена. </li>
+        <li class="nonum"><span class="Text_b"> LoadHigh : Invalid Argument </span><br>Недопустимый параметр при загрузке програм 
+		<li class="nonum"><span class="Text_b"> Lock Violation </span><br>
+          Нарушение блокировки. </li>
+        <li class="nonum"><span class="Text_b"> Memory Allocation Error </span><br>
+          Ошибка распределения памяти. </li>
+        <li class="nonum"><span class="Text_b"> Memory Control Blocks Destroyed <br>
+      </span>Ошибка при работе с блоками памяти. 
+        <li class="nonum"><span class="Text_b"> Missing Operating System</span> <br>
+  Не удается найти операционную систему&nbsp; </li>
+        <li class="nonum"><span class="Text_b">Modify of Locked Archives Impossible </span><br>
+  Изменение заблокированного архива невозможно</li>
+        <li class="nonum"><span class="Text_b">&nbsp; Modify of Volumes Impossible </span><br>
+  Изменение тома невозможно . </li>
+        <li class="nonum"><span class="Text_b">&nbsp; NLSFUNC Not Installed</span> <br>
+          Системный файл с названием NLSFUNC не найден.</li>
+        <li class="nonum"><span class="Text_b"> NN Lost Cluster Found in XX Chains </span> <br>
+  NN потерянных кластеров найдены в ХХ-цепочке</li>
+        <li class="nonum"><span class="Text_b"> Name Of List Device (PRN)</span> <br>
+          Устройство для печати (по умолчанию PRN ).</li>
+        <li class="nonum"><span class="Text_b"> Network Data Fault </span> <br>
+          Ошибка при передаче данных по сети.</li>
+        <li class="nonum"><span class="Text_b"> No More Files </span> <br>
+          Больше нет файлов. </li>
+        <li class="nonum"><span class="Text_b"> No Valid CDROM Device Drivers Selected </span> <br>
+  Выбран неверный привод CD-ROM. </li>
+        <li class="nonum"><span class="Text_b">&nbsp;Non-DOS Disk X: </span> <br>
+          Диск в дисководе X : отформатирован не средствами MS - DOS </li>
+        <li class="nonum"><span class="Text_b">Non-DOS Disk Error Reading Device X: </span> <br>
+          Ошибка при чтении данных, диск отформатирован не средствами MS - DOS</li>
+        <li class="nonum"><span class="Text_b"> Non - DOS Disk Error Writing Device X : </span> <br>
+          Ошибка при записи данных, диск отформатирован не средствами MS - DOS</li>
+        <li class="nonum"><span class="Text_b"> Non - System Disk or Disk Error </span> <br>
+          Несистемный диск или ошибка на диске. </li>
+        <li class="nonum"><span class="Text_b"> Not All Selected Files Copied </span> <br>
+          He все выбранные файлы удалось скопировать.</li>
+        <li class="nonum"><span class="Text_b"> Not Enough Drive Letters Available</span> <br>
+  Недостаточно доступных имен дисков</li>
+        <li class="nonum"><span class="Text_b"> &nbsp;Not Enough Expanded Memory, Reducing Number of Buffers </span> <br>
+  Недостаточно расширенной памяти , уменьшите размер буфера &nbsp;</li>
+        <li class="nonum"><span class="Text_b"> Not Enough Memory To Perform Operation </span> <br>
+  Недостаточно памяти для выполнения операции.</li>
+        <li class="nonum"><span class="Text_b">Not Enough Memory or Dictionary of Archive Too Large </span> <br>
+  He хватает памяти или архив слишком большой.</li>
+        <li class="nonum"><span class="Text_b"> Not Enough Space For Environment </span> <br>
+  Недостаточно свободного места для выполнения текущей операции. </li>
+        <li class="nonum"><span class="Text_b"> Not Enough Space On Destination-Disk To Copy </span> <br>
+  Недостаточно места на диске, на который осуществляется копирование данных. </li>
+        <li class="nonum"><span class="Text_b"> Not Enough Space To Save</span> <br>
+          Недостаточно свободного места для сохранения изменений</li>
+        <li class="nonum"><span class="Text_b">Not Enough Space on Temporary Drive</span> <br>
+          Недостаточно свободного места на диске для размещения временных файлов</li>
+        <li class="nonum"><span class="Text_b">Not Ready Error Reading Device X; </span> <br>
+          Ошибка при чтении данных, устройство X : не готово</li>
+        <li class="nonum"><span class="Text_b">Not Ready Error Writing Device X:</span> <br>
+          Ошибка при записи данных, устройство х- не готово,</li>
+        <li class="nonum"><span class="Text_b"> Not Same Device </span> <br>
+          Отсутствует указанное устройство. </li>
+        <li class="nonum"><span class="Text_b"> Null Pointer Assignment</span> <br>
+          Нулевое значение параметра. </li>
+        <li class="nonum"><span class="Text_b"> One or More CON Code Pages Invalid For Given Keyboard Code </span> <br>
+  Одна или более кодовых страниц имеют недопустимый формат. </li>
+        <li class="nonum"><span class="Text_b"> Operation Aborted </span> <br>
+          Текущая операция прервана. </li>
+        <li class="nonum"><span class="Text_b"> Out of Environment Space </span> <br>
+          Недостаточно свободного пространства для выполнения операции </li>
+        <li class="nonum"><span class="Text_b">Out of Memory </span> <br>
+  Недостаточно памяти . </li>
+        <li class="nonum"><span class="Text_b">Packed File is Corrupt </span> <br>
+          Запакованный файл поврежден . </li>
+        <li class="nonum"><span class="Text_b"> Parameter Format Not Correct</span> <br>
+          Параметр имеет неверный формат. </li>
+        <li class="nonum"><span class="Text_b"> Parameter Value Not Allowed</span> <br>
+  Недопустимое значение параметра. </li>
+        <li class="nonum"><span class="Text_b"> Parameter Value Not In Allowed Range</span> <br>
+          Значение параметра имеет недопустимый параметр.</li>
+        <li class="nonum"><span class="Text_b"> Path Not Found </span> <br>
+          Путь указан неверно. </li>
+        <li class="nonum"><span class="Text_b"> Print Queue is Empty </span> <br>
+  Очередь печати пуста. </li>
+        <li class="nonum"><span class="Text_b"> Printer Out of Paper Error </span> <br>
+          Ошибка печати. Отсутствует или застряла бумага. </li>
+        <li class="nonum"><span class="Text_b"> Probable Non-DOS Disk, Continue (Y/N)?</span> <br>
+          Предположительно диск отформатирован не средствами МS-DOS. Продолжить (да/нет) </li>
+      
+        <li class="nonum"><span class="Text_b">Program Too Big to Fit In Memory </span><br>
+        Программа слишком большая для ее размещения в оперативной памяти. </span></li>
+        <li class="nonum"><span class="Text_b"> Read Fault Error </span><br>
+          Ошибка при чтении данных . </li>
+        <li class="nonum"><span class="Text_b"> Read Fault Error Reading Device X: </span> <br>
+          Ошибка при чтении данных из устройства X :&nbsp; </li>
+        <li class="nonum"><span class="Text_b">Read Fault Error Writing Device X : </span> <br>
+  Ошибка при записи данных в устройство X :.&nbsp; </li>
+        <li class="nonum"><span class="Text_b">Recovery Data Damaged </span> <br>
+          Информация для восстановления архива повреждена. </li>
+        <li class="nonum"><span class="Text_b"> Recreation Failed </span> <br>
+          Ошибка при создании файла. </li>
+        <li class="nonum"><span class="Text_b"> Replace and Press Any Key When Ready</span> <br>
+          Когда будете готовы, нажмите любую клавишу для выполнения команды</li>
+        <li class="nonum"><span class="Text_b">Replace and Strike Any Key When Ready </span> <br>
+          Когда будете готовы, нажмите любую клавишу для выполнения команды.</li>
+        <li class="nonum"><span class="Text_b"> Replace the Disk , and Then Press Any Key </span> <br>
+          Замените диск в дисководе и нажмите любую&nbsp;клавишу </li>
+        <li class="nonum"><span class="Text_b"> Required Parameter Missing </span> <br>
+  Отсутствует обязательный параметр. </li>
+        <li class="nonum"><span class="Text_b">Required System Component Not Installed </span> <br>
+  Требуемый системный компонент не установлен. </li>
+        <li class="nonum"><span class="Text_b"> Run-Time Error </span> <br>
+  Ошибка во время выполнения программы.</li>
+        <li class="nonum"><span class="Text_b"> Sector Not Found </span> <br>
+          Не удается найти сектор. </li>
+        <li class="nonum"><span class="Text_b"> Sector Not Found Error </span> <br>
+          He удается найти сектор или сектор имеет неверный формат. </li>
+        <li class="nonum"><span class="Text_b"> Sector Not Found Error Reading Device X:</span> <br>
+          He удается найти сектор, ошибка возникла при чтении данных из устройтва X :. </li>
+        <li class="nonum"><span class="Text_b"> Sector Not Found Error Writing Device X: </span> <br>
+          He удается найти сектор, ошибка возникла при записи данных в устройство X :. </li>
+        <li class="nonum"><span class="Text_b"> Seek Error </span> <br>
+          Найдена ошибка . </li>
+        <li class="nonum"><span class="Text_b"> Seek Error Reading Device X: </span> <br>
+          Найдена ошибка при чтении данных из уст </li>
+        <li class="nonum"><span class="Text_b">Seek Error Writing Device X: </span><br>
+  Найдена ошибка при записи данных в устройство х </li>
+        <li class="nonum"><span class="Text_b">Select Smaller Dictionary Size And Try Again </span> <br>
+          Выберите меньший размер словаря и попытайтесь еще раз
+        <li class="nonum"><span class="Text_b"> Sharing Violation </span> <br>
+	      Ошибка совместного доступа. </li>
+	    <li class="nonum"><span class="Text_b"> Specified COMMAND Search Directory Bad </span> <br>
+	      He удается найти в указанном каталоге файл </li>
+	    <li class="nonum"><span class="Text_b">Specified COMMAND Search Directory Bad, Access Denied </span> <br>
+  He удается найти в указанном каталоге файл</li>
+	    <li class="nonum"> <span class="Text_b">Specified Files Have The Same Name </span> <br>
+  Указанные файлы имеют другие имена. </li>
+	    <li class="nonum"><span class="Text_b">&nbsp; Stack Overflow</span> <br>
+  Переполнение стека. </li>
+	    <li class="nonum"><span class="Text_b">&nbsp; Starts a New Copy of the MS-DOS Command Interpreter </span> <br>
+  Запустите новую копию командного файла C0MMAND.CO&nbsp; </li>
+	    <li class="nonum"><span class="Text_b">String Not Found </span> <br>
+  Строка не найдена. </li>
+	    <li class="nonum"><span class="Text_b"> Syntax Error </span> <br>
+  Синтаксическая ошибка. </li>
+	    <li class="nonum"><span class="Text_b"> System Resource Exhausted </span> <br>
+	      Не хватает системных ресурсов. </li>
+	    <li class="nonum"><span class="Text_b"> Terminate Batch Job (Y/N)?</span> <br>
+	      Прекратить выполнение пакетного файла (да/нет)? </li>
+	    <li class="nonum"><span class="Text_b"> This Program Cannot Be Run In DOS Mode </span> <br>
+	      Эта программа не может работать в среде MS - DOS .</li>
+	    <li class="nonum"><span class="Text_b"> This Program Requires Microsoft Windows </span> <br>
+	      Для запуска этой программы требуется операционная система Windows</li>
+	    <li class="nonum"><span class="Text_b"> Too Many Bytes Damaged </span> <br>
+  Слишком много поврежденных файлов. </li>
+	    <li class="nonum"><span class="Text_b"> Too Many Open Files</span> <br>
+  Слишком много открытых файлов .</li>
+	    <li class="nonum"><span class="Text_b"> Too Many Parameters </span> <br>
+  Слишком много параметров. </li>
+	    <li class="nonum"><span class="Text_b">Too Many Redirections </span> <br>
+  Слишком много параметров. </li>
+	    <li class="nonum"><span class="Text_b">Top Level Process Aborted, Cannot Continue </span> <br>
+  Текущий процесс прерван, продолжение работы программы невозможно</li>
+	    <li class="nonum"><span class="Text_b"> Unable to Create Directory </span> <br>
+  He удается создать каталог . </li>
+	    <li class="nonum"><span class="Text_b">&nbsp; Unable to Create KEYB Table In Resident Memory </span> <br>
+  He удается поместить таблицу значений клавиш в качестве резидента. </li>
+	    <li class="nonum"><span class="Text_b"> Unable to Load Translated Messages </span> <br>
+  He удается загрузить сообщение . </li>
+	    <li class="nonum"><span class="Text_b"> Unable to Repair Archive By Recovery Data </span> <br>
+  He удается воспользоваться информацией для восстановления, архив по врежден. </li>
+	    <li class="nonum"><span class="Text_b"> Unrecognized Switch </span> <br>
+  Недопустимый ключ .</li>
+	    <li class="nonum"><span class="Text_b"> Unrecoverable Error On Directory </span> <br>
+  При работе с текущим каталогом возникла неустранимая ошибка. </li>
+	    <li class="nonum"><span class="Text_b">User Break </span> <br>
+  Пользователь отменил текущую информацию</li>
+	    <li class="nonum"><span class="Text_b"> Volume in Drive X: Has No Label </span> <br>
+  Диск в дисководе х : не имеет метки или она несоответствующая </li>
+	    <li class="nonum"><span class="Text_b">Write Fault Error </span> <br>
+  Ошибка при записи данных. </li>
+	    <li class="nonum"><span class="Text_b"> Write Protect Error</span> <br>
+  Запись не удалась, обнаружена защита от записи </li>
+	    <li class="nonum"><span class="Text_b">Write Protect Error Writing Device X: </span> <br>
+  Запись на устройство х: не удалась, обнаружена защита от записи. </li>
+      </ul>      </td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index1.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index3.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+</body>
+</html>

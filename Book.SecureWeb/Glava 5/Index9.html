@@ -1,0 +1,165 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index8.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index10.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Анализаторы сетевых пакетов</P>
+
+<p class="Text_n">
+Перехват пакетов, передаваемых в локальной сети, является одним из наиболее эффективных способов дальнейшего проникновения в сеть после того, как взломщик получил доступ к одному узлу. В настоящее время имеется множество средств перехвата пакетов, в том числе один из самых знаменитых коммерческих наборов анализа протоколов Sniffer Pro от компании Network Associate
+(<span class="Text_b">http://www.nai.com</span>). Этот комплект средств появился сразу же за выпуском прекрасной свободно распространяемой программы CaptureNet 3.12, являющейся частью набора SpeNet/PeepNet от Лаврентия Никулы (Laurentiu Nicula), который можно найти по адресу
+<span class="Text_b">http://packetstorm.securify.com</span>. Достаточно много можно сказать и о приложении Network Monitor, входящем в комплект поставки системы NT/2000. Эта утилита позволяет отслеживать трафик лишь локального узла. Однако при установке сервера SMS (Systems Management Server) можно воспользоваться полной версией Network Monitor.
+<br>
+
+В то же время очевидно, что графический интерфейс этих программ препятствует их применению в тех случаях, когда основным требованием является скрытность выполняемых действий и можно лишь удаленно воспользоваться командной строкой. В следующих разделах будут рассмотрены некоторые программы-анализаторы сетевых пакетов, которые без проблем можно установить удаленно и использовать из командной строки, а также несколько средств на базе интерфейса Win32.
+<br>
+<P align="center">
+<span class="Text_b">BUTTSniffer</span></P>
+<br>
+<p class="Text_n">
+Среди взломщиков системы NT наиболее популярным средством является динамически загружаемая программа BUTTSniffer от Дилдога (DilDog), основного автора Back   Orifice   2000. Программа  BUTTSniffer состоит из двух основных  компонентов,   BUTTSniff.exe (139,264 байт) и BUTTSniff.dll (143,360 байт), каждый из которых можно переименовать. Для установки этих файлов достаточно просто загрузить их на целевой узел. Никаких дополнительных действий по установке не требуется.  Запуск программы осуществляется из командной строки, в которой можно указать различные параметры. Параметр -1 позволяет получить список интерфейсов, доступных для перехвата пакетов. Взломщики наверняка воспользуются возможностью копирования всех захваченных данных в файл на жестком диске (для этого нужно не использовать параметры фильтрации), как показано в следующем примере.
+<br>
+<p class="Code">
+D:\Toolbox\buttsniffer&gt;<span class="Text_b">buttsniff-1</span><br>
+WinNT:  Version  4.0   Build 1381<br>
+Service Pack:  Service Pack  6<br>
+# Interface Description<br>
+-----------------------<br>
+0 Remote Access Mac <br>[\Device\NDIS3Pkt_AsyncMac4] (no promise.) <br>
+1 3Com Megahertz FEM556B [\Device\NDIS3Pkt_FEM5567]<br>
+D:\Toolbox\buttsniffer&gt;<br>buttsniff -d 1 D:\test\sniffl.txt p<br>
+WinNT: Version 4.0 Build 1381<br>
+Service Pack: Service Pack 6<br>
+Press Ctrl-C to stop logging... <br>Close requested<br>
+D:\Toolbox\buttsniffer&gt;<br>cat D:\test\sniffl.txt<br>
+Source IP: 192.168.7.36  Target IP: 192.168.7.200<br>
+TCP  Length: 13  Source Port: 3530 <br> Target Port: 21 Seq: 001A145E<br>
+Ack: 6D968BEC<br>
+Flags: PA Window: 8711 <br> TCP ChkSum: 6575 UrgPtr: 0<br>
+00000000: 55 53 45 52 20 <br>67 65 6F 72 67 65 OD OA USER<br>
+ernie..<br>
+Source IP: 192.168.7.36 <br>Target IP: 192.168.7.200<br>
+TCP  Length: 17  Source Port: 3530<br>  Target Port: 21  Seq: 001A146B<br>
+Ack: 6D968COF<br>
+Flags: PA Window: 8676 <br> TCP ChkSum: 41325 <br> UrgPtr: 0
+00000000: 50 41 53 53 20 47 65<br> 6F 72 67 65 30 30 31 3F OD<br>
+PASS bert.<br>
+00000010: OA<br>
+</p>
+
+<p class="Prim"> Утилита BUTTSniffer отличается нестабильностью. При ее использовании в течение продолжительного времени она может привести к краху системы NT (появлению синего экрана смерти).
+</p>
+<P align="center">
+<span class="Text_b">fsniff</span></P>
+<br>
+<p class="Text_n">
+ Утилита fsniff написана компанией Foundstone, Inc., в которой авторы книги являются ведущими сотрудниками.
+</p>
+
+Утилитой fsniff используется динамически загружаемый драйвер захвата пакетов (fsniff .sys), что значительно облегчает ее использование. Эта утилита выполняет автоматическую фильтрацию данных аутентификации, содержащихся в пакетах, как показано в следующем примере сеанса FTP.&nbsp;
+<br>
+<p class="Code">
+С:\tmp&gt;<span class="Text_b">fsniff</span><br>
+fsniff vl.О - copyright2000 foundstone, inc.<br>
+driver activated<br>
+192.168.200.15 [4439] -&gt; 172.16.23.45 [21] }<br>
+USER test PASS ralph<br>
+172.16.23.45 [21] -&gt; 192.168.200.15 [4439] }<br>
+220 ftp.victim.net FTP server (Version wu-2.5.0(l)<br>
+Tue Sep 21 16:48:12<br>
+EOT 199<br>
+9) ready.<br>
+331 Password required for test.<br>
+530 Login incorrect.<br>
+packets received 27  - sniffed 10<br>
+</p>
+<P align="center">
+<span class="Text_b">
+Анализаторы пакетов Win32 * на базе интерфейса WinPcap</span></P>
+<br>
+<p class="Text_n">
+Многие популярные программы-анализаторы UNIX, предназначенные для захвата пакетов на уровне пользователей, созданы на базе интерфейса libpcap, не зависящего от используемой платформы. Свободно распространяемая версия Win32 этого интерфейса, WinPcap, была разработана группой исследователей из политехнического университета Торино (Politecnico di Torino)
+(<span class="Text_b">http://netgroup-serv.polito.it/winpcap</span>). Этот интерфейс предоставляет основу для создания некоторых интересных средств перехвата сетевых пакетов. Однако их неудобно устанавливать на удаленном узле и использовать из командной строки. Кроме того, в отличие от динамически загружаемых утилит BUTTSniffer и f sniff, для активизации таких средств зачастую требуется перезагрузка. В последующих разделах для полноты излагаемого материала, а также для облегчения дальнейших исследований в этой области, будут рассмотрены некоторые из средств, созданных на базе интерфейса WinPcap.
+<br>
+<P align="center">
+<span class="Text_b">
+WinDump</span></P>
+<br>
+<p class="Text_n">
+Эта утилита, являющаяся аналогом утилиты tcpdump системы UNIX, написана авторами WinPcap. Как видно из приведенного ниже примера, эта утилита является простым средством перехвата пакетов, предоставляющим данные в необработанном виде.&nbsp;
+<br>
+<p class="Code">
+D:\&gt;<span class="Text_b">windump</span><br>
+windump: listening on\Device\Packet_E159xl<br>
+01:06:05.818515 WKSTN.1044 &gt;<br> CORP-DC.139: P 287217:287285(68) ack<br>
+3906909778 wi<br>
+n 7536 (DF) [tos 0x86]<br>
+01:06:05.818913 CORP-DC.139 &gt; <br>WKSTN.1044: P 1:69(68) ack 68 win 16556<br>
+(DF)<br>
+01:06:05.825661 arp who-has<br> 192.168.234.1 tell WKSTN<br>
+01:06:05.826221 arp reply <br>192.168.234.1 is-at 8:0:3d:14:47:d4<br>
+</p>
+
+<p align="center"><span class="Text_b">
+
+dsniff для Win32</span></P>
+<br>
+<p class="Text_n">
+Утилита dsniff является одним из самых лучших средств перехвата пакетов системы UNIX, предназначенных исключительно для получения паролей. Она была написана Дагом Сонгом (Dug Song) (http://naughty.monkey.org/~dugsong/dsniff/). Утилита dsniff автоматически выявляет и подробно анализирует каждый протокол, сохраняя лишь часть уникальных данных, используемых при аутентификации.
+<br>
+
+Ранняя версия утилиты dsniff для Win32, появившаяся в мае 2000 года, была написана Майком (Mike) из компании eEye Digital Security. В ней отсутствуют многие возможности таких утилит, как arpredirect, что делает ее версию для системы Linux более робаст-ной (см. главу 8 и 10). Тем не менее, утилита dsniff может оказаться полезной для получения данных аутентификации. В следующем примере утилита dsniff была использована для перехвата пакетов, передаваемых в процессе аутентификации по протоколу POP.
+<br>
+<p class="Code">
+D:\dsniff&gt;<span class="Text_b">dsniff</span><br>
+07/31/00 17:16:34 С574308-А -&gt; <br>mail.victim.net (pop)<br>
+USER johnboy<br>
+PASS goodnight<br>
+</p>
+<P align="center">
+<span class="Text_b">
+Контрмеры: защита от перехвата пакетов</span></P>
+<br>
+<p class="Text_n">
+Если приведенные выше советы показались вам недостаточными, дополнительно можно порекомендовать следующее. При передаче информации по сети используйте механизмы шифрования, такие как сервер SSH (Secure Shell), протокол SSL (Secure Sockets Layer), шифрование почтовых сообщений POP (Pretty Good Privacy) или шифрование на уровне IP, которое обеспечивается при реализации виртуальных частных сетей на-базе протокола IPSec (см. главу 9). Это надежные средства защиты от атак, направленных на перехват пакетов. Использование сетей с коммутируемой архитектурой и виртуальных локальных сетей (Virtual Local Area Network) может значительно снизить риск взлома, однако в случае применения таких средств, как утилиты dsnif f и arpredirect из UNIX (см. главу 10), нельзя предоставить никаких гарантий.
+<br>
+<p class="Prim">
+ При печати второго издания этой книги был выпущен совместимый с системой NT/2000 сервер SSH, который можно найти по адресу<span class="Text_b">
+http://marvin.criadvantage.com/caspian/Software/SSHD-NT/default.php.</span> Многие годы он служил основой безопасного удаленного управления системами на базе UNIX, и очень интересно познакомиться с новой версией, которая позволяет из командной строки удаленно управлять системами NT/2000. Ее можно рассматривать как альтернативу терминального сервера. Более подробную информацию о сервере SSH можно найти по адресу
+<span class="Text_b"> http://www.employees.org/-satch/ssh/faq/ssh-faq.html</span>.
+</p>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index8.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index10.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

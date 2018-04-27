@@ -1,0 +1,99 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index10.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index12.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Редактирование журналов регистрации</P>
+
+<p class="Text_n">
+Профессиональные взломщики обязательно выполнят эту задачу, чтобы скрыть следы своей деятельности. Сделать это можно, отключив систему аудита, изменив время последнего обращения и модификации файлов, а также откорректировав файлы журналов.
+<br>
+<P align="center">
+<span class="Text_b">
+Отключение системы аудита</span></P>
+<br>
+<p class="Text_n">
+При выполнении своих злонамеренных действий умные взломщики обязательно проверят, установлена ли система аудита, а затем отключат регистрацию определенных событий. Вот несколько шагов, которые предпримет взломщик, чтобы отключить систему аудита для службы каталогов и серверов.
+<br>
+
+1. Запустите утилиту auditcon из каталога SYS: \PUBLIC.
+<br>
+
+2. Выберите команду Audit Directory Services.
+<br>
+
+3. Выберите требуемый контейнер и нажмите клавишу &lt;F10&gt;.
+<br>
+
+4. Выберите команду Auditing Configuration.
+<br>
+
+5. Выберите команду Disable Container Auditing.
+<br>
+
+6.  Теперь можно приступать к добавлению контейнеров и пользователей в выбранный контейнер.
+<br>
+<P align="center">
+<span class="Text_b">
+Изменение атрибутов файлов</span></P>
+<br>
+<p class="Text_n">
+Если взломщик изменил файл autoexec.ncf или netinfo.cfg, то ему вряд ли&nbsp;
+захочется, чтобы об этом кому-либо стало известно. Для изменения даты последнего обращения к этим файлам прекрасно подходит утилита SYS:PUBLIC\filer. Как и команда touch систем UNIX и NT, filer — это утилита DOS, предназначенная для поиска файлов и изменения их атрибутов. Модифицировать атрибуты файла очень просто. Для этого нужно сделать следующее.
+<br>
+
+1.   Запустите утилиту filer из каталога SYS: PUBLIC.
+<br>
+
+2.   Выберите команду Manage files and directories.
+<br>
+
+3.   Найдите каталог, в котором расположен требуемый файл.
+<br>
+
+4.   Выделите его.
+<br>
+
+5.   Выберите команду View/Set file information.
+<br>
+
+6.   Измените значения полей Last accessed date и Last modified date, как показано на следующем рисунке.
+
+
+<p class="label"><IMG src="19.gif"  ><br>
+</p>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index10.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index12.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

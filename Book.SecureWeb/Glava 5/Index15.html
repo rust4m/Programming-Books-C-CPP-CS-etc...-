@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index14.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index16.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Отключение аудита</P>
+
+<p class="Text_n">
+Если владелец взламываемой системы хоть немного беспокоится о безопасности, он обязательно включит режим аудита, о чем мы уже говорили выше в данной главе. Поскольку ведение журналов может снизить производительность интенсивно работающих серверов, особенно если регистрируются такие события, как, например, успешное выполнение функций управления пользователями и группами (флажок Success для события User and Group Management в диалоговом окне Audit Policy диспетчера пользователей), многие администраторы NT либо вообще не включают функций контроля, либо включают лишь некоторые из них. Однако первое, что делает злоумышленник, пытаясь получить привилегии администратора, проверяет, активизирован ли режим аудита, чтобы случайно не &quot;засветиться&quot;. Утилита auditpol из набора NTRK позволяет управлять этим процессом. В следующем примере показано, как с помощью утилиты auditpol отключается режим аудита на удаленном компьютере.
+<br>
+<p class="Code">
+С:\&gt; <span class="Text_b">auditpol /disable</span><br>
+Running ...<br>
+Local audit information changed successfully ...<br>
+New local audit policy . . .<br>
+(0) Audit Disabled<br>
+AuditCategorySystem = No<br>
+AuditCategoryLogon = Failure<br>
+AuditCategoryObjectAccess = No<br>
+</p>
+
+Закончив работу, взломщик может снова включить режим аудита с помощью команды auditpol /enable.
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index14.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index16.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

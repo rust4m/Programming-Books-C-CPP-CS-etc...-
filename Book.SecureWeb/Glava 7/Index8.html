@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index7.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index9.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Ложные атаки (PANDORA)</P>
+
+<p class="Text_n">
+Если все предыдущие попытки получения привилегий администратора закончились неудачей, то можно прибегнуть к нескольким ложным атакам с применением пакетов NCP. Средства для осуществления таких атак разработаны в центре исследований NMRC (Nomad Mobile Research Center,
+<span class="Text_b">http://www.nmrc.org</span>) и называются Pandora (<span class="Text_b">http://www.nmrc.org/pandora/download.html</span>). В настоящее время доступна версия 4.0, однако в данной книге рассматриваются возможности версии 3.0. Для работы пакета Pandora необходимо выполнение нескольких обязательных условий.
+<br>
+<ul>
+  <li>&nbsp;Работа с сетевым адаптером должна осуществляться посредством связанного с ним драйвера пакетов (packet driver). Такой драйвер имеется в комплекте поставки лишь определенных сетевых адаптеров. Уточните у производителя, поддерживается ли вашей NIC драйвер пакетов. Можете считать, что вам крупно повезло, если ваш сетевой адаптер изготовлен такими производителями, как Netgear, D-Link и 3Com. Драйвер пакетов необходим также для перехвата прерывания 0x60.</li>
+  <li>&nbsp;Чтобы пакет Pandora мог функционировать, должна быть загружена поддержка интерфейса DPMI (DOS Protected Mode Interface — интерфейс защищенного режима DOS). Необходимые файлы можно загрузить с Web-узла, адрес которого приведен выше.</li>
+  <li>&nbsp;В дереве нужно найти контейнер, в котором содержится как объект Admin (или с эквивалентными правами), так и пользователь, пароль которого известен.</li>
+</ul>
+<P align="center">
+<span class="Text_b">
+gameover</span></P>
+<br>
+<p class="Text_n">
+Одного имени утилиты gameover вполне достаточно, чтобы узнать, для чего она предназначена. Утилита gameover позволяет взломщику предоставить пользователю привилегии, эквивалентные администратору. Это достигается с помощью передачи серверу 4.x ложного NCP-запроса, в результате чего им будет обработан запрос SET EQUIVALENT
+TO.
+<br>
+
+Для того чтобы установить клиента DOS/Win95, выполните следующие действия.
+<br>
+
+1.   Перейдите в режим DOS.
+<br>
+
+2.  Загрузите драйвер пакетов (например, производства компании D-Link):
+<span class="Text_b"> dc22xpd</span>
+<br>
+
+3.  Загрузите поддержку интерфейса DPMI: <span class="Text_b"> cwsdpmi</span>
+<br>
+
+Теперь, воспользовавшись информацией о пользователе, полученной с помощью приложения On-Site (рис. 7.7), можно приступить к своему &quot;черному делу&quot;.
+
+
+<p class="label"><IMG src="14.gif"><br>
+<br>
+Рис. 7.7. Теперь взломщик может приступить к своему &quot;черному делу&quot;
+
+</p>
+
+ <p class="Text_n">
+Запустите утилиту gameover следующим образом.
+<br>
+<p class="Code">
+Gameover&lt;cr&gt;<br>
+Server internal net (4 bytes hex)<br>
+<span class="Text_b">36FCC65D&lt;cr&gt;</span><br>
+Server address (6 bytes hex)<br>
+000000000001&lt;cr&gt;<br>
+File server connection number (irit)<br>
+most probably '!' (seen as: '*&lt;server_name&gt;.&lt;server.context&gt;')<br>
+<span class="Text_b">4&lt;cr&gt;</span><br>
+Server socket high (1 byte hex)<br>
+most probably '40'  40&lt;cr&gt;<br>
+Server socket low (1 byte hex)<br>
+Most probably '07'  39&lt;cr&gt;<br>
+User name to gain rights <br>(does NOT have to be currently connected)<br>
+<span class="Text_b">eculp&lt;cr&gt;</span><br>
+User name to get rights from <br>(does not have to be currently connected)<br>
+<span class="Text_b">Admin&lt;cr&gt;</span><br>
+Spoofing: Done.<br>
+</p>
+
+После этого можно зарегистрироваться в качестве пользователя ECULP и получить права администратора. Здорово, не правда ли?
+<br>
+
+В пакете Pandora содержится и много других утилит, заслуживающих внимания. Две другие утилиты, levell-1 и level3-1. также предназначены для передачи ложных NCP-запросов, как и gameover. Их использование также приводит к обработке запроса SET EQUIVALENT, однако при этом объекты-пользователи могут располагаться в различных контекстах. Такую возможность в лабораторных условиях нам проверить не удалось.
+<br>
+
+Утилиты extract, crypto и crypto2 предназначены для взлома паролей NDS и будут рассмотрены ниже в данной главе. Утилита havoc является прекрасным инструментом для выполнения атаки DoS.
+<br>
+<P align="center">
+<span class="Text_b">
+Контрмеры: защита от утилит Pandora</span></P>
+<br>
+<p class="Text_n">
+Для защиты от утилит из пакета Pandora существует много различных способов, и их перечень во многом зависит от архитектуры узла NetWare. Вообще, для предотвращения хакинга с применением описанных средств нужно следовать следующим рекомендациям:
+<br>
+<ul>
+  <li>&nbsp;Никогда не помещайте пользователя Admin (или эквивалентного) в тот же контейнер, в котором содержатся другие пользователи.</li>
+  <li>&nbsp;Установите самый новый пакет обновления Support Pack 6 (IWSP6.EXE), который можно найти по адресу
+    <span class="Text_b">ftp://ftp.novell.com/pub/updates/nw/ nw411/iwsp ехе</span>. При этом файл DS.NLM будет замещен его новой версией. Ее можно свободно получить по адресу
+    <span class="Text_b">http://www.support.novell.com</span>.</li>
+  <li>&nbsp;Перед запуском файла DS.NLM добавьте команду SET PACKET SIGNATURE OPTION=3 либо в конец файла autoexec.ncf, либо в начало файла
+    startup.ncf.</li>
+  <li>&nbsp;В сценарии autoexec, ncf можно также вызвать сценарий SYS:SYSTEMXsecure, ncf. При этом для того же и нескольких других параметров будут установлены требуемые значения, однако снова убедитесь в том, что сценарий вызывается в начале файла autoexec.ncf. Откройте файл secure.ncf и удалите символы комментария В строке SET PACKET SIGNATURE OPTION=3.</li>
+</ul>
+
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index7.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index9.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

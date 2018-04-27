@@ -1,0 +1,46 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER =0  COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index2.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index4.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text"><p class="tit_A">Особенности работы с текстовыми файлами </p>
+      <p>т. к. используется всего один файл, ну а с другой стороны, для выбора опре деленной кодировки используется целая система псевдонимов, например, Times New Roman Cyr , O = Times New Roman ,204. Старые же программы уме ют работать только с именами файлов, из-за чего русские символы могут отображаться в виде псевдографики, т. к. выбрана неверная кодовая страни ца. Для исправления ситуации можно применить специально обработанный шрифт, у которого таблица с кириллицей перемещена в начало файла, но этот подход работает не всегда, да и найти такие шрифты сложно. </p>
+      <p>Нередко возникает проблема с некорректным отображением символов в Блокноте. После установки какой-нибудь программы, часто драйверов принтера, отображение текста вместо стандартного шрифта может осущест вляться, например, наклонным шрифтом. Проблема усугубляется тем, что подобное явление наблюдается и в других программах, например в окне терминала удаленного доступа к сети. </p>
+      <p>Чтобы вручную исправить ситуацию, найдите в системном реестре раздел </p>
+      <p class="Code">HKEY_LOCAL_MACHINE\config\0001\display\settings </p>
+      <p>В нем найдите параметр fixedfon . fon , который &quot;по умолчанию&quot; должен быть равен vgafix . fon , и укажите любой шрифт, установленный в системе, хотя лучше, если вы будете использовать только шрифты с расширением FON , т. к. шрифты TTF работают не всегда. Перезагрузите компьютер для применения изменений. </p>
+      <p>В указанном выше разделе можно изменить практически любые системные шрифты, но следует соблюдать осторожность. Стоит отметить, что для со вместимости со старыми программами вся информация из этого раздела системного реестра вносится также и в файл SYSTEM . INI в раздел BOOT . Имейте это в виду при редактировании реестра. </p>      </td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index2.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index4.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+</body>
+</html>

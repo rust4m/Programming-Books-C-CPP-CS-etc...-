@@ -1,0 +1,119 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index11.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index13.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+Хранение ключей
+</font></P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Проще всего хранить ключи для криптосистемы, у которой имеется 
+один-единственный пользователь. Пользователь просто запоминает этот ключ и при 
+необходимости вводит его с клавиатуры компьютера по памяти. Однако поскольку 
+по-настоящему случайный ключ запомнить нелегко, для его хранения можно 
+использовать магнитную карточку, или пластиковый ключ с размещенным на нем ПЗУ 
+(так называемый 
+<i>
+ПЗУ-ключ), или
+</i>
+интеллектуальную карту. Для ввода такого ключа достаточно вставить его 
+физический носитель в специальный считыватель, подключенный к компьютеру. При 
+этом действительное значение вводимого ключа пользователю неизвестно, и, 
+следовательно, он не сможет его разгласить или скомпрометировать. Способ 
+использования ключа определяется управляющим вектором, записанным па физический 
+носитель вместе с этим ключом.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">ПЗУ-ключ придумали очень умные люди. Пользователь обычно гораздо лучше 
+осознает, как правильно обращаться с обычным ключом от замка. Придание 
+криптографическому ключу такого же вида, какой имеет ставший нам привычным 
+замковый ключ, позволяет чисто интуитивно избегать многих ошибок, связанных с 
+хранением криптографических ключей.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">С целью дальнейшего уменьшения вероятности компрометации ключа можно 
+разделить его на две части. Первую следует реализовать в виде ПЗУ-ключа, а 
+вторую поместить в память компьютера. Тогда потеря &quot;пэ-зэ-ушной&quot; части ключа или 
+его половинки, хранимой в памяти компьютера, не приведет к разглашению 
+криптографического ключа в целом. А части ключа при необходимости можно заменить 
+отдельно друг от друга.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Трудно запоминаемые ключи можно хранить на компьютерном диске в зашифрованном 
+виде. Например, открытый ключ, состоящий из большого количества цифр, лучше 
+всего зашифровать с помощью DES-алгоритма и запомнить на диске. Более короткий 
+ключ к DES-алгоритму легче припомнить, когда понадобится расшифровать открытый 
+ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если ключи генерируются с использованием хорошего датчика псевдослучайных 
+битовых последовательностей, может оказаться более удобным не хранить 
+сгенерированные ключи, а каждый раз заново генерировать их, задавая 
+соответствующее начальное значение датчика, которое легко запоминается.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index11.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index13.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

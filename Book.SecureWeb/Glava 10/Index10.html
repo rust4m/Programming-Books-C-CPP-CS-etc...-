@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index9.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index11.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Пароли на блюдечке: dsniff</P>
+
+<p class="Text_n">
+Конечно, с помощью утилиты tcpdump можно без проблем определить тип используемой сети, однако что вы скажете о получении главных жемчужин компьютерного мира — паролей? Для этих целей можно приобрести чудовищный по предоставляемым возможностям программный пакет SnifferPro или воспользоваться более дешевыми средствами, например, CaptureNet, разработанным Лаврентием Никулой (Laurentiu Nicula). Однако лучше всего прибегнуть к программе Дага Сонга (Dug Song). Он разработал одно из наиболее сложных средств перехвата паролей — программу dsniff.
+<br>
+Зачастую можно встретить приложения, в которых в качестве паролей используется незашифрованный текст. Кроме того, подобная конфиденциальная информация хранится далеко не в лучшем месте. Примерами таких приложений могут послужить следующие: FTP, telnet, POP, SNMP, HTTP, NNTP, ICQ, IRC, Socks, NFS (сетевая файловая система— Network File System), mountd, rlogin, IMAP, AIM, XI1, CVS, Napster, Citrix ICA, pcAnywhere, NAI Sniffer, Microsoft SMB и Oracle SQL. В большинстве перечисленных выше приложений либо используются незашифрованные пользовательские имена и пароли, либо применяются упрошенные алгоритмы шифрования, сокрытия и декодирования, которые нельзя рассматривать как серьезную преграду для взломщиков. Именно в этом случае можно ощутить всю
+мощь программы dsniff.
+<br>
+
+С помощью программы dsniff можно прослушать трафик любого сетевого сегмента независимо от того, относится ли он к сети с множественным доступом или же к сети с коммутацией пакетов. Эту программу можно получить по адресу
+<span class="Text_b">http://naughty.monkey.org/~dugsong/dsniff/</span>, а затем выполнить ее компиляцию. С Web-узла компании еЕуе
+(<span class="Text_b">http://www.eeye.com</span>) можно также загрузить и попробовать в действии версию этой программы для платформы Win32. В этом случае потребуется установить также и библиотеку WinPcap, которая, однако, может вызвать некоторые проблемы в системах с конфликтом драйверов. Эту библиотеку можно найти по адресу<span class="Text_b">
+http://netgroup-serv.polito.it/winpcap/</span>.
+<br>
+
+При запуске программы dsnif f в системе Linux будут получены все незашифрованные или простые пароли сетевого сегмента.
+<br>
+<p class="Code">
+[root@mybox dsniff-1.8] <span class="Text_b">dsniff</span><br>
+---------------<br>
+05/21/00 10:49:10 bob -&gt; unix-server (ftp)<br>
+USER <span class="Text_b">bob</span><br>
+PASS <span class="Text_b">dontlook</span><br>
+---------------<br>
+05/21/00 10:53:22 karen -&gt; lax-cisco (telnet)<br>
+<span class="Text_b">karen<br>
+supersecret</span><br>
+---------------<br>
+05/21/00 11:01:11 karen -&gt; lax-cisco (snmp) <br>
+[version 1]<br>
+<span class="Text_b">private</span><br>
+</p>
+
+Кроме средства перехвата паролей dsnif f, в состав пакета входят разнообразные средства поиска других слабых мест, такие как mailsnarf и webspy. mailsnarf представляет собой небольшое приложение, позволяющее собирать все почтовые сообщения и отображать их содержимое на экране, как если они были написаны вами лично, webspy — это мощная утилита, которая окажется полезной, если требуется определить, какие страницы в Web посетили пользователи. При этом в Web-броузере автоматически будут отображаться Web-страницы, которые были просмотрены определенным пользователем.
+<br>
+<p class="Code">
+[root]# <span class="Text_b">mailsnarf</span><br>
+From stu@hackingexposed.com Mon May 29 23:19:10 2000<br>
+Message-ID: 0017Olbfca02$790cca90$6433a8cO@foobar.com<br>
+Reply-To: &quot;Stuart McClure&quot; stu@hackingexposed.com<br>
+From: &quot;Stuart McClure&quot; stu@hackingexposed.com<br>
+To: &quot;George Kurtz&quot; george@hackingexposed.com<br>
+References: 0022Olbfc729$7d7ffe70$ab8dOb!8@JOC<br>
+Subject: Re: conference call<br>
+Date: Mon, 29 May 2000 23:44:15 -0700<br>
+MIME-Version: 1.0<br>
+Content-Type: multipart/alternative;<br>
+boundary=&quot;———=_NextPart_000_0014_01BFC9C7.CC970F30&quot;<br>
+X-Priority: 3 X-MSMail-Priority: Normal<br>
+X-Mailer: Microsoft Outlook Express 5.00.2919.6600<br>
+X-MimeOLE: Produced By Microsoft MimeOLE V5.00.2919.6600<br>
+This is a multi-part message in MIME format.<br>
+---=_NextPart_000_0014_01BFC9C7.CC970F30<br>
+Content-Type: text/plain;<br>
+charset=&quot;iso-8859-l&quot;<br>
+Content-Transfer-Encoding: quoted-printable<br>
+Have you heard the latest one about the...<br>
+[content censored here]<br>
+- Stu<br>
+</p>
+<p class="Prim">
+Чтение почтовых сообщений ваших соседей может показаться забавным занятием, однако не забывайте о том, что подобные действия вряд ли можно назвать законными.
+</p>
+<P align="center">
+<span class="Text_b">
+Контрмеры: защита от dsniff</span></P>
+<br>
+<p class="Text_n">
+Традиционным способом защиты от перехвата незашифрованных паролей является переход от сетевой топологии Ethernet с множественным доступом к сети с коммутацией пакетов. Однако как вы узнали из предыдущих разделов, такая мера практически не способна предотвратить атаки с применением программы dsniff.
+<br>
+
+В этом случае ко всему сетевому трафику лучше всего применить один из алгоритмов шифрования. Воспользуйтесь преимуществами SSH для туннелирования всего трафика или возможностями средств, в которых реализованы алгоритмы шифрования по открытому ключу (PKI — Public Key Infrastructure), например продуктами компании Entrust Technologies. Это позволит выполнить сквозное шифрование всего потока сетевых данных.
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index9.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index11.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

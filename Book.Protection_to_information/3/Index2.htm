@@ -1,0 +1,168 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index1.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index3.htm">
+<img src="For.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Взлом парольной защиты операционной системы UNIX
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В операционной системе UNIX информацию о пароле любого пользователя можно 
+отыскать в файле passwd, находящемся в каталоге etc. Эта информация хранится в 
+зашифрованном виде и располагается через двоеточие сразу после имени 
+соответствующего пользователя. Например, запись, сделанная в файле passwd 
+относительно пользователя с именем bill, будет выглядеть примерно так:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">bill:5fg63fhD3d5g:9406:12:Bill Spencer:/home/fsg/will:/bin/bash
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Здесь 5fg63fhD3d5g — это и есть информация о пароле пользователя bill.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">При первоначальном задании или изменении пользовательского пароля 
+операционная система UNIX генерирует два случайных байта (в приведенном выше 
+примере 5 и f) к которым добавляются байты пароля. Полученная в результате 
+байтовая строка шифруется при помощи специальной криптографической процедуры 
+Crypt2 (в качестве ключа используется пароль пользователя) и в 
+зашифрованном виде (g63fliD3d5g) вместе с двумя случайными байтами (5f) 
+записывается в файл /etc/passwd после имени пользователя и двоеточия.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если злоумышленник имеет доступ к парольному файлу операционной системы UNIX, 
+то он может скопировать этот файл на свой компьютер и затем воспользоваться 
+одной из программ для взлома парольной защиты UNIX.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Самой эффективной и популярной такой программой является Crack. И хотя она 
+предназначена для запуска на компьютерах, работающих только по.: управлением 
+операционных систем семейства UNIX, инициируемый ею процесс поиска паролей может 
+быть без особых усилий распределен междх различными платформами, подключенными к 
+единой компьютерной сет. Среди них могут оказаться и IBM-совместимые 
+персональные компьютеры , с операционной системой Linux, и рабочие станции RS/6000 
+с AIX. и Macintosh с A/UX.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">CrackJack — еще одна известная программа для взлома паролей операционной 
+системы UNIX. К сожалению, работает она только под управлением операционной 
+системы DOS, но зато весьма непритязательна в том, что касается компьютерных 
+ресурсов. К другим недостаткам этого парольною взломщика можно отнести запрет на 
+одновременное использование сразу нескольких словарей и принципиальную 
+невозможность запуска CrackJack под Windows 95/98.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В отличие от CrackJack, парольный взломщик PaceCrack95 работает пол Windows 
+95/98 в качестве полноценного DOS-приложения. К тому же он достаточно быстр, 
+компактен и эффективен.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Парольные взломщики Q-Crack и John the Ripper примечательны тем, что 
+существуют версии этих взломщиков, предназначенные для работы не только на DOS/Windows-платформах, 
+но и на компьютерах 
+<i>
+с 
+</i>
+операционной системой Linux.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">А парольный взломщик Hades лучше остальных документирован и содержит ряд 
+очень полезных утилит, которые позволяют осуществлять слияние нескольких словарей в один большой словарь, удалять из словаря повторяющиеся 
+слова и добавлять в уже имеющийся словарь пароли, взломанные в процессе работы 
+Hades.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Существует множество других программ взлома паролей операционной системы UNIX. 
+Они устойчивы к сбоям электропитания компьютеров, на которых работают (XiT), 
+позволяют планировать время своей работы (Star Cracker), при выполнении 
+монополизируют процессор для достижения максимальной производительности (Killer 
+Cracker), не только взламывают пароли операционной системы UNIX, но и помогают 
+преодолеть парольную защиту других программ, которые требуют, чтобы пользователь 
+зарегистрировался путем ввода своего имени и соответствующего пароля (Claymore).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Что же касается защиты от взлома паролей операционной системы UNIX, то ее 
+пользователям следует настоятельно порекомендовать применять только стойкие 
+пароли, а в качестве критерия стойкости пароля использовать его отсутствие в 
+словарях, предназначенных для парольных взломщиков. Да и сами файлы с 
+информацией о пользовательских паролях следует прятать подальше от посторонних 
+любопытных глаз. Достигается это обычно с помощью так называемого 
+<i>
+затенения
+</i>
+(shadowing), когда в файле passwd шифрованные пароли пользователей 
+заменяются служебными символами (например, звездочками), а вся парольная 
+информация скрывается в каком-нибудь укромном месте. И хотя существуют 
+программы, специально созданные для отыскания спрятанных парольных файлов 
+операционной системы UNIX, к счастью для системных администраторов эти программы 
+далеко не универсальны и успешно срабатывают не для всех операционных систем 
+семейства UNIX.
+</font></p>
+</font>
+<b>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index1.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index3.htm">
+<img src="For.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

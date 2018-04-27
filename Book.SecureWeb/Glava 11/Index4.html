@@ -1,0 +1,200 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Дополнительное исследование брандмауэров</P>
+
+<p class="Text_n">
+Если прямое сканирование портов, отслеживание маршрутов и сбор маркеров не принесли успеха, взломщики могут прибегнуть к дополнительной инвентаризации брандмауэра на более высоком уровне. При этом идентифицировать брандмауэры и получить их правила ACL можно в процессе исследования цели и анализа полученной информации (или не полученной).
+<br>
+<P align="center">
+<span class="Text_b">
+Простой способ получения данных с помощью утилиты
+nmар</span></P>
+<br>
+<p class="Text_n">
+Утилита nmар является прекрасным средством исследования брандмауэров, и мы постоянно ею пользуемся. В процессе сканирования узла эта утилита сообщает не только об открытых или закрытых портах, но и о тех из них, которые оказались заблокированными. При этом полученные (или отсутствующие) данные позволяют узнать о конфигурации брандмауэра много важной информации.
+<br>
+
+Если в результате сканирования утилита nmap &quot;пометила&quot; порт как фильтруемый, то это означает возникновение одного из следующих условий.
+<br>
+<ul>
+  <li>Не получен пакет SYN/ACK.&nbsp;</li>
+  <li>Не получен пакет RST/ACK.</li>
+  <li>Получено ICMP-сообщение типа 3 (Destination   Unreachable) с кодом  13 (Communication Administratively  Prohibited — RFC 1812).</li>
+</ul>
+
+При выполнении любого из этих трех условий утилита nmap сообщит о порте как о фильтруемом (filtered). Например, при сканировании узла
+<span class="Text_b"> www.company.com </span> мы получили два IСМР-пакета, что говорит о блокировании брандмауэром портов 23 и 111.
+<br>
+<p class="Code">
+[root]# <span class="Text_b">nmap -p20,21,23,53,80,111 -PO -w  192.168.51.100</span><br>
+Starting  nmap  V.2.08 by Fyodor (fyodor@dhp.com,<br>
+www.insecure.org/nmap/)<br>
+Initiating  TCP   connect() scan  against (192.168.51.100)<br>
+Adding  TCP  port   53  (state  Open).<br>
+Adding  TCP  port   111 (state   Firewalled).<br>
+Adding  TCP  port   80  (state  Open).<br>
+Adding  TCP  port   23  (state   Firewalled).<br>
+Interesting  ports   on (192.168.51.100):<br>
+Port State   Protocol    Service<br>
+23 filtered  tcp         telnet<br>
+53 open      tcp         domain<br>
+80 open      tcp         http<br>
+111 filtered tcp         sunrpc<br>
+</p>
+
+Состояние Firewalled из предыдущего фрагмента свидетельствует о получении 1СМР-пакета типа 3 с кодом 13 (admin prohibited filter), как видно из следующего листинга утилиты tcpdump.
+<br>
+<p class="Code">
+23:14:01.229743 10.55.2.1 &gt; 172.29.11.207: icmp: host 172.32.12.4<br>
+<span class="Text_b">Unreachable - admin prohibited filter</span><br>
+23:14:01.979743 10.55.2.1 &gt; 172.29.11.207: icmp: host 172.32.12.4<br>
+<span class="Text_b">Unreachable - admin prohibited filter</span><br>
+</p>
+
+Каким же образом утилите nmap удается связать получаемые пакеты с исходными сообщениями, особенно, когда они являются лишь малой частью данных, передаваемых по сети? Дело в том, что в ответном ICMP-пакете, передаваемом на сканирующий узел, содержится вся информация, необходимая для понимания того, что же произошло. О блокировании порта сообщается в однобайтовом блоке заголовка
+IСМР по адресу 0x41, а в случае обращения к фильтруемому порту брандмауэр отправит сообщение в IP-блоке пакета по адресу
+0xlb (4 байта).
+<br>
+
+И наконец, о нефильтруемых (unf iltered) портах утилита nmap сообщает лишь в том случае, когда при их сканировании обратно возвращается пакет RST/ACK. В этом случае тестовый пакет либо достигает целевого узла, который сообщает о том, что порт не находится в состоянии ожидания запросов, либо брандмауэр имитирует IP-адрес этого узла, устанавливая флаг RST/ACK. Например, при сканировании локальной системы было выявлено два нефильтруемых порта, поскольку не пришло двух ответных пакетов RST/ACK. Подобная ситуация может быть имитирована и некоторыми брандмауэрами, например, ChackPoint на которых действует правило REJECT.
+<br>
+<p class="Code">
+[root]# <span class="Text_b">nmap -sS -pl-300  172.18.20.55</span><br>
+Starting  nmap V. 2.08  by  Fyodor (fyodor@dhp.com,<br>
+www.insecure.org/nmap/)<br>
+Interesting  ports  on  (172.18.20.55):<br>
+(Not   showing  ports  in state: filtered)<br>
+Port State Protocol Service<br>
+7 unfiltered tcp echo<br>
+53 unfiltered tcp domain<br>
+256 open tcp rap<br>
+257 open tcp set<br>
+258 open tcp yak-chat<br>
+Nmap run completed -- 1 IP address<br>
+(1 host up) scanned in 15 seconds<br>
+</p>
+
+При отслеживании пакетов с помощью утилиты tcpdump можно увидеть, что обратно возвращаются пакеты RST/ACK.
+<br>
+<p class="Code">
+21:26:22.742482 172.18.20.55.258 &gt; 172.29.11.207.39667: S <br>
+415920470:1415920470(0) ack 3963453111 win 9112 &lt;mss 536&gt; (DF)<br>
+(ttl 254, id 50438)<br>
+<span class="Text_b">21:26:23.282482 172.18.20.55.53 &gt; 172.29.11.207.39667:<br>
+R 0:0(0) ack 3963453111 win 0 (DF) (ttl 44, id 50439) 21:26:24.362482</span><br>
+172.18.20.55.257 &gt; 172.29.11.207.39667: S 1416174328:1416174328(0)<br>
+ack 3963453111 win 9112 &lt;mss 536&gt;<br>
+(DF) (ttl 254, id 50440)<br>
+21:26:26.282482 172.18.20.55.7 &gt; 172.29.11.207.39667:<br>
+R 0:0(0) ack 3963453111 win 0 (DF) (ttl 44, id 50441)<br>
+</p>
+<P align="center">
+<span class="Text_b">
+Контрмеры против применения утилиты nmар</span></P>
+<br>
+<P align="center">
+<span class="Text_b">
+Обнаружение</span></P>
+<br>
+<p class="Text_n">
+Для выявления попыток сканирования с использованием утилиты nmap можно применять подходы, описанные в главе 2. Кроме того, можно также дать следующий совет. Настройте процедуру обнаружения сканирования таким образом, чтобы отдельно получать информацию о попытках сканирования брандмауэров.
+<br>
+<P align="center">
+<span class="Text_b">
+Предотвращение</span></P>
+<br>
+<p class="Text_n">
+Для   того   чтобы    предотвратить   возможность   инвентаризации    списков   ACL маршрутизаторов и брандмауэров, нужно отключить на них режим передачи ответных сообщений ICMP с типом 13. На маршрутизаторах Cisco это можно осуществить, запретив передачу ответных IP-сообщений о недостижимости цели. no  ip  unreachables
+<br>
+<P align="center">
+<span class="Text_b">
+Идентификация портов</span></P>
+<br>
+<p class="Text_n">
+Некоторые брандмауэры имеют уникальные характеристики, отличающие их от других брандмауэров и представленные в виде последовательности цифр. Например, такую последовательность можно получить при подключении к TCP-порту 257 (SNMP) брандмауэров Checkpoint. Наличие портов 256-259 является хорошим признаком брандмауэра Firewall-1 компании Checkpoint. А следующий тест поможет в этом удостовериться.
+<br>
+<p class="Code">
+[root]# <span class="Text_b">nc -v -n 192.168.51.1 257</span><br> (UNKNOWN) [192.168.51.1] 257 (?)<br>
+open<br>
+30000003<br>
+[root]# <span class="Text_b">no -v -n 172.29.11.191 257</span><br>
+(UNKNOWN) [172.29.11.191] 257 (?)<br>
+open 31000000<br>
+</p>
+<P align="center">
+<span class="Text_b">
+Контрмеры: защита от идентификации портов</span></P>
+<br>
+<P align="center">
+<span class="Text_b">
+Обнаружение</span></P>
+<br>
+<p class="Text_n">
+Факт подключения злоумышленника к портам можно выявить, добавив аудит соответствующего события в программе RealSecure. Вот что для этого нужно сделать.
+<br>
+
+1.  Активизируйте режим редактирования политики.
+<br>
+
+2.   Перейдите во вкладку Connection Events.
+<br>
+
+3.   Щелкните на кнопке Add Connection и введите параметры записи, соответствующие брандмауэру Checkpoint.
+<br>
+
+4. Выберите диапазон портов и щелкните на кнопке Add.
+<br>
+
+5. Введите значения в поля службы и порта, а затем щелкните на кнопке ОК.
+<br>
+
+6. Выберите новый порт и снова щелкните на кнопке ОК.
+<br>
+
+7. Щелкните на кнопке ОК, чтобы применить политику с измененными параметрами.
+<br>
+<P align="center">
+<span class="Text_b">
+Предотвращение</span></P>
+<br>
+<p class="Text_n">
+Возможность подключения к TCP-порту можно предотвратить, заблокировав его на маршрутизаторе исходящих сообщений. Следующий простой список ACL брандмауэров Cisco поможет явно запретить все попытки подключения. access-list  101  deny  tcp  any  any eq 257   log     ! Блокирование  сканирования  Firewall-1
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

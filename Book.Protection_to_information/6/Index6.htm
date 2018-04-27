@@ -1,0 +1,1028 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index5.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index7.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+Генерация ключей
+</font></P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Стойкость шифра должна определяться только секретностью ключа. Если для 
+генерации ключей используется нестойкий алгоритм, криптосистема будет нестойкой. 
+Вскрытию подвергнется не сам шифр, а алгоритм генерации ключей.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Сокращенные ключевые пространства
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Длина ключа в DES-алгоритме составляет 56 бит. В принципе, в качестве ключа 
+может быть использован любой 56-битный вектор. На практике это правило часто не 
+соблюдается. Например, широко распространенная программа шифрования файлов 
+Norton Discreet, входящая в пакет Norton Utilities (версии 8.0 или более младшей 
+версии), который предназначен для работы в операционной системе DOS, предлагает 
+пользователю программную реализацию DES-алгоритма. Однако при вводе ключа 
+разрешается подавать на вход программы только те символы, старший бит 
+представления которых в коде ASCII равен нулю. Более того, пятый бит в каждом 
+байте введенного ключа является отрицанием шестого бита, и в нем игнорируется 
+младший бит. Это означает, что мощность ключевого пространства сокращается до 
+каких-то жалких 2
+<sup>
+40 
+</sup>
+ключей. Таким образом из-за плохой процедуры генерации 
+ключей программа Norton Discreet реализует алгоритм шифрования, ослабленный в 
+десятки тысяч раз по сравнению с настоящим DES-алгоритмом.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В табл. 6.6 приведено количество возможных ключей в зависимости от раз-личных 
+ограничений на символы, которые могут входить в ключевую последовательность. 
+Табл. 6.7 содержит сложность атаки методом тотального перебора при условии, что 
+перебор ведется со скоростью 1 млн ключей в секунду.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<i>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 6.6. Количество возможных ключей в зависимости от ограничений на символы ключевой последовательности
+</b>
+</font></p>
+</font>
+</i>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%">
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Символы ключа 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4 байта 
+</font>
+</b>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+5 байт 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6 байт 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7 байт 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+8 байт 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Строчные буквы 
+    (26) 
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4,7*10
+</font>
+<sup>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+5
+</font>
+</sup>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,3*10
+<sup>
+7
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+3,2*10
+<sup>
+8
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+8,1*10
+<sup>
+9
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,2*10
+<sup>
+11
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Строчные буквы и 
+    цифры (36) 
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,8*10
+</font>
+<sup>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6
+</font>
+</sup>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6,1*10
+<sup>
+7
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2.3*10
+<sup>
+9
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,9*10
+<sup>
+10
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2.9*10
+<sup>
+12
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Буквы и цифры 
+    (62) 
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,6*10
+<sup>
+7
+</sup>
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+9,3*10
+<sup>
+8
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+5,8*10
+<sup>
+10
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+3,6*10
+<sup>
+11
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,3*10
+<sup>
+14
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Печатаемые 
+    символы (95) 
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+8,2*10
+<sup>
+7
+</sup>
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,8*10
+<sup>
+9
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,5*10
+</font>
+<sup>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+11
+</font>
+</sup>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,1*10
+<sup>
+13
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6,7*10
+<sup>
+15
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Все ASCII-символы
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4,4*10
+<sup>
+9
+</sup>
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,2*10
+<sup>
+10
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,9*10
+</font>
+<sup>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+14
+</font>
+</sup>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,3*10
+<sup>
+16
+</sup>
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,9*10
+<sup>
+19
+</sup>
+</font>
+</td>
+</tr>
+</table>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<i>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 6.7. Сложность атаки методом тотального перебора при условии, что 
+перебор ведется со скоростью 1 миллион ключей в секунду
+</b>
+</font></p>
+</i>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%">
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Символы ключа 
+</font>
+</b>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4 байта 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+5 байт 
+</font>
+</b>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6 байт 
+</font>
+</b>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7 байт 
+</font>
+</b>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+8 байт 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Строчные буквы 
+    (26) 
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+0,6 сек.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+13 сек.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+6 мин.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,3ч.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,5 дн.
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Строчные буквы и 
+    цифры (36) 
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,8 сек.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2 мин.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+37 мин.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+23ч.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+34 дн.
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Буквы и цифры 
+    (62) 
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+16 сек.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+16 мин.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+17ч.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+42 дн.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+7,0 лет
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Печатаемые 
+    символы (95) 
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,5 мин.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,2ч.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+8,6 дн.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2,3 лет
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="34">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+211 лет
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="37%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Все ASCII-символы
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1,3ч.
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+14 дн.
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+9,0 лет
+    
+</font>
+</td>
+<td WIDTH="12%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2400 лет
+    
+</font>
+</td>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="38">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+590000 лет
+    
+</font>
+</td>
+</tr>
+</table>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Из табл. 6.6 следует, что возможность опробовать 1 млн ключей в секунду 
+позволяет в разумные сроки вскрывать 8-байтовые ключи из строчных букв и цифр, 
+7-байтовые буквенно-цифровые ключи, 6-байтовые ключи, составленные из печатаемых 
+ASCII-символов, и 5-байтовые ключи, в которые могут входить любые ASCII-символы. 
+А если учесть, что вычислительная мощь компьютеров увеличивается вдвое каждые 
+полтора года, то для успешного отражения атаки методом тотального перебора в 
+течение ближайшего десятилетия необходимо заблаговременно позаботиться о том. 
+чтобы используемый ключ был достаточно длинным.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Плохие ключи
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Когда отправитель сам выбирает ключ, с помощью которого он шифрует свои 
+сообщения, его выбор обычно оставляет желать лучшего. Например, Петр Сергеевич 
+Иванов скорее предпочтет использовать в качестве ключа Ivanov, чем &amp;7)g\*. И 
+вовсе не потому, что он принципиально не желает соблюдать элементарные правила 
+безопасности. Просто свою фамилию Иванов помнит гораздо лучше, чем абракадабру 
+из шести произвольно взятых символов. Однако тогда сохранить свою переписку в тайне ему не поможет и самый стон кий 
+алгоритм шифрования в мире, особенно если используемые Ивановым ключи всегда 
+совпадают с именами его ближайших родственников и записывает он эти ключи на 
+клочках бумаги, которые наклеивает на компьютер. В ходе хорошо организованной 
+атаки методом тотального перебора квалифицированный криптоанатитик не будет 
+опробовать все ключи последовательно, один за другим. Он сначала проверит те из 
+них, которые хоть что-то значат для Иванова. Такая разновидность атаки методом 
+тотального перебора наливается 
+<i>
+товарной атакой, 
+</i>
+поскольку в ходе нее противник использует словарь наиболее 
+вероятных ключей. В этот словарь обычно входят:
+</font></p>
+<ul type="square">
+<li>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Имя, фамилия, отчество, инициалы, год рождения и другая личная информация, 
+имеющая отношение к данному человеку. Например, при словарной атаке против Петра 
+Сергеевича Иванова в первую очередь следует проверить PSI, PSIPSI, PIVANOV, 
+Pivanov, psivanov, peteri, pete I, IvanovP, peterivanov, Peter-Ivanov и т. д.
+</li>
+<li>
+Словарная база данных, составленная из имен людей, героев мультфильмов и 
+мифических животных, ругательств, чисел (как цифрами, так и прописью), названий 
+художественных фильмов, научно-фантастических романов, астероидов, планет и 
+цветов радуги, общепринятых сокращении и т. д. В общей сложности для одного 
+конкретного человека такая база данных насчитывает более 60 тыс. словарных 
+единиц.
+</li>
+<li>
+Слова, которые получены путем внесения различных изменений в словарную базу 
+данных, составленную на предыдущем этапе. Сюда относятся обратный порядок 
+написания слова, замена в нем латинских буки о, 
+<span lang="en-us">
+l,
+</span>
+ z, s на цифры 
+  
+<span lang="en-us">
+0
+</span>
+, 1, 2 и 5 
+соответственно, использование слова во множественном числе и т. д. Это даст 
+дополнительно еще около миллиона словарных единиц для опробования в качестве 
+возможного ключа к шифру.
+</li>
+<li>
+Слова, полученные с помощью замены строчных букв на заглавные. Такой замене 
+в принципе может подвергаться любое число букв. Например. вместе со словом Ivanov будут проверяться слова iVanov, ivAnov, ivaNov, ivanOv, ivanoV, IVanov, 
+IvAnov, IvaNov, IvanOv, IvanoV и т. д. Однако. вычислительная мощь современных 
+компьютеров позволяет проверять только одно-, двух- и трехбуквенные замены 
+строчных букв на заглавные.
+</li>
+<li>
+Слова на различных иностранных языках. Хотя компьютерные пользователи в 
+основном работают с англоязычными операционными системами (DOS, UNIX, Windows и 
+другими), существуют локализованные версии распространенных операционных систем, 
+в которых допускается использование другого языка. Это означает, в качестве 
+ключа на вход программы шифрования может быть подана любая фраза на родном языке 
+ее пользователя. Следует также учитывать, что ключ может быть транслитерирован с 
+любого языка (например, с русского или китайского) на английский и затем в таком 
+виде введен в программу шифрования.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</li>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<li>
+Пары слов. Поскольку количество вероятных пар слов, из которых может 
+состоять криптографический ключ, слишком велико, на практике криптоаналитики 
+обычно ограничиваются словами из трех и четырех букв.
+</li>
+</ul>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Случайные ключи
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Хороший ключ представляет собой случайный битовый вектор. К примеру. если его 
+длина составляет 56 бит, то это значит, что в процессе его генерации с 
+одинаковой вероятностью может получиться любой из 2
+<sup>
+56 
+</sup>
+возможных ключей. 
+Источником случайных ключей обычно служит либо природный случайный генератор 
+(хорошей аналогией такого генератора является маленький ребенок, который только 
+что научился ходить, — временные интервалы между его падениями абсолютно 
+случайны). Кроме того, источником случайного ключа может быть криптографически 
+надежный генератор псевдослучайных битовых последовательностей. Лучше, чтобы 
+процесс генерации ключей был автоматизирован. Если под рукой нет компьютера для 
+запуска программы, реализующей псевдослучайный генератор, или ваш ребенок давно 
+уже вышел из младенческого возраста, можно бросать монетку или игральную кость.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Использование хорошего генератора случайных чисел является очень важным 
+моментом при генерации криптографических ключей, однако не следует слишком много 
+спорить о том, какой из этих генераторов является более случайным. Важнее 
+применять стойкие алгоритмы шифрования и надежные процедуры работы с ключами. 
+Если у вас появились сомнения относительно случайности при выборе ключа, можно 
+использовать один из методов генерации ключей, описанных ниже в этой главе.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Во всех алгоритмах шифрования имеются так называемые 
+<i>
+нестойкие 
+</i>
+ключи. Это означает, что 
+некоторые из ключей к шифру являются менее надежными, чем остальные. Поэтому при 
+генерации ключей нужно автоматически проверять их на стойкость и генерировать 
+новые вместо тех, которые эту проверку не прошли. К примеру, в DES-алгоритме 
+имеются всего 24 нестойких ключа из общего количества 2
+<sup>
+56
+</sup>
+, и следовательно 
+вероятность наткнуться на нестойкий ключ пренебрежимо мала. Кроме того, откуда криптоаналитику знать, что для зашифрования конкретного сообщения или файла был 
+применен именно нестойкий ключ? А сознательный отказ от использования нестойких 
+ключей дает противнику дополнительную информацию о вашей криптосистеме, что 
+нежелательно. С другой стороны, проверка ключей на нестойкость достаточно 
+проста, чтобы ею пренебрегать.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Генерация открытых ключей гораздо более затруднена, чем генерация секретных 
+ключей, поскольку открытые ключи должны обладать определенными математическими 
+свойствами (например, должны быть результатом произведения двух простых чисел).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Пользоваться случайными ключами не всегда удобно. Иногда ключ требуется 
+сохранить в памяти, а запомнить 36f9 67аЗ f9cb d931 человеку не так-то
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+просто. В этом случае для генерации можно использовать некое правило, которое 
+будет очевидно для вас, но недоступно для постороннего. Два варианта такого 
+правила:
+</font></p>
+<ul type="square">
+<li>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Составьте ключ из нескольких слов, разделенных знаками препинания. 
+Например, очень просто и надолго запоминаются ключи типа Yankee'Go home.
+</li>
+<li>
+Используйте в качестве ключа сочетание букв, которые представляют собой 
+акроним более длинного слова. К примеру, броское название немецкого вина Liebenfraumilch позволяет путем отбрасывания гласных букв и добавления 
+восклицательного знака сгенерировать ключ Lbnfrmlch!.
+</li>
+</ul>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Пароль
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Более привлекателен подход, при котором вместо отдельного слова используется 
+достаточно длинное легко запоминающееся предложение на русском, английском или 
+другом языке, которое преобразуется в ключ. Такое выражение в криптографии 
+называется 
+<i>
+паролем. 
+</i>
+Для 
+преобразования пароля в псевдослучайный битовый ключ можно воспользоваться любой 
+однонаправленной хэш-функцией.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Пароль следует выбирать достаточно длинным, чтобы полученный в результате его 
+преобразования ключ был случайным. Из теории информации известно, что в 
+предложении на английском языке каждая буква содержит примерно 1,3 бита 
+информации. Тогда, чтобы получить 64-бтный ключ, пароль должен состоять 
+примерно из 49 букв, что соответствует английской фразе из 10 слов.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Необходимо, чтобы при желании пароль было легко вспомнить, и в то же время 
+требуется, чтобы он был достаточно уникален. Цитата из Козьмы Пруткова, которая 
+у всех на слуху, вряд ли подойдет, поскольку его сочинения имеются в форме, 
+доступной для воспроизведения на компьютере, и следовательно, могут быть 
+использованы в словарной атаке. Лучше воспользоваться творчеством малоизвестного 
+поэта или драматурга, процитировав его с ошибками. Большего эффекта можно 
+добиться, если в цитате, использованной для генерации ключа, будут 
+присутствовать иностранные слова. Идеально подходят для этой цели незатейливые 
+ругательства — их вам не придется записывать, чтобы запомнить. Достаточно 
+шарахнуть себя по пальцу молотком, и пароль автоматически придет вам в голову. 
+Надо только сдержаться и не произнести его вслух, чтобы не подслушали 
+посторонние.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Несмотря на все сказанное, залогом наилучшей зашиты служит не шаманство при 
+выборе пароля, а случайность полученного ключа. Хороший ключ — это случайный 
+ключ, а значит, заранее будьте готовы к тому, что запомнить его наизусть будет 
+очень трудно.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<b>
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+Стандарт ANSI X9.17
+</font>
+</p>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Американский национальный институт стандартов (ANSI) разработал метол 
+генерации 64-битных ключей при помощи DES-алгоритма. Его основное назначение 
+состоит в получении большого количества ключей для многократных сеансов связи. 
+Вместо DES-алгоритма можно использовать любой другой стойкий алгоритм 
+шифрования.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Пусть функция Е
+<sub>
+<span lang="en-us">
+K
+</span>
+</sub>
+(Р) осуществляет шифрование Р по DES-алгоритму на заранее 
+заготовленном ключе К, который используется только для генерации секретных 
+ключей. Пусть далее 
+<span lang="en-us">
+V
+<sub>
+0
+</sub>
+</span>
+ является начальным 64-битным значением, которое держится 
+в тайне от противника, а Т
+<sub>
+<span lang="en-us">
+i
+</span>
+</sub>
+ представляет собой отметку времени, когда был 
+сгенерирован i-й ключ. Тогда очередной случайный ключ 
+<span lang="en-us">
+R
+<sub>
+i
+</sub>
+</span>
+ вычисляется с помощью 
+преобразования:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">R
+<sub>
+i
+</sub>
+ = Е
+<sub>
+К
+</sub>
+(Е
+<sub>
+К
+</sub>
+(Т
+<sub>
+<span lang="en-us">
+i
+</span>
+</sub>
+) 
+</font>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+&Aring;
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+V
+<sub>
+<span lang="en-us">
+i
+</span>
+</sub>
+)
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Чтобы получить очередное значение V
+<sub>
+<span lang="en-us">
+i
+</span>
+</sub>
+, надо вычислить
+</font></p>
+<p>
+<span lang="en-us">
+<font  face="Verdana, Arial, Helvetica, sans-serif">V
+</span>
+<sub>
+i
+</sub>
+ = Е
+<sub>
+К
+</sub>
+(Е
+<sub>
+К
+</sub>
+(Т
+<sub>
+<span lang="en-us">
+i
+</span>
+</sub>
+)
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+&Aring;
+</font>
+</span>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en-us">
+R
+<sub>
+i
+</sub>
+</span>
+)
+</font></p>
+</font>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index5.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index7.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

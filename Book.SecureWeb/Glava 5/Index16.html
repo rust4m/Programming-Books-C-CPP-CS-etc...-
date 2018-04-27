@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index15.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index17.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Очистка журнала регистрации событий</P>
+
+<p class="Text_n">
+Если деятельность, связанная с получением статуса администратора, оставила красноречивые следы в журнале регистрации событий системы NT, с помощью приложения просмотра событий взломщик может просто стереть все записи журнала. Для этого злоумышленнику достаточно запустить приложение Event Viewer на своем компьютере и подключиться к узлу, к которому он получил доступ. После выполнения аутентификации взломщик может открывать, читать и очищать журналы регистрации событий удаленного узла. При удалении уничтожаются все записи, кроме одной, которая сообщает о том, что журнал регистрации был очищен посторонним. Конечно, даже такого сообщения вполне достаточно, чтобы забить тревогу, но, к сожалению, в распоряжении злоумышленника имеются и другие способы. Например, он может найти файлы журналов в каталоге \winnt\system32 и отредактировать их вручную, хотя это не так-то просто, учитывая сложность синтаксиса журналов NT.
+<br>
+
+Одним из средств, значительно упрощающих эту задачу, является утилита Джеспера Лорицена (Jesper Lauritsen).  Например, следующая команда обеспечит очистку журнала безопасности на удаленном сервере joel (подразумевается, что необходимый уровень привилегий имеется).
+<span class="Text_b"> C:\&gt;elsave -s  \\joel  -1   &quot;Security&quot;   -С</span>
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index15.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index17.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index9.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index11.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif">
+Контроль за использованием ключей
+</font>
+</P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Прогресс в области вычислительной техники идет семимильными шагами. Ныне даже 
+персональные компьютеры повсеместно работают под управлением многозадачных 
+операционных систем. В результате пользователь часто оказывается не в состоянии 
+определить, когда операционная система прерывает выполнение его программы 
+шифрования, записывает ее саму, а также все ее данные на диск и переключается на 
+работу с другим приложением. После того как операционная система наконец 
+возобновляет процесс шифрования, все выглядит вполне пристойно: пользователь 
+даже не успевает осознать, что шифровальная программа вместе с используемым ею 
+ключом побывала на диске. В итоге ключ так и останется на диске в 
+незашифрованном виде, пока поверх него не будут записаны другие данные. Когда 
+это случится — через полсекунды, через месяц или вообще никогда, не может 
+сказать никто. Однако враг не дремлет, и вполне может произойти так, что ключ 
+все еще будет храниться на диске в открытую, когда вражеский агент проверит этот 
+диск в поисках полезной информации.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В некоторых случаях для организации обмена шифрованными сообщениями 
+применяются 
+<i>
+сеансовые ключи. 
+</i>
+Они называются так потому, что используются лишь в одном сеансе связи, а затем 
+уничтожаются. В результате вероятность их компрометации уменьшается. Еще больше 
+понизить эту вероятность можно с помощью следующего метода.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">К сгенерированному ключу (назовем его основным) добавляется битовый 
+управляющий вектор (УВ), который содержит информацию об ограничениях, 
+накладываемых на использование этого ключа. УВ подвергается хэшированию и затем 
+складывается с основным ключом по модулю 2. Полученный результат служит в 
+качестве ключа для зашифрования сеансового ключа. Зашифрованный сеансовый ключ 
+хранится вместе с УВ. Чтобы получить сеансовый ключ в исходном виде, надо 
+применить хэширование к УВ, сложить его с основным ключом по модулю 2 и 
+использовать результат для расшифрования сеансового ключа. Достоинством этого 
+метода является возможность задействовать УВ произвольной длины и открыто 
+хранить его вместе с зашифрованным основным ключом.
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index9.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index11.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

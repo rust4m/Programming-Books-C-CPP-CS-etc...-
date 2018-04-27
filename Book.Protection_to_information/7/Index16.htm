@@ -1,0 +1,385 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index15.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index17.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Бросание монеты
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Для разрешения неожиданно возникшего спорного вопроса Антон и Борис решают 
+бросить монету. Однако и у того, и у другого при себе не оказалось ни одной. 
+Тогда они решают &quot;бросить&quot; монету в уме: сначала Антон загадает, что выпадет — 
+&quot;орел&quot; или &quot;решка&quot;, а потом Борис подумает и объявит. какой стороной упала 
+&quot;брошенная&quot; им монета. Спрашивается: могут ли Антон и Борис сделать это так, 
+чтобы полностью быть уверенными в том. что никто из них не смошенничал?
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Могут, если воспользуются криптографическим протоколом, который заставит их 
+действовать таким образом, что:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антону придется бросить монету прежде, чем Борис попытается предсказать, 
+какой стороной она упадет;
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон не сможет изменить результат бросания монеты после того, как услышит, 
+на какую сторону монеты сделал свою ставку Борис;
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Борис не узнает, что выпало — &quot;орел&quot; или &quot;решка&quot;, до тех пор. пока не 
+примет окончательное решение и не сообщит о нем Антону.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<b>
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+Бросание монеты с помощью предсказания бита
+</font>
+</p>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В этом случае криптографический протокол, которою должны придерживаться Антон 
+и Борис при бросании монеты, выглядит следующим образом:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон делает предсказание битового значения в соответствии с одной из 
+схем, описанных в разделе &quot;Предсказание бита&quot;,
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Борис пытается догадаться, какое значение предсказал Антон, и информирует 
+о своей догадке Антона.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Антон сообщает Борису предсказанное значение. Борис выигрывает, если его 
+догадка была правильной.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Бросание монеты с помощью однонаправленной функции
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если Антон и Борис сумеют заранее договориться об использовании конкретной 
+однонаправленной функции f(x), криптографический протокол бросания монеты будет 
+выглядеть так:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон выбирает случайное число х и вычисляет значение y = f(x).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон посылает у Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. Борис пытается догадаться, является ли х четным или нечетным числом. и 
+сообщает о своей догадке Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Антон информирует Бориса о том, какое число х он выбрал.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Борис проверяет, действительно ли f(x) = y, а также узнает, была ли верна 
+его догадка.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Здесь все зависит от свойств однонаправленной функции f. Если Антон вдруг 
+сможет найти два числа х и х' такие, что х является четным, а х' — нечетным, и 
+при этом y = f(x) = f(x'), то Борис всегда будет в проигрыше. Необходимо также, 
+чтобы наименее значимый бит f(x) не зависел от х. Например, если f(x) будет 
+четным в 90 процентах всех случаев, когда х является четным, Антон будет брать 
+верх над Борисом почти всегда.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Бросание монеты с помощью криптосистемы с открытым ключом
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В этом случае от алгоритмов шифрования (Е) и расшифрования (D) требуется, 
+чтобы они были коммутативны, т. е.:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">D
+<sub>
+K1
+</sub>
+(E
+<sub>
+K2
+</sub>
+(E
+<sub>
+K1
+</sub>
+(M) ) ) ) = Е
+<sub>
+К2
+</sub>
+(М),
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">где К
+<sub>
+1
+</sub>
+ и К
+<sub>
+2
+</sub>
+ — криптографические ключи, Р — открытый текст сообщения. Для 
+симметричных криптоалгоритмов в общем случае это условие не выполняется, однако 
+существуют алгоритмы шифрования с открытым ключом, для которых оно верно. Последние могут быть использованы в протоколе бросания 
+монеты:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон и Борис генерируют каждый для себя по паре ключей, состоящей из 
+открытого и тайного ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон генерирует две случайные битовые строки Р
+<sub>
+1
+</sub>
+ и Р
+<sub>
+2,
+</sub>
+одна из которых означает, что при бросании монеты выпал &quot;орел&quot;, а другая — что 
+получилась &quot;решка&quot;.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">3. При помощи своего открытого ключа Антон шифрует сначала Р
+<sub>
+1
+</sub>
+, а потом Р
+<sub>
+2
+</sub>
+, 
+и отсылает оба полученных в результате шифрсообщения (E
+<sub>
+A
+</sub>
+(P
+<sub>
+1
+</sub>
+) и E
+<sub>
+A
+</sub>
+(P
+<sub>
+2
+</sub>
+)) Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">4. Борис выбирает одно из присланных ему Антоном шифрсообшений (для этой цели 
+Борис может воспользоваться, например, известной считалкой &quot;Эне, бене, раба, 
+квинтер, минтер, жаба&quot; или сходить за советом к астрологу). Борис шифрует 
+выбранное шифрсообщение с помощью своего открытого ключа и отсылает результат 
+(E
+<sub>
+Б
+</sub>
+(E
+<sub>
+A
+</sub>
+(P))
+<sub>
+, 
+</sub>
+где Р — это либо Р
+<sub>
+1
+</sub>
+, либо Р
+<sub>
+2
+</sub>
+) Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">5. Антон расшифровывает пришедшее от Бориса сообщение на своем тайном ключе и 
+посылает то, что у него получилось (
+<span lang="en-us">
+D
+</span>
+<sub>
+Б
+</sub>
+(E
+<sub>
+Б
+</sub>
+(P)) 
+= E
+<sub>
+Б
+</sub>
+(P) обратно Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">6. Борис расшифровывает это сообщение Антона (
+<span lang="en-us">
+D
+</span>
+<sub>
+Б
+</sub>
+(E
+<sub>
+Б
+</sub>
+(P)) 
+= P) и узнает, какой 
+стороной упала монета. Затем Борис шлет Р Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">7. Антон проверяет, действительно ли Р — это одна из тех двух случайных 
+битовых строк, которые он сгенерирована на шаге 2.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">8. Чтобы окончательно убедиться в честности друг друга, Антон и Борис 
+обмениваются парами ключей, которые они сгенерировали на шаге 1.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Читателю предоставляется возможность самому доказать, что каждый из 
+участников этого протокола немедленно обнаружит, если другой участник попытается 
+смошенничать.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Интересно отметить, что участники протокола узнают результат подбрасывания 
+монеты не одновременно, а по очереди. Поэтому в некоторый момент времени один из 
+участников знает, как &quot;легла&quot; подброшенная монета, а другой — еще нет. А 
+следовательно, в случае неблагоприятного исхода, тот. кто уже знает результат, 
+может повести себя неспортивно, отказавшись от дальнейшего выполнения шагов 
+протокола.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">На практике протоколы бросания монеты часто используются для генерации 
+сеансовых ключей. В этом случае Антон и Борис могут сгенерировать случайную 
+битовую последовательность таким образом, что посторонние окажутся не в 
+состоянии повлиять на ее выбор. Тем не менее при генерации сеансовых ключей с 
+помощью протокола бросания монеты Антону и Борису все равно придется шифровать 
+все свои сообщения, чтобы защититься от возможного подслушивания.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Игра в покер
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Подобно тому, как Антон и Борис бросали монету, не имея при себе самом 
+монеты, они могут сыграть в покер без колоды карт. Соответствующий 
+криптографический протокол аналогичен протоколу, который помог Антону и Борису 
+организовать бросание монеты — в обоих необходимо обеспечить, чтобы используемые 
+алгоритмы шифрования к расшифрования были коммутативны.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Отличие между этими протоколами состоит в том, что теперь Антону требуется 
+сгенерировать, зашифровать и отослать Борису не 2 битовых последовательности, а 
+52 — по числу карт в воображаемой колоде. Среди них Борис случайным образом 
+выбирает 5 битовых последовательностей, шифрует их при помощи своего открытого 
+ключа и посылает Антону. Антон расшифровывает полученные последовательности и 
+шлет обратно Борису, который тоже расшифровывает их. Затем Борис выбирает еще 5 
+битовых последовательностей и посылает Антону, который опять их расшифровывает. 
+В результате и у Антона, и у Бориса на руках окажется по 5 карт, которыми они и 
+будут играть друг против друга. Если потребуется, дополнительные карты могут 
+быть розданы обоим игрокам по той же схеме.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">По окончании игры Антон и Борис открывают свои карты и обмениваются ключами, 
+чтобы иметь возможность проверить, насколько честно они следовали правилам 
+карточной игры. К сожалению, криптографические протоколы, предназначенные для 
+игры в покер, устроены таким образом, что в ходе нее игроки могут слегка 
+мошенничать. Характер этого мошенничества зависит от используемого 
+криптоалгоритма. Например, при шифровании при помощи квадратичных вычетов 
+играющие имеют возможность пометить несколько карт. Не бог весть что, но ведь 
+покер — это такая игра, в которой даже небольшая порция дополнительной 
+информации о сопернике может в конечном счете решить исход игры.
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index15.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index17.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

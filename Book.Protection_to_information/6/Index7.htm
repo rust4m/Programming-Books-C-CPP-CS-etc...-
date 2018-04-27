@@ -1,0 +1,129 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+Нелинейные ключевые пространства
+</font></P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Одна из проблем, которую приходится решать военным криптографам, состоит в 
+том, чтобы в случае захвата противником разработанного ими стойкого 
+криптографического оборудования максимально затруднить его использование для 
+защиты вражеских коммуникаций. Первым шагом на пути к решению этой проблемы 
+является аппаратная реализация алгоритма шифрования в виде модуля, который 
+противник не сможет вскрыть с целью ознакомления с особенностями алгоритма.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Затем нужно позаботиться о том, чтобы используемые ключи имели специальный 
+вид. Если введенный ключ имеет отклонения от этого вида, то для шифрования 
+сообщений будет применяться значительно менее стойкий криптографический 
+алгоритм. Желательно, чтобы шансы случайно придать ключу специальный вид, 
+необходимый для шифрования по стойкому алгоритму, были пренебрежимо малы.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Ключевое пространство такого алгоритма шифрования называется 
+<i>
+нелинейным, 
+</i>
+поскольку ключи не 
+являются в равной степени стойкими. Если же все ключи шифра обладают одинаковой 
+стойкостью, то его ключевое пространство называют 
+<i>
+линейным 
+</i>
+или 
+<i>
+однородным. 
+</i>
+Один из способов 
+добиться нелинейности ключевого пространства состоит в разделении используемого 
+ключа на две части: собственно ключа шифрования и некоторой фиксированной строки 
+открытого текста, зашифрованной с помощью этого ключа После расшифрования строки 
+криптомодуль сравнивает полученный открытый текст с эталонным и при совпадении 
+работает но стойкому алгоритму шифрования, а при несовпадении использует 
+значительно менее нестойкий.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Например, блочный алгоритм шифрования с длиной блока 64 бита и длиной ключа 
+128 бит может использовать &quot;составной&quot; ключ из 192 бит. Тогда вероятность 
+случайно использовать стойкий ключ будет достаточно мала — всего 2
+<sup>
+-64
+</sup>
+.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Однако применить данный подход можно только при условии, что противник не в 
+состоянии восстановить реализованный алгоритм шифрования методом обратного 
+проектирования. Необходимо также добиться, чтобы разница в стойкости ключей не 
+слишком бы бросалась противнику в глаза, и он ни о чем бы не догадался.
+</font></p>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index6.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index8.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text"><p class="tit_A">Редактирование CONFIG . SYS и AUTOEXEC . BAT </p>
+      <p>Для того чтобы исключить одну из строк из автозагрузки, не обязательно удалять ее, вполне достаточно написать в начале строки команду rem , кото рая означает начало комментария, игнорируемого при загрузке и исполь зуемого для справки. Например, если вы хотите пометить версию запускаемого драйвера (всего ведь не запомнишь). </p>
+      <p>Если в файле CONFIG . SYS явно не указана команда dos = noauto , в таком случае операционная система Windows по умолчанию загружает следующий &quot;виртуальный&quot; файл конфигурации: </p>
+      <p class="Code">DOS=HIGH, AUTO </p>
+      <p class="Code">DEVICE= С :\WINDOWS\HYMEM.SYS </p>
+      <p class="Code">DEVICE= C:\WINDOWS\IFSHLP.SYS </p>
+      <p class="Code">DEVICE= C:\WINDOWS\SETVER.EXE </p>
+      <p class="Code">FILESHIGH=30 </p>
+      <p class="Code">LASTDRIVEHIGH=Z </p>
+      <p class="Code">BUFFERSHIGH=30 </p>
+      <p class="Code">STACKSHIGH=9,2 56 </p>
+      <p class="Code">SHELL=COMMAND.COM /p </p>
+      <p class="Code">FCBSHIGH=4 </p>      
+      <p>Эти строки загружаются в память компьютера даже в том случае, когда файл вообще отсутствует. </p>      
+      <p>Так же, как и в случае с CONFIG . SYS , существует &quot;скрытый&quot; файл AUTOEXEC . BAT : </p>
+      <p class="Code">@ ЕСНО OFF </p>
+      <p class="Code">NET START </p>
+      <p class="Code">SET TMP=C:\WINDOWS\TEMP </p>
+      <p class="Code">SET TEMP=C:\WINDOWS\TEMP </p>
+      <p class="Code">SET COMSPEC=C:\COMMAND.COM </p>
+      <p class="Code">PROMPT $p$g </p>
+      <p class="Code">PATH С :\WINDOWS; C:\WINDOWS\COMMAND </p>
+      <p>При наличии в корне системного диска файла DBLSPACE . BIN или DRVSPACE . BIN Windows загрузит соответствующий драйвер сжатых дис ков, даже если вы не используете эту функцию, поэтому не забудьте удалить эти файлы! </p>
+      <p>Многие пользователи часто замечали, что помимо основных файлов в корневом каталоге содержатся файлы AUTOEXEC . DOS и CONFIG . DOS , кото рые, по всей видимости, должны играть роль конфигурационных файлов при загрузке системы в режиме эмуляции MS - DOS , но это не совсем так. При перезагрузке компьютера в режиме эмуляции MS -' DOS в память компьютера совершенно считывается другой файл — C :\ WINDOWS \ dosstart . bat . Туда следует вписать все необходимые драйверы. Для загрузки тех драйве ров, которые запускаются при помощи файла CONFIG . SYS , рекомендуется воспользоваться программой CTLOAD , например: </p>
+      <p class="Code">C:\CREATIVE\DRV\CTLOAD C:\CREATIVE\DRV\SBIDE.SYS /D:MSCD001 /V/P:1FO,14 </p>
+      <p>Эту программу можно найти на официальном сайте компании Creative по адресу: http :// www . europe . creative . com / techknow / tech / ftp / ftp - sbl 6 awe . asp . </p>
+      <p>В операционной системе Windows XP существуют аналоги файлов AUTOEXEC . BAT и CONFIG . SYS , применявшихся в семействе Windows 9 x . Эти файлы имеют названия AUTOEXEC . NT и CONFIG . NT и расположены в каталоге C :\ WINDOWS \ system 32\. </p>
+      Содержимое файлов влияет на работу только тех программ, которые выпол няются в окне эмуляции MS - DOS , на работу самой графической оболочки никакого влияния они не оказывают. Через AUTOEXEC . NT можно настро ить использование ресурсов (порты ввода/вывода, прерывания IRQ , каналы DMA ). Значения, которые установлены по умолчанию строкой set blaster = a 220 is di рззо, соответствуют &quot;традиционным значениям&quot;, которые считались стандартными для SB , и менять их. как правило, не при ходится. Причем совершенно не имеет значения, какие ресурсы реально использует ваша звуковая плата, при работе в окне эмуляции
+все порты яв ляются виртуальными. Также следует отметить, что при указании путей в AUTOEXEC . NT могут некорректно себя вести некоторые 16-разрядные приложения, поэтому рекомендуется все необходимые пути прописать в за кладке<span class="Text_b"> Переменные среды</span>, которую можно открыть при запуске ярлыка <span class="Text_b">Система | Панель управления </span>и выбора закладки<span class="Text_b"> Дополнительно</span>.      <p class="Prim"><span class="Text_b">Примечание </span>
+      В операционной системе Windows 2000 имеется возможность добавления путей при помощи файла AUTOEXEC . BAT , находящегося в корне диска , коман дой PATH . </p>      </td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index6.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index8.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+</body>
+</html>

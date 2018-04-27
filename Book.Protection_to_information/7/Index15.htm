@@ -1,0 +1,529 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index14.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index16.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+Предсказание бита
+</font></P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Непревзойденный маг и волшебник Антон решает публично продемонстрировать свои 
+необычайные интеллектуальные способности. Он точно знает. какую карту выберет из 
+колоды Борис еще до того, как это сделает сам Борис! Поэтому Антон записывает 
+название этой карты на листке бумаги, кладет листок в конверт и запечатывает 
+его. Затем Антон передает запечатанный конверт на хранение кому-то из публики. 
+&quot;Возьми из колоды любую карту&quot;, — предлагает Антон Борису. Борис выбирает наугад 
+карту и показывает зрителям: &quot;Туз пик&quot;. Антон вскрывает конверт и извлекает из 
+него листок бумаги, на котором, как все могут убедиться, черным по белому 
+написано: &quot;Туз пик&quot;. Шквал аплодисментов.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Но как узнать наверняка, что Антон не подменил конверт, прежде чем его 
+вскрыть? Специальный криптографический протокол позволяет Антону сохранить 
+предсказанное им значение, состоящее из одного пли нескольких битов, в тайне до 
+тех пор, пока он не пожелает ознакомить с ним остальных. С другой стороны, 
+следуя данному протоколу, Борис сможет удостовериться, что Антон не смошенничал и не изменил свой выбор уже после того, как 
+этот выбор был им сделан.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Информация о сделанном Антоном выборе фиксируется в виде обязательства, 
+которое передается на хранение Борису. Обязательство представляет собой 
+значение, которое, после того как Антон познакомит Бориса со своим выбором, 
+Борис может предъявить Антону и потребовать, чтобы Антон преобразовал это 
+значение и получил величину, известную Борису. Если Антон сумеет это сделать, 
+значит мошенничества с его стороны проявлено не было.
+</font></p>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+Предсказание бита с помощью симметричной криптосистемы
+</font></P>
+</b>
+</font>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон может сделать предсказание, выполнив шаги протокола, который использует 
+симметричную криптосистему:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Борис, генерирует случайную битовую строку S и посылает ее Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон присоединяет бит 
+<span lang="en-us">
+b
+</span>
+, значение которого он собирается предсказать, к 
+S, шифрует полученную в результате битовую строку (S,b) при помощи симметричной 
+криптосистемы 
+<span lang="en-us">
+E
+<sub>
+K
+</sub>
+</span>
+ и некоторого секретного ключа К, а затем отсылает результат 
+обратно Борису.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">На
+<b>
+</b>
+этом завершается процесс предсказания. Поскольку Борис не может 
+дешифровать полученное от Антона сообщение Е
+<sub>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+K
+</font>
+</span>
+</sub>
+(
+<span lang="en-us">
+S
+</span>
+,
+<span lang="en-us">
+b
+</span>
+), то предсказание, сделанное 
+Антоном, остается для Бориса тайной за семью печатями.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Теперь, если Антон пожелает ознакомить Бориса со своим предсказанием, они 
+могут продолжить совместное выполнение следующих шагов протокола:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон посылает Борису ключ К.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. С помощью К Борис расшифровывает  Е
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<sub>
+<span lang="en-us">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+K
+</font>
+</span>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+(
+<span lang="en-us">
+S
+</span>
+,
+<span lang="en-us">
+b
+</span>
+) и узнает значение 
+<span lang="en-us">
+b
+</span>
+. Чтобы 
+убедиться в честности Антона, Борис проверяет, содержит ли открытый текст 
+расшифрованного сообщения сгенерированную им случайную битовую строку S.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если бы посланное Борису сообщение изначально не содержало случайной битовой 
+строки, Антон мог бы впоследствии попытаться подобрать другой ключ, 
+использование которого позволило бы ему получить вместо предсказанного значения 
+<span lang="en-us">
+b
+</span>
+ противоположное. Поскольку 
+<span lang="en-us">
+b
+</span>
+ принимает всего 2 возможных значения, сделать это 
+будет очень просто. Однако при наличии в сообщении случайной битовой строки, 
+сгенерированной Борисом, Антону придется подобрать ключ, который при 
+расшифровании сообщения даст не только инвертированный бит 
+<span lang="en-us">
+b
+</span>
+, но и S. Если Антон 
+пользуется хорошей симметричной криптосистемой, то его шансы найти такой ключ 
+будут пренебрежимо малы. Следовательно, Антон не сможет изменить предсказанное 
+им значение после того, как сделает свой выбор, выполнив первые 2 шага 
+протокола.
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Предсказание бита с помощью однонаправленной функции
+</font></p>
+</b>
+<font size="3" face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон может предсказать битовое значение, воспользовавшись свойствами. 
+которыми обладают однонаправленные функции:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон генерирует две случайные битовые строки S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ и S
+<sub>
+2;
+</font></p>
+</sub>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон присоединяет к сгенерированным S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ и S
+<sub>
+2
+</sub>
+бит 
+<span lang="en-us">
+b
+</span>
+, значение которою 
+собирается предсказать;
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон вычисляет значение однонаправленной  функции Н, используя в качестве 
+аргумента битовую строку (S
+<span lang="en-us">
+<sub>
+1
+</sub>
+,
+</span>
+ S
+<sub>
+2
+</sub>
+,b), и вместе с S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ отсылает Борису полученный 
+результат.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Теперь у Бориса имеется вся необходимая информация, которая не позволит 
+Антону впоследствии изменить предсказанное значение 
+<span lang="en-us">
+b
+</span>
+. Однако проверить 
+правильность предсказания без участия Антона Борис не сможет. поскольку в этом 
+случае ему придется вычислять H
+<span lang="en-us">
+<sup>
+-1
+</sup>
+</span>
+(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Когда потребуется, чтобы Антон ознакомил со своим предсказанием Бориса, им 
+обоим необходимо будет продолжить выполнение следующих шагов протокола:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон посылает Борису исходную битовую строку (S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Борис вычисляет H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b), а затем сравнивает вычисленное значение и S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ 
+со значением и случайной битовой строкой, присланными ему Антоном на шаге 3. В 
+случае совпадения 
+<span lang="en-us">
+b
+</span>
+ действительно представляет собой значение, предсказанное 
+Антоном на шаге 2.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">По сравнению с предсказанием бита при помощи симметричной криптосистемы, при 
+предсказании бита с помощью однонаправленной функции не требуется, чтобы Борис 
+посылал какие-либо сообщения Антону. А Антону необходимо
+<span lang="en-us">
+</span>
+отослать всего одно 
+сообщение, чтобы сделать предсказание, и еще одно, чтобы Борис смог с этим 
+предсказанием ознакомиться.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Теперь, при предсказании бита с помощью однонаправленной функции. Борису уже 
+не обязательно генерировать какие-либо случайные битовые строки, поскольку Антон 
+использует для предсказания однонаправленную функцию и не сможет смошенничать, 
+составив фальшивое сообщение (S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ S
+<sub>
+'
+<span lang="en-us">
+2
+</span>
+,
+</sub>
+ b') такое, что H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ S
+<sub>
+<span lang="en-us">
+2
+</span>
+,
+</sub>
+ b') = H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b). Антон посылает Борису случайную битовую строку S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+чтобы у Антона не 
+было возможности путем подбора S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ и 
+<span lang="en-us">
+S
+</span>
+<sub>
+2
+</sub>
+ добиться, чтобы изменилось b и чтобы при 
+этом было сохранено значение H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b), которое Антон ранее отослал Борису. 
+Храня S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+ в секрете от Бориса, Антон не дает Борису вычислить значения H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b) и H(S
+<sub>
+<span lang="en-us">
+1
+</span>
+</sub>
+,S
+<sub>
+2
+</sub>
+,b
+<span lang="en-us">
+'
+</span>
+), а затем определить b, сравнив эти значения с тем, что 
+прислал ему Антон.
+</font>
+</p>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Предсказание с помощью генератора псевдослучайных битовых последовательностей
+</font></p>
+</b>
+<font size="3" face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Для предсказания битового значения Антон может использовать генератор 
+псевдослучайных битовых последовательностей:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Борис генерирует случайную битовую строку 
+<span lang="en-us">
+S
+</span>
+<sub>
+Б
+</sub>
+и посылает ее Антону.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. Антон вычисляет случайное начальное значение для генератора 
+псевдослучайных битовых последовательностей. Затем для каждого бита присланном 
+Борисом битовой строки 
+<span lang="en-us">
+S
+</span>
+<sub>
+Б
+</sub>
+Антон отправляет Борису либо (а) выходное значение 
+генератора псевдослучайных битовых последовательностей, если этот бит равен 1, 
+либо (б) результат сложения выходного значения генератора псевдослучайных 
+битовых последовательностей со значением, предсказанным Антоном, если 
+соответствующий бит 
+<span lang="en-us">
+S
+</span>
+<sub>
+Б
+</sub>
+равен 0.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Когда Антон захочет раскрыть Борису свое предсказание, они должны буду: 
+перейти к выполнению последних двух шагов протокола:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">1. Антон высылает Борису случайное начальное значение, вычисленное им для 
+генератора псевдослучайных битовых последовательностей на шаге 2.
+</font></p>
+<i>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">2. 
+</i>
+Борис повторяет действия Антона, предпринятые им на шаге 2. чтобы 
+убедиться в том, что Антон не смошенничал.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если сгенерированная Борисом случайная битовая строка является достаточно 
+длинной, а генератор псевдослучайных битовых последовательностей. которым 
+пользуется Антон, в требуемой степени непредсказуем, то у Антона практически нет 
+шансов обмануть Бориса.
+</font></p>
+</font>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index14.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index16.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

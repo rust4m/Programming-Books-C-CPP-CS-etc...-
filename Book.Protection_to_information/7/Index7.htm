@@ -1,0 +1,647 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif">
+Многоключевая криптография с открытым ключом
+</font>
+</P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В криптографии с открытым ключом используются 2 ключа, один из которых 
+применяется для зашифрования сообщений, а другой — для расшифрования. Вместо 
+этого можно задействовать любое количество ключей. Рассмотрим для примера 
+трехключевую криптосистему с открытым ключом.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Имеется три ключа К
+<sub>
+А
+</sub>
+, К
+<sub>
+Б
+</sub>
+ и К
+<sub>
+С
+</sub>
+, которые распределены между участниками 
+процесса обмена сообщениями следующим образом:
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+А
+</sub>
+</font>
+</p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Борис&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+Б
+</sub>
+</font>
+</p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Владимир&nbsp;&nbsp;&nbsp;&nbsp; К
+<sub>
+В
+</sub>
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Георгий&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+А
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+ и К
+<sub>
+Б
+</font></p>
+</sub>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Денис&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+Б
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<sub>
+ и
+</sub>
+К
+<sub>
+В
+</sub>
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Евгений&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; К
+<sub>
+В и 
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+А
+</sub>
+</font>
+</p>
+</font>
+</font>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если Антон зашифрует свое сообщение с помощью ключа К
+<sub>
+А, 
+</sub>
+расшифровать его 
+смогут либо Денис, либо Борис совместно с Владимиром, которые имеют в своем 
+распоряжении 
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+</font>
+<sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+Б
+</font>
+</sub>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+и
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+<font size="4" face="Verdana, Arial, Helvetica, sans-serif">
+В
+</font>
+</sub>
+. Сообщение, зашифрованное Борисом, сможет прочесть Евгений. 
+Владимир может зашифровать сообщение, которое в состоянии прочесть Георгий. 
+Сообщение, зашифрованное Георгием при помощи ключа К
+<sub>
+А
+</sub>
+, смогут прочесть Денис. 
+Если Георгий воспользуется ключом кб, то его сообщение прочитает Евгений, а если 
+применит кб и кб, то с этим сообщением сможет ознакомиться Владимир. Аналогичным 
+образом может .зашифровать свое сообщение Денис, и тогда его прочтут либо Антон, 
+либо Георгий, либо Евгений. Всевозможные сочетания ключей шифрования и расшифрования перечислены в табл. 7.2.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<i>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 7.2. Сочетания ключей шифрования и расшифрования в трехключевой 
+криптосистеме с открытым ключом
+</b>
+</font></p>
+</i>
+</font>
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%" height="182">
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Зашифровано с 
+    помощью ключей: 
+</font>
+</b>
+</td>
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Расшифровывается 
+    с помощью ключей: 
+</font>
+</b>
+</td>
+</tr>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+К
+<sub>
+А
+</sub>
+</font>
+</td>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+ и
+<sub>
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+</font>
+<sub>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+В
+</font>
+</sub>
+</td>
+</tr>
+</font>
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+</font>
+</td>
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+А 
+</sub>
+и
+<sub>
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+</font>
+<sub>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+В
+</font>
+</sub>
+</td>
+</tr>
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+С
+</sub>
+</font>
+</td>
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+А 
+</sub>
+и
+<sub>
+</sub>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+А 
+</sub>
+и
+    
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+</font>
+<sub>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Б
+</font>
+</sub>
+</font>
+</td>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+К
+<sub>
+В
+</sub>
+</td>
+</tr>
+</font>
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+К
+<sub>
+А 
+</sub>
+</font>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+и 
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+</font>
+<sub>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+В
+</font>
+</sub>
+</td>
+</font>
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="44%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б 
+</sub>
+и
+<sub>
+&nbsp; 
+</sub>
+К
+<sub>
+В
+</sub>
+</font>
+</td>
+<td WIDTH="56%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+А
+</sub>
+</font>
+</td>
+</tr>
+</table>
+</b>
+<p>
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+Множественная рассылка шифрованных сообщений
+</font>
+</b>
+</font></p>
+<b>
+</font>
+</font>
+</font>
+</font>
+</font>
+</font>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Допустим, что требуется рассылать групповые шифрованные сообщения 100 
+различным абонентам компьютерной сети связи, причем заранее неизвестно
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+какие конкретно сообщения надо будет послать отдельным группам этих 
+абонентов. В такой ситуации можно выдать каждому абоненту свой ключ и шифровать 
+все сообщения отдельно. В результате придется зашифровать и послан, слишком 
+много сообщений. Можно снабдить каждого абонента ключами. число которых 
+равняется количеству различных групп, составленных из 100 абонентов. Но тогда 
+потребуется слишком много ключей (порядка 2
+<sup>
+100
+</sup>
+)
+<sup>
+.
+</font></p>
+</sup>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Выход из положения позволяет найти 
+<i>
+многоключевая криптография с открытым 
+ключом. 
+</i>
+Предположим, что в компьютерной сети связи имеются всего 3 абонента — 
+Антон, Борис и Владимир. Каждый из них получит по 2 ключа: Антон — К
+<sub>
+А 
+</sub>
+и
+<sub>
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+,
+<sub>
+</sub>
+Борис —
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+ и
+<sub>
+</sub>
+К
+<sub>
+В
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+, Владимир —
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+А 
+</sub>
+и К
+<sub>
+В
+</sub>
+. Тогда если потребуется послать сообщение 
+для Антона, его надо зашифровать с помощью 
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+С
+</sub>
+<b>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+. Сообщение, предназначенное 
+Борису, следует зашифровать при помощи
+К
+<sub>
+А
+</sub>
+. А если сообщение должен прочесть 
+только Владимир, необходимо использовать
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б
+</sub>
+.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+Сообщение для Антона и Бориса шифруется на ключах
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+К
+<sub>
+А 
+</sub>
+и К
+<sub>
+В
+</sub>
+, для Антона и Владимира — на 
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+Б 
+</sub>
+и
+<sub>
+&nbsp; 
+</sub>
+К
+<sub>
+В
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+, для Бориса и 
+Владимира — на
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+К
+<sub>
+А 
+</sub>
+и К
+<sub>
+Б
+</sub>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В случае трех абонентов эта схема множественной рассылки сообщений группам абонентов выглядит не слишком впечатляюще, но при 100 абонентах ее  
+преимущества становятся очевидны. Вместо порядка 2
+<sup>
+100 
+</sup>
+ключей абонентам 
+сети надо раздать всего 100 ключей, и посылать требуется всего одно шифрованное сообщение, а не 
+<span lang="en-us">
+n
+</span>
+, где 
+<span lang="en-us">
+n
+</span>
+ — количество абонентов в группе (
+<span lang="en-us">
+n
+</span>
+&gt;1).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Недостаток рассмотренной схемы — необходимо точно указывать имена
+<span lang="en-us">
+</span>
+абонентов, которым предназначено рассылаемое сообщение, чтобы не 
+заставлять всех остальных абонентов сети связи лихорадочно перебирать имеющиеся 
+у них ключи в поисках того, который позволит им правильно
+<span lang="en-us">
+</span>
+прочесть принятое шифрованное сообщение. Не нужно доказывать, что при 
+определенных условиях раскрытие этих имен перед злоумышленниками
+<span lang="en-us">
+</span>
+может быть весьма нежелательным.
+</font></p>
+</font>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

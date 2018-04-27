@@ -1,0 +1,94 @@
+.menu{
+	text-align: left;
+	font-family: Verdana, sans-serif;
+	font-size: 14pt;
+}
+.tit_AN{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 18pt;
+}
+.Tit_AB{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 18pt;
+	font-weight : bold;
+}
+.Tit_BB{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 16pt;
+   font-weight: bold;
+}
+.Tit_BN{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 16pt;
+}
+.tit_CB{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 14pt;
+    font-weight: bold;
+}
+.tit_CN{
+	text-align: center;
+	font-family: Verdana, sans-serif;
+	font-size: 14pt;
+}
+.Text_n   {
+	font-family:  Verdana, sans-serif;
+	font-size: 12pt;
+}
+.Text_b{
+	font-family:  Verdana, sans-serif;
+	font-size: 12pt;
+   font-weight: bold;
+}
+.Text_i{
+	font-family:  Verdana, sans-serif;
+	font-size: 12pt;
+   font-style: italic;
+}
+
+.label {
+	font-size: 12pt;
+     font-family: Verdana, sans-serif;
+     text-align: center;
+}
+
+.Prim {
+	font-family: Verdana, sans-serif;
+	font-size: 12pt;
+	padding: 40px 40px 40px 40px;
+	font-style : italic;
+}
+.Code {
+	font-family: Verdana, sans-serif;
+	font-size: 10pt;
+	padding-left : 20px;
+	font-style : italic;
+}
+li {
+	font-family:  Verdana, sans-serif;
+	font-size: 12pt;
+	list-style-image: url(Boll.gif);
+	list-style-position: outside;
+}
+
+.border{
+	border : 1px solid Black;
+	border-style : solid solid solid solid;
+	border-bottom : 1px solid Black;
+}
+
+.table_big{
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+}
+
+.table_big_b{
+	font-family: Verdana, sans-serif;
+	font-size: 8pt;
+	font-weight : bold;
+}

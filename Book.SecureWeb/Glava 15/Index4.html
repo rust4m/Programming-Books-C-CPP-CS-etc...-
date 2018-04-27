@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+Приложения автоматизации</P>
+
+<p class="Text_n">
+В Internet можно найти несколько приложений, предназначенных для автоматизированного поиска хорошо известных изъянов или тех из них, которые становятся доступными при использовании в процессе установки программного обеспечения параметров, предлагаемых по умолчанию. В отличие от сценариев, эти средства используются вручную. Это не позволяет использовать их в больших корпоративных сетях, зато они успешно применяются в малых сетях и на серверах, на которые нужно обратить более пристальное внимание.
+<br>
+<P align="center">
+<span class="Text_b">
+Grinder</span></P>
+<br>
+<p class="Text_n">
+Программа Grinder версии 1.1 (<span class="Text_b">http://hackersclub.com/km/files/hfiles/
+rhino9/grinderll .zip</span>), поддерживает интерфейс Win32 и позволяет сканировать IP-адреса из заданного диапазона. Результатом ее работы является отчет, в котором содержится название и версия Web-сервера. Это ничем не отличается от применения обычной команды HEAD (например, утилиты netcat), однако в процессе сканирования программой Grinder создается несколько параллельных сокетов, поэтому она работает намного быстрее. На рис. 15.3 показано, как Grinder выполняет сканирование и определяет версии Web-серверов.
+<br>
+   Другим средством определения версий Web-серверов являются сканирующие сценарии для системы
+UNIX. Если в файле портов указан порт 80, то команда HEAD будет передана на Web-сервер по умолчанию, в
+результате чего в ответном сообщении будет содержаться название и номер версии запущенного программного обеспечения. Эта информация будет помещена в файл &lt;UMX&gt;/&lt;UMX&gt;.http.d\mip. Для того чтобы начать процесс сканирования, можно воспользоваться следующим синтаксисом.
+<span class="Text_b"> ./unixscan.pl  hosts.txt ports.txt  test -p  -z  -г  -v</span>
+
+
+<p class="label"><IMG src="5.gif" ><br>
+<br>
+Рис. 15.3. Программа Grinder может оказаться полезной при одновременном поиске многих Web-серверов и определении версий применяемого программного обеспечения</p>
+
+ <p class="Text_n">
+После завершения работы сканера будет создан файл, содержащий отчет о версии Web-сервера.
+<br>
+<p class="Code">
+172.29.11.82 port 80: Server: Microsoft-IIS/4.0<br>
+172.29.11.83 port 80: Server: Microsoft-IIS/3.0<br>
+172.29.11.84 port 80: Server: Microsoft-IIS/4.0<br>
+</p>
+<P align="center">
+<span class="Text_b">
+SiteScan</span></P>
+<br>
+<p class="Text_n">
+Программа' SiteScan, написанная Хамелеоном (Chameleon) из групп Rhino9 и InterCore, позволяет выполнить более глубокое исследование, чем Grinder, проверяя наличие таких определенных изъянов, как PHF, PHP, finger, test.cgi и другие. Это графическое приложение Win32 за один раз может исследовать только один IP-адрес, поэтому ее нельзя включать в сценарии. Придется каждый раз вручную вводить IP-адрес и просматривать полученный результат.</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index3.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index5.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

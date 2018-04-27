@@ -1,0 +1,567 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <TD><a href="Index5.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index7.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+
+Защита от сканирования портов</P>
+
+<p class="Text_n">
+В табл. 2.2 приведен перечень различных популярных утилит сканирования, а также типы сканирования, которые эти утилиты позволяют выполнять.
+<br>
+<P align="center">
+<span class="Text_b">Контрмеры: защита от сканирования портов</span></P>
+<br>
+<p class="Text_n">
+<span class="Text_b">
+Выявление факта сканирования</span>
+<br>
+
+Как правило, взломщики прибегают к сканированию TCP- и UDP-портов удаленного компьютера, чтобы установить, какие из них находятся в состоянии ожидания запросов. Поэтому выявить факт сканирования — значит, установить, в каком месте и кем будет предпринята попытка взлома. Основные методы выявления факта сканирования состоят либо в использовании специальной программы, предназначенной для выявления вторжений на уровне сети (IDS), такой как NFR, либо в использовании механизма защиты на уровне отдельного узла.
+<br>
+<P class="text_n"><span class="label">
+Таблица 2.2. Популярные утилиты сканирования портов и их возможности
+</span></p>
+<TABLE  BORDER="1" CELLSPACING="2" CELLPADDING="2" bordercolordark="#000000"
+bordercolorlight="#000000" class="border" >
+<TR >
+<TD>&nbsp;
+
+
+<span class="Text_b">
+Утилита</span>
+<br>
+
+</TD>
+<TD COLSPAN="3"   >
+
+
+<span class="Text_b">
+Сканирование</span>
+<br>
+
+</TD>
+<TD>&nbsp;
+
+
+<span class="Text_b">
+Ресурс</span>
+<br>
+
+</TD>
+</TR>
+<TR >
+<TD>&nbsp;
+
+
+<span class="Text_b">
+UNIX</span>
+<br>
+
+</TD>
+<TD>&nbsp;
+
+
+<span class="Text_b">
+TCP</span>&nbsp;
+<br>
+
+</TD>
+<TD>&nbsp;
+<span class="Text_b">      UDP</span>&nbsp;
+</TD>
+<TD>&nbsp;
+<span class="Text_b">     Скрытое</span>
+</TD>
+<TD>&nbsp;
+
+
+
+<br>
+
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Strobe
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+ftp://f tp.FreeBSD.org/<br>
+pub/FreeBSD <br> /ports/distfiles/strobe-1.06.tgz</span>
+<br>
+</TD>
+</TR>
+<tr class="table_big"><TD>&nbsp;
+
+
+Tcp_scan
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">http://wwdsilx.<br> 
+wwdsi.com/saint/</span>
+<br>
+</TD>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Udp_scan
+<br>
+</TD>
+<TD>&nbsp;
+
+
+&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">&nbsp;
+
+
+<span class="Text_b">http://wwdsilx. <br>
+wwdsi.com/saint/</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Nmap
+<br>
+</TD>
+<TD>&nbsp;
+
+X
+<br>
+</TD>
+<TD>&nbsp;
+X
+</TD>
+<TD>&nbsp;
+X
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://www. inscure . org/nmap</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Netcat
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+          X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://www.10pht.com/<br>
+users/10pht/nc110.tgz</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Windows
+<br>
+
+Netcat
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://www.10pht.com/users/<br>
+10pht/ncllnt.zip</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+NetScanTools Pro 2000
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+          X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">&nbsp;
+
+
+<span class="Text_b">
+http://www.nwpsw.com</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+SuperScan
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">http://members.home.com/<br> 
+rkeir/software.html</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+NTOScanner
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">http://www.ntobjectives.com</span>
+<br>
+</TD>&nbsp;
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+WinScan
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://www.prosolve.com</span> 
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+IpEye
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X
+<br>
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD>&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://ntsecurity.nu</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+WUPS
+<br>
+</TD>
+<TD>&nbsp;
+
+
+&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://ntsecurity.nu</span>
+<br>
+</TD>
+</TR>
+<TR class="table_big" >
+<TD>&nbsp;
+
+
+Fscan
+<br>
+</TD>
+<TD>&nbsp;
+
+
+X&nbsp;
+<br>
+</TD>
+<TD>&nbsp;
+          X
+</TD>
+<TD>&nbsp;&nbsp;
+</TD>
+<TD class="table_big">
+
+
+<span class="Text_b">
+http://www.foundstone.com</span>
+<br>
+</TD>
+</TR>
+</TABLE>
+
+<p class="Prim"> Метод UDP-сканирования утилиты netcat не работает в операционной системе Windows NT, поэтому пользователям этой ОС не стоит доверять полученным результатам.
+</p>
+<p class="Code">
+# Алгоритм выявления факта сканирования<br>
+# Автор - Стюарт Мак-Клар (Stuart McClure)<br>
+# Данный алгоритм выявляет неудачные попытки сканирования портов,<br>
+# которые приводят к генерации сообщений ACK/RST. <br>В процессе настройки<br>
+# можно поэкспериментировать со значениями<br>
+# maxcount и maxtime.<br>
+port_schema = library_schema:new( 1, [&quot;time&quot;, &quot;ip&quot;, &quot;ip&quot;,<br> &quot;int&quot;],<br>
+scope() };<br>
+time = 0;<br>
+count = 0;<br>
+maxcount =2; t Максимально допустимое количество ACK/RST.<br>
+maxtime =5;  tt Максимально допустимое время, в течение<br>
+# которого может достигаться значение maxcount.<br> source = 0; port = 0; target = 0;<br>
+filter portscan ip ( )<br>
+{<br>
+if (tcp.is)<br>
+(<br>
+# Проверка АСК, RST и источника поступления.<br>
+if ( byte(ip.blob, 13) == 20 )<br> # Установлены флаги АСК, RST<br>
+{<br>
+count = count + 1;<br>
+source = ip.dest; <br>target = ip.source;<br> port = tcp.sport; <br>time = system.time;<br>
+} } on tick = timeout <br>( sec: maxtime, repeat ) <br>call checkout;<br>
+}<br>
+func checkout {<br>
+if (count &gt;= maxcount) {<br>
+echo(&quot;Попытка сканирования порта, <br>Время: &quot;, time, &quot;\n);
+record system.time, source, target, <br>port to the_recorder_portscan; count = 0;
+}<br>
+else<br>
+count = 0;<br>
+}<br>
+the_recorder_portscan=recorder(&quot;<br>bin/histogram packages/sandbox/portscan.cfg&quot;,<br>
+&quot;port_schema&quot;<br>
+);<br>
+</p>
+Для выявления попыток сканирования портов можно также воспользоваться утилитой snort
+(<span class="Text_b">www.snort.org</span>) (см. также <span class="Text_b"> http://spyjurenet.com/linuxrc.org/projects/
+snort/</span>). Как вы могли догадаться, эта утилита является одной из предпочитаемых нами программ IDS (заметим, что ее версии 1.x не позволяют обнаруживать фрагментацию пакетов). Вот пример листинга, содержащего данные о попытке сканирования портов.
+<p class="Code">
+[**] spp_portscan: PORTSCAN DETECTED from 192.168.1.10 [**]<br>
+05/22-18:48:53.681227<br>
+[**] spp_portscan: portscan status from 192.168.1.10: 4 connections<br>
+across 1 hosts: TCP(O), UDP(4) [**]<br>
+05/22-18:49:14.180505<br>
+[**] spp_portscan: End of portscan from 192.168.1.10 [**]<br>
+05/22-18:49:34.180236<br>
+</p>
+
+Для платформы UNIX существует немало утилит, таких, например, как Утилита: scanlogd
+(<span class="Text_b">http://www.openwall.com/scanlogd/</span>) компании Solar Designer, которые выявляют и регистрируют попытки сканирования. Кроме того, утилиту Psionic PortSentry, созданную в рамках проекта Abacus
+(<span class="Text_b">http://www.psionic.com/abacus</span>), можно настроить не только на регистрацию, но и на принятие контрмер при выявлении факта активного сканирования. Один из способов борьбы с попытками сканирования портов заключается в автоматической установке для ядра правил фильтрации, когда к уже существующим добавляется новое правило, запрещающее доступ со стороны узла-нарушителя. Такое правило можно задать в конфигурационном файле утилиты PortSentry. При этом одно и то же правило может отличаться в различных системах. Для системы Linux 2.2.x, в которой имеется поддержка ядра брандмауэра, в файл portsentry.conf нужно добавить запись, аналогичную следующей.
+<br>
+<p class="Code">
+# New ipchain support for Linux kernel version 2.102+<br>
+&nbsp;KILL_ROUTE=&quot;/sbin/ipchains -I input -s $TARGET$ -j DENY -1&quot;<br>
+</p>
+
+Утилита PortSentry совместима с большинством версий UNIX, включая Solaris. Независимо от того, применяете ли вы какие-либо утилиты или нет, необходимо помнить, что массированные попытки сканирования портов, инициируемые каким-либо узлом или какой-нибудь сетью, могут означать, что кто-то изучает вашу сеть. Всегда обращайте самое пристальное внимание на такие действия, поскольку за ними может последовать полномасштабное вторжение. И наконец, не забывайте о том, что имеется возможность активного противостояния или блокирования попыток сканирования портов. Все эти вопросы рассматриваются в статье, опубликованной компанией Solar Designer
+(<span class="Text_b">http://www. openwall.com/scanlogd/P53-13.gz</span>). В этой статье содержатся дополнительные советы по разработке и использованию систем выявления попыток сканирования.
+<br>
+
+Большинство брандмауэров не только могут, но и должны настраиваться на режим обнаружения попыток сканирования. Однако одни брандмауэры справляются с этой задачей лучше, другие хуже. Например, некоторые брандмауэры умеют выявлять скрытое сканирование. Однако многие из них, поддерживая режим выявления SYN-сканирования, абсолютно игнорируют FiN-сканирование. Самой большой проблемой при выявлении факта сканирования является задача анализа огромных системных журналов, накапливаемых при ежедневной работе серверов сети. Для упрощения решения этой задачи можно воспользоваться утилитой Psionic Logcheck
+(<span class="Text_b">http: //www.-psionic.com/abacus/logcheck/</span>). Кроме того, мы рекомендуем настроить утилиты таким образом, чтобы они реагировали на обнаруженные попытки сканирования в реальном времени, отсылая сообщения по электронной почте. Везде, где это только возможно, устанавливайте пороговые значения для количества регистрируемых событий (threshold logging), чтобы взломщик не завалил ваш почтовый ящик грудой сообщений, в которых будет так же трудно найти информацию, как и в системных журналах. Кроме того, в этом случае может также возникнуть условие DoS. При использовании пороговых значений все предупреждения будут группироваться, а не обрабатываться по одному. Как минимум необходимо настроить систему безопасности на выдачу отчетов о самом факте выявленной попытки сканирования. Для брандмауэра Firewall-1 с этой целью можно использовать утилиту Ланца Спитцнера (Lance Spitzner) alert, sh
+(<span class="Text_b">http://www. enteract.com/~lspitz/intrusion.html</span>). Эта утилита будет выявлять и отслеживать попытки сканирования портов, работая под управлением Firewall-1 в качестве средства защиты, заданного пользователем.
+<br>
+
+Для платформы Windows NT также имеется несколько утилит, предназначенных для выявления попыток сканирования. Прежде всего, необходимо отметить такую утилиту, как Genius 2.0, разработанную компанией Independent Software
+(<span class="Text_b">http://www. indiesoft.com</span>) для платформ Windows 95/98 и Windows NT. Этот программный продукт предоставляет гораздо больше возможностей, чем простое средство обнаружения TCP-сканирования портов. Однако необходимо отметить, что даже с учетом этого, имеет смысл его использовать. Утилита Genius отслеживает многочисленные запросы к открытым портам и при обнаружении попыток сканирования отображает на экране предупреждающее диалоговое окно, в котором содержится IP-адрес взломщика и доменное имя его узла.
+<br>
+
+Утилита Genius позволяет выявлять как попытки обычного сканирования, т.е. с установлением TCP-соединения, так и SYN-сканирования.
+
+
+<p class="label"><IMG src="7.gif" ><br>
+</p>
+
+ <p class="Text_n">
+Еще одним детектором сканирования для системы Windows, заслуживающем отдельного упоминания, является программа BlackICE (рис. 2.7) компании Network ICE
+(<span class="Text_b">http://www.-networkice.com</span>). Данная программа представляет первое основанное на использовании агентов средство выявления вторжений, которое можно использовать как в Windows 9х, так и в NT. В момент написания данной книги этот программный продукт был коммерческим, хотя в ближайшем будущем компания обещает подготовить свободно распространяемую версию. И наконец, программа ZoneAlarm
+(<span class="Text_b">http://www.zonelabs.com/zonealarm.htm</span>) хорошо подходит для платформы Windows и может применяться в качестве средства IDS на уровне брандмауэра.
+
+
+<p class="label"><IMG src="8.gif" ><br>
+<br>
+Рис. 2.7. Кроме обнаружения обычного TCP-сканирования портов, программа BlackICE может выявлять также VDP-сканирование, запросы на открытие нулевых сеансов NT, pir.q-прослушивание с помощью пакета pcAnywhere, попытки взлома с помощью WinNuke, множественные запросы, применение утилиты tracerovte, Smurf-взломы и многое другое</p>
+
+ <p class="Text_n">
+
+<P align="center">
+<span class="Text_b">
+Предотвращение сканирования</span></P>
+<br>
+<p class="Text_n">
+Вряд ли можно помешать кому-либо предпринять попытку сканирования портов на вашем компьютере, однако вполне реально свести к минимуму связанный с этим риск. Для этого нужно заблокировать все службы, в работе которых нет необходимости. В среде UNIX данная задача решается с помощью добавления символов комментария в соответствующие строки файла /etc/inetd. corif, а также отключения автоматического запуска ненужных служб в сценарии начальной загрузки. Более подробно эти вопросы освещены в главе 8, &quot;Хакинг UNIX&quot;.
+<br>
+
+В системе Windows NT также целесообразно отключить все ненужные службы. Однако сделать это сложнее, поскольку из-за сетевой архитектуры Windows NT по крайней мере Порт 139 должен работать постоянно. Тем не менее, остальные службы можно отключить, запустив аплет Services панели управления. Способы нарушения безопасности системы Windows NT и контрмеры, которые можно предпринять для их предотвращения, более подробно будут рассмотрены в главе 5. Здесь же стоит упомянуть о том, что компанией Tiny Software
+(<span class="Text_b">www.tinysoftware.com</span>) распространяется модуль ядра, позволяющий выполнять фильтрацию входящих пакетов. С помощью этого модуля можно защитить большинство важных портов.
+<br>
+
+Что же касается других операционных систем и устройств, то нам остается лишь посоветовать как можно внимательнее прочитать соответствующие справочные руководства. Постарайтесь найти в них информацию о том, какие порты вам действительно необходимы и как отключить остальные, чтобы свести риск к минимуму.
+<br>
+<P align="center">
+<span class="Text_b">Активное определение операционной системы</span></P>
+<br>
+<p class="Text_n">
+Итак, мы убедились, что существует множество различных приемов и средств сканирования портов. Вспомните, что при сканировании портов преследуется две основные цели. Во-первых, нужно установить, какие TCP- и UDP-порты на исследуемом компьютере находятся в состоянии ожидания запросов. Во-вторых, необходимо определить тип операционной системы, используемой на удаленном узле. Информация об операционной системе понадобится на последующих этапах, при составлении схемы уязвимых участков. Об этом речь пойдет в последующих главах. Важно помнить, что при этом необходимо быть особенно точным и внимательным к мелочам. Именно поэтому очень важно абсолютно правильно установить тип удаленной операционной системы. При определении типа ОС очень полезной оказывается косвенная информация, получаемая, например с помощью сбора маркеров, о которых мы поговорим в главе 3. При этом будет собрана информация о таких службах, как FTP, telnet, SMTP, HTTP, POP и других. Сбор маркеров — это один из самых простых методов определения типа операционной системы, а также версий работающих под ее управлением служб. Нетрудно догадаться, что существуют различные средства, призванные помочь в решении этой задачи. Среди доступных можно отметить две утилиты, позволяющие получить самые точные результаты, — уже хорошо нам известная
+nmар и утилита queso. Точность результатов, выдаваемых обеими утилитами, объясняется, прежде всего, тем, что обе они предоставляют возможность исследования стека протоколов TCP/IP (stack fingerprinting).
+<br>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <TD><a href="Index5.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index7.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

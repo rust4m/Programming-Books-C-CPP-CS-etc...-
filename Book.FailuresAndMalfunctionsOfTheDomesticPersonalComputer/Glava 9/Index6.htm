@@ -1,0 +1,266 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index5.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index7.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text"><p class="tit_A">Редактирование файла MSDOS . SYS </p>
+      <p>Во времена широкого распространения MS - DOS файл MSDOS . SYS играл важную роль в ее работе. Фактически он являлся &quot;драйвером&quot;, необходимым для нормального функционирования операционной системы. В настоящее время он используется лишь для обеспечения совместимости со старыми программами. К тому же, заметно изменилась структура файла — если раньше он напоминал по структуре запускаемый файл, почти не подлежащий редактированию, то сейчас с ним возможно работать, как с обыкновенным текстовым файлом. </p>
+      <p>Правила редактирования файла MSDOS . SYS сводятся к изменению, удале нию или вводу новых строк с параметрами, влияющими на загрузку системы (табл. 9.1). Каждый параметр пишется с новой строки в строго определенной секции, после него ставится знак равенства &lt;=&gt;, после чего указывает ся значение параметра. Обратите внимание на то, что никаких других зна ков ставить ни в коем случае нельзя. </p>
+      <p>Таблица 9.1. Основные параметры файла конфигурации MSDOS . SYS </p>
+      <table width="100%" border="1" cellpadding="2" cellspacing="2" bordercolor="#000000">
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left"><b>Секция [PATH]</b></div></td>
+          <td valign="top">
+            <div align="left"><b>Описание</b></div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">HostWinBootDrv</div></td>
+          <td valign="top">
+            <div align="left">Определяет загрузочный диск. Например, С (без двоеточия
+              и слэша)</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">WinBootDir</div></td>
+          <td valign="top">
+            <div align="left">Определяет расположение необходимых загрузочных фай-
+              лов. По умолчанию &#8212; каталог, указанный при установке</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">WinDir</div></td>
+          <td valign="top">
+            <div align="left">Определяет расположение каталога Windows, указанного
+              при установке. Например, C:\WINDOWS</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">UninstallDir</div></td>
+          <td valign="top">
+            <div align="left">Определяет расположение старых системных файлов в слу-
+              чае, если при обновлении операционной системы было при-
+              нято решение сохранить старые системные файлы</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootDelay=n</div></td>
+          <td valign="top">
+            <div align="left">Устанавливает задержку в п секунд при загрузке для того,
+              чтобы дать пользователю возможность успеть нажать кла-
+              вишу &lt;F4&gt; или &lt;F8&gt; для вывода меню загрузки. Значение
+              по умолчанию &#8212; &quot;2&quot;. BootDelay=0 запрещает задержку, что
+              немного ускоряет загрузку</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootSafe</div></td>
+          <td valign="top">
+            <div align="left">Позволяет всегда загружаться в безопасном режиме (зна-
+              чение &quot;1&quot;). Значение по умолчанию &#8212; &quot;0&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootGUI</div></td>
+          <td valign="top">
+            <div align="left">Загрузка с графической оболочкой. Значение по умолча-
+              нию &#8212; &quot;1&quot;. Если же сделать его равным нулю, то графиче-
+              ская оболочка не загружается, поэтому компьютер загружа-
+              ется в MS-DOS с приглашением вроде С: \&gt;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootKeys</div></td>
+          <td valign="top">
+            <div align="left">При значении &quot;1&quot; (по умолчанию) разрешает пользоваться
+              при загрузке клавишами &lt;F5&gt;, &lt;F6&gt; и &lt;F8&gt;. Установка в
+              значение &quot;0&quot; запрещает задержку при загрузке и блокирует
+              возможность вывода загрузочного меню. Пользоваться
+              функцией не рекомендуется, т. к. при этом вы теряете воз-
+              можность запуска системы в безопасном режиме</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootMenu</div></td>
+          <td valign="top">
+            <div align="left">Значение по умолчанию&#8212; &quot;0&quot;. Установка в значение &quot;1&quot;,
+              предписывает Windows, не дожидаясь нажатия &lt;F8&gt;, сразу
+              выводить загрузочное меню</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootMenuDefault=n</div></td>
+          <td valign="top">
+            <div align="left">Выбирает пункт в загрузочном меню. Значение по умолча-
+              нию &#8212; &quot;3&quot; для компьютеров без сетевых компонент и &quot;4&quot; для
+              сетевых компьютеров</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootMenuDelay=n</div></td>
+          <td valign="top">
+            <div align="left">Время, в течение которого можно успеть сделать выбор в
+              загрузочном меню. Значение по умолчанию &#8212; &quot;30&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootSave</div></td>
+          <td valign="top">
+            <div align="left">При значении параметра, равном &quot;0&quot;, Windows стартует
+              нормально,
+              при значении, равном &quot;1&quot;, Windows стартует в безопасном
+              режиме</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootMuIti</div></td>
+          <td valign="top">
+            <div align="left">Значение по умолчанию&#8212; &quot;0&quot;. Установка в значение &quot;1&quot;
+              предписывает Windows включить режим загрузки по не-
+              скольким вариантам, в том числе и загрузку предыдущей
+              версии DOS. Если при следующей загрузке, когда на экран
+              выводится сообщение &quot;Идет загрузка Windows xx&quot;, нажать
+              клавишу &lt;F4&gt;, то начнется загрузка предыдущей версии
+              DOS. Учтите, что это верно только для компьютеров, где
+              Windows не является изначально установленной операцион-
+              ной системой. Если же в процессе загрузки нажать клавишу
+        &lt;F8&gt;, появится загрузочное меню, в котором будут предло-
+              жены различные варианты загрузки</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootWarn</div></td>
+          <td valign="top">
+            <div align="left">Разрешает предупреждение о загрузке в безопасном режи-
+              ме. Значение по умолчанию &#8212; &quot;1&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootWin</div></td>
+          <td valign="top">
+            <div align="left">Разрешает использование Windows в качестве операцион-
+              ной системы по умолчанию. Установка этого параметра в &quot;0&quot;
+              приведет к загрузке предыдущей версии DOS. Значение по
+              умолчанию &#8212; &quot;1&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">DblSpace</div></td>
+          <td valign="top">
+            <div align="left">Разрешает автоматическую загрузку DBLSPACE.BIN. Зна-
+              чение по умолчанию &#8212; &quot;1&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">DoubleBuffer</div></td>
+          <td valign="top">
+            <div align="left">Разрешает двойную буферизацию для SCSI-контроллеров.
+              Значение по умолчанию &#8212; &quot;0&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">DrvSpace</div></td>
+          <td valign="top">
+            <div align="left">Разрешает автоматическую загрузку DRVSPACE.BIN. Зна-
+              чение по умолчанию &#8212; &quot;1&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">LoadTop</div></td>
+          <td valign="top">
+            <div align="left">Разрешает загрузку COMMAND.COM или DRVSPACE.BIN в
+              верхнюю память. Значение по умолчанию&#8212; &quot;1&quot;. Рекоменду-
+              ется устанавливать в &quot;0&quot; при работе с NetWare или любыми
+              приложениями, использующими эту область памяти</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">Logo</div></td>
+          <td valign="top">
+            <div align="left">Разрешает показывать логотип. Значение по умолчанию &#8212;
+        &quot;1&quot;. Установка в &quot;0&quot; отменяет вывод заставки при загруз-
+              ке Windows, а также предотвращает перехват некоторых
+              прерываний, который может привести к несовместимости
+              с некоторыми диспетчерами памяти от независимых по-
+              ставщиков</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">Network</div></td>
+          <td valign="top">
+            <div align="left">Разрешает пункт загрузочного меню &quot;Safe Mode With
+              Networking&quot;. Значение по умолчанию&#8212; &quot;1&quot;, для сетевых
+              компьютеров. При отсутствии сетевой поддержки должно
+              быть установлено в &quot;0&quot;</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">Autoscan=1</div></td>
+          <td valign="top">
+            <div align="left">Запуск ScanDisk при некорректном завершении работы
+              Windows:</div>
+            <div align="left">&quot;0&quot; &#8212; блокирует запуск ScanDisk;</div>
+            <div align="left">&quot;1&quot; &#8212; запускает ScanDisk, а затем ожидает действий пользо-
+              вателя;</div>
+            <div align="left">&quot;2&quot; &#8212; запускает ScanDisk, а затем продолжает запуск
+              Windows</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">DisableLog=1</div></td>
+          <td valign="top">
+            <div align="left">&quot;0&quot; &#8212; создание файла отчета загрузки;
+        &quot;1&quot; &#8212; отключить создание файла отчета загрузки</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">BootFailSafe=1</div></td>
+          <td valign="top">
+            <div align="left">&quot;0&quot; &#8212; запрет загрузки в безопасном режиме;
+        &quot;1&quot; &#8212; разрешение загрузки в безопасном режиме</div></td>
+        </tr>
+        <tr valign="top" class="Text">
+          <td valign="top">
+            <div align="left">LoadTop=1</div></td>
+          <td valign="top">
+            <div align="left">&quot;0&quot; &#8212; разрешает загрузку некоторых программ и драйверов;
+        &quot;1&quot; &#8212; запрещает</div></td>
+        </tr>
+      </table>      
+</td>
+  </tr>
+</table>
+
+
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index5.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif"><a href="Index7.htm"><img SRC="For.gif" BORDER=0 ></a></font></td>
+  </tr>
+</table>
+</body>
+</html>

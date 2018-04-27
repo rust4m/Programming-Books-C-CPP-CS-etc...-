@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index6.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif">&nbsp;</font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text"><p class="tit_A">FAQ ( ответы на часто задаваемые вопросы ) </p>
+      <p><span class="Text_b">Вопрос: </span>Не работает автозапуск для привода CD - ROM , хотя раньше работал. Тем более что проверил, автозапуск в свойствах привода включен. Что делать? </p>
+      <p><span class="Text_b">Ответ:</span> Иногда такое встречается и &quot;лечится&quot; ручным редактированием системного реестра. При этом нужно сначала удалить нижеследующий ключ, перезагрузить ПК, а затем вновь его создать. Речь идет о ключе </p>
+      <p class="Code">[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Policie s\ Explorer] С параметром &quot;NoDriveTypeAutoRun&quot;=hex:95, 00,00, 00 </p>
+      <p>Если у вас имеется какая-нибудь программа для тонкой настройки системы, тогда возможно проще будет воспользоваться именно этой программой. </p>
+      <p><span class="Text_b">Вопрос: </span>Перезагрузил компьютер в режиме эмуляции MS - DOS , после чего пропали привод CD - ROM и курсор, хотя при зафузке с компакт-диска (Реаниматора) они не пропадают. В чем дело? </p>            <p><span class="Text_b">Ответ:</span> Чтобы в режиме MS - DOS (не в окне эмуляции) включить поддержку привода CD - ROM и манипулятора мышь, следует загрузить соответствующие драйверы. Когда вы загружаетесь с зафузочного компакт-диска, там, в файлах конфигурации, уже имеется ссылка на подобные драйверы, поэтому после зафузки все устройства доступны, а когда вы зЪфужаете компьютер в режиме эмуляции MS - DOS , требуется ручной запуск этих драйверов. Если вам часто приходится работать в среде MS - DOS и вам нужно загру жаться именно с жесткого диска, а не загрузочной дискеты или же компакт-диска, тогда внесите изменения в файл DOSSTART . BAT , который использу ется системой для запуска всех драйверов, необходимых для работы в среде MS - DOS . Естественно, что файлы драйверов должны находиться в доступ ном месте на жестком диске, в противном случае они не будут зафужены в память компьютера. </p>
+      <p>Стоит отметить, что файл DOSSTART . BAT находится в рабочем каталоге Windows . </p>
+      <p><span class="Text_b">Вопрос: </span>Записывая очередной компакт-диск, обратил внимание, что потра ченное на его запись время значительно больше обычного. Может быть, привод перегрелся? </p>
+      <p><span class="Text_b">Ответ: </span>Причина, скорее всего, в том, что в процессе записи часто опусто шался буфер записи, из-за чего система снижала скорость записи. Такое может произойти из-за запуска &quot;тяжелых&quot; программ во время записи, например, таких как Adobe Photoshop и ему подобных. Если такая ситуация повторяется часто, попробуйте отключить от шлейфа, к которому подклю чен пишущий привод, другие устройства, особенно если они не поддержи вают работу с DMA -каналами. И старайтесь не зафужать свой компьютер во время записи компакт-дисков. </p>      </td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index6.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif">&nbsp;</font></td>
+  </tr>
+</table>
+</body>
+</html>

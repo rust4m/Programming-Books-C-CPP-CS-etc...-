@@ -1,0 +1,173 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<P>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+Как спрятать один шифртекст в другом
+</font></P>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон и Борис несколько месяцев обменивались шифрованными сообщениями. 
+Контрразведка перехватила все эти сообщения, но так и не смогла прочесть ни единого слова. Контрразведчикам надоело коллекционировать переписку 
+Антона и Бориса, не зная ее содержания, и они решили арестовать подозрительную 
+парочку. Первый же допрос начался словами: &quot;Где ключи к шифру?&quot; &quot;К какому такому 
+шифру?!&quot; — в один голос воскликнули Антон и Борис, но тут же осеклись и 
+побледнели, заметив на столе у следователя зловещего вида клещи, покрытые 
+пятнами то ли ржавчины, то ли крови.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон и Борис смогли бы выкрутиться из создавшегося положения, если бы 
+шифровали каждое свое сообщение так, чтобы оно допускало два различных 
+расшифрования в зависимости от используемого ключа. Свое настоящее секретное 
+сообщение Борису Антон мог бы зашифровать на одном ключе, а вполне невинный 
+открытый текст — на другом. Теперь, если от Антона потребуют ключ к шифру, он 
+отдаст подставной ключ, который позволит прочесть невинное сообщение, а другой 
+ключ сохранит в тайне.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Самый простой способ сделать это потребует использования одноразового 
+блокнота. Пусть Р — секретный открытый текст, D — невинный открытый текст, С — 
+шифрованный текст, К — настоящий ключ, а К — подставной ключ. Антон шифрует Р:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Р 
+<span lang="en">
+&Aring;
+</span>
+&nbsp; К = С
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Поскольку у Бориса имеется копия ключа К, он может без проблем расшифровать 
+сообщение Антона:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">С 
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en">
+&Aring;
+</span>
+ &nbsp;К = Р
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если контрразведчики попытаются заставить Антона и Бориса выдать используемый 
+ими ключ, то вместо К они могут сообщить в контрразведку:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">К
+<span lang="en-us">
+'=
+</span>
+ С
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en">
+&Aring; 
+</span>
+&nbsp;D
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В результате контрразведчики смогут прочитать невинный открытый текст:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">С
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<span lang="en">
+&Aring;
+</span>
+ &nbsp;К
+<span lang="en-us">
+'
+</span>
+ = 
+<span lang="en-us">
+D
+</span>
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Так как Антон и Борис пользуются одноразовым блокнотом, то К является 
+полностью случайным и доказать, что К является подставным ключом, практически 
+невозможно (не прибегая к пыткам).
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Антон мог бы зашифровать Р не с помощью одноразового блокнота, а пользуясь 
+любым из своих самых любимых криптографических алгоритмов и ключом К. Сложив С с 
+фрагментом какого-либо общеизвестного произведения (например, с отрывком из 
+второй главы &quot;Идиота&quot;) по модулю 2, Антон получит К'. Теперь если к Антону 
+пристанут злые &quot;дяденьки&quot; из контрразведки, он предъявит им С вместе с К' и 
+скажет, что К' — это одноразовый блокнот для С и что он просто захотел 
+попрактиковаться н криптографии, зашифровав для этой цели отрывок из первой 
+попавшейся книги. И пока контрразведчики не получат в свое распоряжение ключ К, 
+доказать, что Антон занимался чем-то противозаконным, они не смогут.
+</font>
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index6.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index8.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

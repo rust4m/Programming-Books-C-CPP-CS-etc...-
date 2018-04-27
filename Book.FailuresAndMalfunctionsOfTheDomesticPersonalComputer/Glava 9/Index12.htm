@@ -1,0 +1,68 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER =0  COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index11.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif">&nbsp;</font></td>
+  </tr>
+</table>
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+<table width="100%" border="0">
+  <tr> 
+    <td class="Text"><p class="tit_A">FAQ ( ответы на часто задаваемые вопросы ) </p>
+      <p><span class="Text_b">Вопрос: </span>Ярлыки на рабочем столе вдруг стали черными. Перезагрузка ком пьютера результата не дает. Что делать? </p>
+      <p><span class="Text_b">Ответ:</span> Просто удалите файл кэширования ярлыков, который находится в рабочем каталоге Windows и называется ShelllconCashe .</p>
+      <p> <span class="Text_b">Вопрос:</span> При загрузке операционной системы запрашивается пароль. Как убрать это окно? </p>      <p><span class="Text_b">Ответ: </span>Откройте Панель управления, выберите Пароли | Профили пользователей, установите галочку в пункте Все пользователи работают с единой конфигура цией. Перезагрузите компьютер, введите в окне запроса любое имя с пустым паролем, тогда при последующей загрузке у вас уже ничего не будет спра шиваться. При наличии на вашем компьютере сетевой платы в свойствах Сетевого окружения укажите Обычный вход в Windows , а не Клиент сетей Microsoft или Семейный вход в систему. Обычно последний вариант уста навливается по умолчанию. </p>
+      <p>Если вы пользуетесь операционной системой Windows 2000/ XP , тогда вам следует загрузиться в режиме администратора и снять галочку с пункта Требовать ввода имени пользователя и пароля, что можно сделать, открыв вкладку Пользователи Панели управления. </p>
+      <p><span class="Text_b">Вопрос: </span>Операционная система Windows 2000/ XP работает несколько мед леннее, чем это было в случае с Windows 98. Отчего это может быть? Ответ: Любая операционная система семейства Windows NT является более &quot;тяжелой&quot; для компьютера, чем Windows 9 x . Это заметно не только по рабо те, но и по процессу загрузки, который длится значительно дольше, чем в случае, например, с Windows 98. Все дело в несколько ином принципе работы и в большем количестве различных служб, запускаемых при загрузке компьютера. В частности, система NTFS , а точнее модуль поддержки этой файловой системы, занимает немало оперативной памяти. Это не должно вас сильно волновать, ведь главное преимущество систем на базе Windows NT — это стабильность работы, а вовсе не скорость. Если вы все-таки хотите немного ускорить работу Windows 2000/ NT , вос пользуйтесь одной из нижеследующих рекомендаций: </p>      
+      <ul>
+        <li class="nonum"> отключите все визуальные эффекты; </li>
+        <li class="nonum"> используйте файловую систему FAT32; </li>
+        <li class="nonum"> удалите все &quot;лишние&quot; программы из автозагрузки; </li>
+        <li class="nonum">деинсталлируйте все ненужные компоненты операционной системы; </li>
+        <li class="nonum"> отключите все виды антивирусных мониторов. </li>
+      </ul>      <p class="Text_b">Вопрос: </p>
+      <p>Сильно надоели постоянно появляющиеся на экране монитора со общения программы Windows Messenger . Можно ли от нее избавиться? </p>
+      <p><span class="Text_b">Ответ: </span>Воспользуйтесь программой типа XP _ ANTISPY , которая позволяет быстро деинсталлировать эту программу, хотя можно это сделать и &quot;вруч ную&quot;. Создайте на жестком диске файл, например, с названием KILLER . BAT и пропишите в нем строки: </p>      <p><span class="Code">undll32 advpack.dll,LaunchlNFSection %WinDir%\inf\msmsgs.inf,BLC.Remove echo Disabling it from running in the future... echo REGEDIT4&amp;gt;%temp%\nomsngr.reg echo </span></p>
+      <p class="Code">[HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Messenger\Client]&amp;gt;&amp;gt; %temp%\no </p>
+      <p class="Code">msngr.reg </p>
+      <p class="Code">echo &quot;PreventRun&quot;=dword:OOOOOOOl&amp;gt;&amp;gt;%temp%\nomsngr.reg echo &quot;PreventAutoRun&quot;=dword:OOOOOOOl&amp;gt;&amp;gt;%temp%\nomsngr.reg echo &quot;PreventAutoUpdate&quot;=dword:OOOOOOOl&amp;gt;&amp;gt;%temp%\nomsngr.reg </p>
+      <p class="Code">echo &quot;PreventBackgroundDownload&quot;=dword:OOOOOOOl&amp;gt;&amp;gt; %temp%\nomsngr.reg </p>
+      <p class="Code">echo &quot;Disabled&quot;=dword:OOOOOOOl&amp;gt;&amp;gt;%temp%\nomsngr.reg regedit /s %temp%\nomsngr.reg </p>
+      <p>Перед запуском этого файла закройте программу Windows Messenger , после удаления обязательно перезагрузите компьютер. </p>
+      <p><span class="Text_b">Вопрос: </span>Установил программу, а после перезагрузки не работает одно из устройств. Неужто придется переустанавливать операционную систему? </p>
+      <p><span class="Text_b">Ответ: </span>Загрузите компьютер с загрузочной дискеты или компакт-диска и откройте рабочий каталог Windows . Вручную или при помощи любого </p>      <p>файлового менеджера (например, NC ) переименуйте файлы SYSTEM . DA 0 и USER . DA 0 в SYSTEM . DAT и USER . DAT , что позволит вернуть прежние настройки компьютера, после чего можно перезагружаться в нормальном режиме. </p>
+      <p>Если вы не можете осуществить эту операцию ввиду того, что эти файлы имеют атрибуты &quot;системный&quot; и &quot;скрытый&quot;, можно воспользоваться утилитой ATTRIB . При этом ее следует запускать с ключами — &lt;- S &gt; для снятия ат рибута &quot;системный&quot;, &lt;-Н&gt; для снятия атрибута &quot;скрытый&quot; или &lt;- R &gt; для снятия атрибута &quot;только для чтения&quot;. </p>
+      <p>Способ может быть использован для любой версии Windows 9 x , для Windows XP стоит попробовать воспользоваться &quot;точкой отката&quot;. </p></td>
+  </tr>
+</table>
+
+<table BORDER =0 COLS=3 WIDTH="11%" >
+  <tr> 
+    <td WIDTH="10%">&nbsp;</td>
+  </tr>
+</table>
+
+
+
+<table BORDER =0  COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><font face="Arial, Helvetica, sans-serif"><a href="Index11.htm"><img SRC="Back.gif"  BORDER=0 ></a></font></td>
+    <td WIDTH="10%"><font face="Arial, Helvetica, sans-serif"><a href="Index0.htm"><img SRC="Menu.gif" BORDER=0 ></a></font></td>
+    <td ALIGN=RIGHT><font face="Arial, Helvetica, sans-serif">&nbsp;</font></td>
+  </tr>
+</table>
+</body>
+</html>

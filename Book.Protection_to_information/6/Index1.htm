@@ -1,0 +1,759 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font  face="Verdana, Arial, Helvetica, sans-serif">&nbsp;
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="For.gif" border="0" lowsrc="Index2.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<p>
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+Длина секретного ключа
+</font></p>
+</font>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Надежность симметричной криптосистемы зависит от стойкости используемого 
+криптографического алгоритма и от длины секретного ключа. Допустим, что сам 
+алгоритм идеален — вскрыть его можно только путем опробования всех возможных ключей. Этот вид криптоаналитической атаки называется 
+методом тотального перебора.
+Чтобы применить данный метол, криптоаналитику понадобится немного шифртекста и 
+соответствующий открытый текст. Например, в случае блочного шифра ему достаточно 
+получить в свое распоряжение по одному блоку шифрованного и соответствующего 
+открытого текста. Сделать это не так уж и трудно.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Криптоаналитик может заранее узнать 
+содержание сообщения, а затем перехватить его при передаче в зашифрованном 
+виде. По некоторым признакам он также может догадаться, что посланное 
+сообщение представляет собой не что иное, как текстовый файл, подготовленный с 
+помощью распространенного редактора, компьютерное изображение в 
+стандартном формате, каталог файловой подсистемы или базу данных. Для 
+криптоаналитика важно то, что в каждом из этих случаев в открытом тексте 
+перехваченного шифрсообщения известны несколько байтов, которых ему 
+хватит, чтобы предпринять атаку со знанием открытого текста.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Подсчитать сложность атаки методом тотального перебора достаточно просто. 
+Если ключ имеет длину 64 бита, то суперкомпьютер, который может опробовать 1 млн 
+ключей за 1 с, потратит более 5 тыс. лет на проверку всех возможных ключей. При 
+увеличении длины ключа до 12cS бит, этому же суперкомпьютеру понадобится 10
+<sup>
+25 
+</sup>
+лет, чтобы перебрать все ключи. Вселенная существует всего-навсего 10'° лет, 
+поэтому можно сказать, что 10- — это достаточно большой запас надежности для 
+тех, кто пользуется 128-5ишымп ключами.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Однако прежде чем броситься спешно изобретать криптосистему с длиной ключа в 
+4 Кбайт, следует вспомнить о сделанном выше предположении, а именно: 
+используемый алгоритм шифрования идеален в том смысле, что вскрыть его можно 
+только методом тотального перебора. Убедиться в этом на практике бывает не так 
+просто, как может показаться на первый взгляд. Криптография требует утонченности 
+и терпения. Новые сверхсложные криптосистемы при более внимательном рассмотрении 
+зачастую оказываются очень нестойкими. А внесение даже крошечных изменений в 
+стойкий криптографический алгоритм может существенно понизить его стойкость. 
+Поэтому надо пользоваться только проверенными шифрами, которые известны уже в 
+течение многих лет, и не бояться проявлять болезненную подозрительность по 
+отношению к новейшим алгоритмам шифрования, вне зависимости от заявлений их 
+авторов об абсолютной надежности этих алгоритмов.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Важно также не забывать о правиле Керкхоффа: стойкость алгоритма шифрования 
+должна определяться ключом, а не деталями самого алгоритма. Чтобы быть уверенным 
+в стойкости используемого шифра, недостаточно проанализировать его при условии, 
+что противник досконально знаком с алгоритмом шифрования. Нужно еще и 
+рассмотреть атаку на этот алгоритм, при которой враг может получить любое 
+количество шифрованного и соответствующего открытого текста. Более того, для 
+повышения надежности следует предположить, что криптоаналитик имеет возможность 
+организовать атаку с выбранным открытым текстом произвольной длины.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">К счастью, в реальной жизни большинство людей, интересующихся содержанием 
+ваших шифрованных файлов, не обладают квалификацией высококлассных специалистов 
+и вычислительными ресурсами, которые имеются в распоряжении правительств мировых 
+супердержав. Последние же вряд ли будут тратить время и деньги, чтобы прочесть 
+ваше пылкое сугубо личное послание. Однако, если вы планируете свергнуть 
+&quot;антинародное правительство&quot;, вам необходимо всерьез задуматься о стойкости 
+применяемого алгоритма шифрования.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Сложность и стоимость атаки методом тотального перебора
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Атака методом тотального перебора, как правило, представляет собой 
+разновидность атаки со знанием открытого текста. Если предположить, что атака 
+методом тотального перебора является наиболее эффективной среди возможных атак 
+на используемый вами симметричный алгоритм шифрования. то ключ должен быть 
+достаточно длинным, чтобы успешно отразить эту атаку. Насколько длинным?
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Среди параметров, которые необходимо принимать во внимание при рассмотрении 
+атаки методом тотального перебора, прежде всего, надо упомянуть об
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+общем количестве проверяемых ключей и о времени, затрачиваемом противником на проверку одного ключа. 
+Количество ключей для конкретною алгоритма обычно фиксировано. Например, DES-алгоритм использует 56-битный ключ. Это означает, что его ключевое пространство содержит 2
+<sup>
+56
+</sup>
+ 
+ключей.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Скорость проверки ключей играет менее важную роль, чем их количество. Для простоты изложения можно считать, что 
+вне зависимости от алгоритма шифрования, время, которое требуется на проверку одного ключа, одинаково. На практике данное 
+предположение неверно, и для разных криптографических алгоритмов это время может 
+различаться в десятки раз. Поскольку нашей целью является отыскание такой длины ключа, при которой стойкость алгоритма шифрования против 
+атаки методом тотального перебора в миллионы раз превышает предел, делающий эту атаку неосуществимой на практике, 
+то сделанное нами предположение вполне оправдано.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">При решении вопроса о достаточной длине ключа в качестве алгоритма  
+шифрования чаще всего рассматривается DES-алгоритм. В 1977 г. американские криптологи У. Диффи (W.Diffie) и М. Хеллман (M.Hellman) заявили, что при 
+существующем уровне развития компьютерной технологии можно построить 
+специализированный суперкомпьютер для вскрытия ключей DES-алгоритма методом 
+тотального перебора. Имея в своем составе 1 млн микросхем, каждая из которых 
+способна проверять 1 млн ключей в секунду, этот суперкомпьютер перебрал бы 
+все 2
+<sup>
+56
+</sup>
+ключей за 20 час.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Атака методом тотального перебора идеально подходит для реализации на 
+параллельном суперкомпьютере, состоящем из многих процессоров. Отдельным 
+процессорам, ведущим поиск ключа, нет необходимости устанавливать связь с 
+другими процессорами суперкомпьютера во время выполнения своей части поиска. 
+Следовательно, все процессоры специализированного суперкомпьютера, 
+предназначенного для параллельного поиска ключей, необязательно находятся 
+даже в одном городе, не говоря уже об одном помещении.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В 1993 г. американский криптолог М. Винер (M.Wiener) спроектировал 
+суперкомпьютер для атаки на DES-атгоритм методом тотального перебора. 
+Рассуждения Винера верны не только для DES-алгоритма, но и практически для 
+любого другого алгоритма шифрования. Суперкомпьютер, разработанный Винером, 
+состоит из специализированных микросхем, плат и стоек. По мнению Винера, для 
+того чтобы гарантировать вскрытие 56-битного ключа за 7 час, на изготовление 
+такого суперкомпьютера потребуется не более 1 млн долларов. По закону Мура, 
+вычислительная мощь компьютеров улавливается каждые полтора года. Поэтому к 
+2001 г. стоимость суперкомпьютера, придуманного Винером, уменьшится в 10 раз 
+и составит всего-навсего 100 тыс. долларов. Это означает, что уже сейчас крупные 
+компании и &quot;крутые&quot; криминальные структуры могут вскрывать 56-битные ключи. Для 
+военных криптоаналитиков в большинстве индустриально развитых стран доступны 
+64-битные ключи.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В 1996 г. Диффи, Винер и другие авторитетные американские криптологи 
+опубликовали результаты своей исследовательской работы по определению длины 
+ключа, необходимой для адекватной защиты информации от атаки методом тотального 
+перебора (табл. 6.1).
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<i>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 6.1. Стоимость и вычислительная сложность атаки методом тотального перебора
+</b>
+</font></p>
+</i>
+</font>
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%" bordercolor="#E7E3E7">
+<tr>
+<td WIDTH="113" VALIGN="TOP" ROWSPAN="2" BGCOLOR="#E7E3E7" HEIGHT="33">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Кто атакует 
+</font>
+</b>
+</td>
+<td WIDTH="105" VALIGN="TOP" ROWSPAN="2" BGCOLOR="#E7E3E7" HEIGHT="33">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Бюджет 
+</font>
+</b>
+</td>
+<td WIDTH="151" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="33" colspan="2">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Сложность атаки 
+</font>
+</b>
+</td>
+<td WIDTH="100" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="52" rowspan="2">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Стойкий ключ 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="77" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+40 бит 
+</font>
+</b>
+</td>
+<td WIDTH="74" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+56 бит 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="113" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Хакер 
+</font>
+</td>
+<td WIDTH="105" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+1000 долл. 
+</font>
+</td>
+<td WIDTH="77" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+1 неделя 
+</font>
+</td>
+<td WIDTH="74" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Никогда 
+</font>
+</td>
+<td WIDTH="100" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+45 бит 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="113" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Малый бизнес 
+</font>
+</td>
+<td WIDTH="105" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+10 тыс. долл. 
+</font>
+</td>
+<td WIDTH="77" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+12 мин. 
+</font>
+</td>
+<td WIDTH="74" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+556 дней 
+</font>
+</td>
+<td WIDTH="100" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+64 бита 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="113" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Крупная компания 
+</font>
+</td>
+<td WIDTH="105" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+10 млн долл. 
+</font>
+</td>
+<td WIDTH="77" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+0.005 с 
+</font>
+</td>
+<td WIDTH="74" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+6 мин 
+</font>
+</td>
+<td WIDTH="100" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="18">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+70 бит 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="113" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="32">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Федеральное агентство 
+</font>
+</td>
+<td WIDTH="105" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="32">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+300 млн долл. 
+</font>
+</td>
+<td WIDTH="77" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="32">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+0.0002 с 
+</font>
+</td>
+<td WIDTH="74" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="32">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+12с 
+</font>
+</td>
+<td WIDTH="100" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="32">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+75 бит 
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">К приведенным в табл. 6.1 цифрам следует относиться с осторожностью. 
+Теоретический расчет затрат на проведение атак методом тотального перебора на 
+криптографические ключи разной длины всегда существенно отличается от того, с 
+чем криптоаналитики сталкиваются на практике при покупке или разработке 
+суперкомпьютеров для ведения такого рода атак. Объясняется это тем, что одни 
+сделанные допущения оказываются весьма далеки от реальности, в то время как 
+другие факторы просто не принимаются во внимание. В данном случае Диффи, Винер и 
+другие посчитали, что при создании специализированного суперкомпьютера для атаки 
+методом тотального перебора будут использоваться заказные микросхемы ценой не 
+более 10 долл. По оценкам АНБ, такие микросхемы стоят, как правило, в 100 раз 
+дороже. У АНБ вызвало сомнение и допущение о том, что вне зависимости от 
+алгоритма шифрования, лишь длина ключа определяет сложность криптоаналитической 
+атаки. Кроме того, при составлении таблицы не были учтены затраты на 
+научно-исследовательские и опытно-конструкторские работы, которые для первого 
+экземпляра суперкомпьютера обычно составляют не менее 10 млн долл. Не были также 
+приняты во внимание расходы на приобретение компьютерной памяти.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Из сказанного можно сделать весьма важный вывод. Если кто-то очень захочет 
+узнать использованный вами ключ, ему нужно всего лишь потратить достаточное 
+количество денег. Поэтому определяющей является стоимость зашифрованной вами 
+информации. Если цена ей в базарный день — около 2 долл., вряд ли кто-то решится 
+потратить 1 млн, чтобы ее заполучить. Но если прибыль от прочтения вашей 
+шифровки составляет 100 млн долл.. — берегитесь! Единственным утешением может 
+послужить тот факт, что с течением времени любая информация очень быстро 
+устаревает и теряет свою ценность.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font></p>
+</font>
+<b>
+<p>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+Программная атака
+</font>
+</p>
+</b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Без специализированного компьютерного оборудования, ведущего параллельный поиск ключей, атака методом тотального 
+перебора имеет значительно меньше шансов на успех. Однако если вы не припасли 
+лишний миллион долларов, который можно потратить на 
+изготовление такого оборудования, есть другой, более дешевый, способ попытаться 
+вскрыть интересующий вас ключ.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В мире имеется огромное количество 
+компьютеров (по оценкам экспертов, в 1996 г. их число достигло 200 млн), 
+которые, чтобы не простаивать, могли бы опробовать ключи. Эксперимент, 
+проведенный в начале 1997 г., показал, что таким способом за две недели можно вскрыть 
+48-битный ключ. И хотя этот ключ был найден методом тотального 
+перебора после проверки чуть более половины всех возможных ключей, полученный 
+результат впечатляет, поскольку в ходе атаки одновременно 
+использовались не более 5 тысяч компьютеров из существующих 200 миллионов, а в 
+общей сложности в атаке оказались задействованными лишь 7 тысяч 
+компьютеров.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Основное препятствие на пути к использованию миллионов вычислительных 
+устройств, разбросанных по всему миру, заключается в невозможности сделать так, 
+чтобы их владельцы приняли участие в атаке. Можно, конечно,&nbsp; вежливо попросить каждого из них об 
+услуге, но во-первых, на это уйдет уйма времени, а во-вторых, ответом в большинстве случаев будет, 
+скорее всего, твердое &quot;нет&quot;. Можно попытаться тайком проникнуть на чужие компьютеры через сеть, но на это понадобится еще больше времени, да вдобавок вас 
+могут арестовать.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Более разумным представляется создание компьютерного вируса, который вместо того, чтобы стирать файлы с жесткого диска и выдавать на дисплей % 
+глупые сообщения, незаметно для владельца компьютера будет перебирать  
+возможные ключи. Проведенные исследования показывают, что в распоряжении вируса будет от 70 до 90% процессорного времени зараженного им 
+компьютера. После вскрытия ключа вирус может породить новый вирус, содержащий 
+информацию о найденном ключе, и отправить его странствовать по компьютерной сети 
+до тех пор, пока он не доберется до своего хозяина.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">При более тонком подходе вирус, обнаруживший ключ, выдаст на экран компьютера информацию вида:
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В ВАШЕМ КОМПЬЮТЕРЕ ОБНАРУЖЕНА СЕРЬЕЗНАЯ ОШИБКА!
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">ПОЖАЛУЙСТА, ПОЗВОНИТЕ ПО ТЕЛЕФОНУ (095)123-45-67
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">И ЗАЧИТАЙТЕ ОПЕРАТОРУ СЛЕДУЮЩЕЕ 48-БИТОВОЕ ЧИСЛО:
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="5">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">хххххххх ххххххх ххххххх ххххххх ххххххх ххххххх
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">ПЕРВОМУ, КТО СООБЩИТ ОБ ЭТОЙ ОШИБКЕ, ГАРАНТИРОВАНО  
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">ВОЗНАГРАЖДЕНИЕ В РАЗМЕРЕ 
+100 (СТА) ДОЛЛАРОВ.
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+</p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Если вирусу удастся заразить 10 млн компьютеров, каждый из которых станет 
+проверять хотя бы 1 тыс. ключей в секунду, то 56-битный ключ будет найден менее 
+чем через 3 месяца. Дополнительно придется раскошелиться на подкуп 
+производителей антивирусных программ, однако к компьютерной криптографии, о 
+которой сейчас идет речь, эта проблема никакого отношения не имеет.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">&quot;Китайская лотерея&quot;
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Допустим, что для атаки методом тотального перебора во всякий без исключения 
+китайский радиоприемник и телевизор встраивается специальная микросхема, 
+проверяющая 1 млн ключей в секунду. Каждая из них автоматически перебирает свое 
+подмножество ключей после получения из эфира фрагментов шифрованного и 
+соответствующего открытого текста. Как только правительство Китая пожелает 
+вскрыть какой-нибудь ключ, оно принимает постановление, которое обязывает всех 
+владельцев телевизоров и радиоприемников включить свои аппараты в определенное 
+время, чтобы они могли принять пару фрагментов текста и приступить к перебору 
+ключей.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">За найденный ключ полагается значительный приз. Благодаря этому 
+радиоприемники и телевизоры со встроенными микросхемами хорошо раскупаются, а 
+вскрытые ключи своевременно доводятся до сведения китайского правительства. Если 
+учесть, что у каждого из десяти китайцев есть радиоприемник или телевизор, то 
+получится, что на вскрытие 64-битного ключа китайскому правительству потребуется 
+самое большее 43 часа. В табл. 6.2 приведена сложность вскрытия 64-битного ключа 
+с помощью &quot;китайской лотереи&quot; при ее проведении в Китае, а также в США, Ираке и 
+Израиле.
+</font></p>
+</font>
+<i>
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 6.2. Сложность вскрытия 64-битного ключа с помощью &quot;китайской 
+лотереи&quot;
+</font></p>
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%" bordercolorlight="#C0C0C0" bordercolordark="#C0C0C0" border="0">
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="51">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Страна 
+</font>
+</b>
+</td>
+<td WIDTH="19%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="51">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Численность 
+    населения 
+</font>
+</b>
+</td>
+<td WIDTH="30%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="51">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Количество 
+    телевизоров и радиоприемников 
+</font>
+</b>
+</td>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="51">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Сложность 
+    вскрытия 64-битового ключа с помощью &quot;китайской лотереи&quot; 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Китай
+    
+</font>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">&nbsp;
+</td>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<td WIDTH="19%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1 190 431 000&nbsp;
+    
+</font>
+</td>
+<td WIDTH="30%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+257 000 000
+    
+</font>
+</td>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+43 часа
+    
+</font>
+</td>
+</tr>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+    США 
+</font>
+</td>
+<td WIDTH="19%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+    260 714 000
+</font>
+</td>
+<td WIDTH="30%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+    739 000 000 
+</font>
+</td>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+    6,9 часов 
+</font>
+</td>
+</tr>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Ирак
+    
+</font>
+</td>
+<td WIDTH="19%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+19 890 000
+    
+</font>
+</td>
+<td WIDTH="30%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+4 730 000
+    
+</font>
+</td>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+44 дня
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Израиль
+    
+</font>
+</td>
+<td WIDTH="19%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+5 051 000
+    
+</font>
+</td>
+<td WIDTH="30%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+3 640 000
+    
+</font>
+</td>
+<td WIDTH="38%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+58 дней
+    
+</font>
+</td>
+</tr>
+</table>
+</font>
+</font>
+</b>
+</i>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Биотехнология
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Предположим такую ситуацию: с использованием генной инженерии удалось вывести 
+особую породу травоядных динозавров. Их нарекли &quot;криптозаврами&quot;, поскольку 
+они состоят из клеток, которые могут проверять криптографические ключи. Шифрованный и соответствующий открытый теки передаются в 
+клетки криптозавра с помощью магнитооптических средин. Найденный ключ выводится 
+специальными клетками, способными перемещаться в пределах тела криптозавра. 
+Поскольку динозавр в среднем состоит из 2
+<sup>
+14
+</sup>
+клеток, то при условии, что каждая из них успевает проверить 1 миллион ключей в 
+секунду, на поиск 64-битного ключа уйдет не более 1 с.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Для этой же цели можно использовать клетки морских водорослей. Например, на 
+площади в 500 км2 и на глубине 
+<i>
+в 
+</i>
+1 м их можно разместить в 
+количестве 1023. Если каждая из них будет обрабатывать 1 млн ключей в секунду. 
+то 128-битный ключ будет вскрыт менее чем за сотню лет. Шифрованный и открытый 
+тексты передаются водорослям с помощью спутника, а сигналом о нахождении 
+искомого ключа служит изменение окраски водорослей вокруг клетки, отыскавшей 
+этот ключ. За советами по разведению морских водорослей криптоаналитики могут 
+обратиться на биологический факультет ближайшего университета.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Термодинамические ограничения
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Из второго закона термодинамики следует, что для записи одного бита 
+информации путем соответствующего изменения состояния среды требуется не менее kT эрг энергии, где k— постоянная Больцмана и Т— температура 
+системы. Учитывая, что температура Вселенной составляет 3,2° по Кельвину, для 
+изменения одного бита информации компьютеру понадобится не менее 4,4 10
+<sup>
+-16
+</sup>
+ эрг
+<sup>
+</sup>
+энергии. Уменьшение температуры среды ниже уровня температуры Вселенной потребует дополнительных затрат энергии и поэтому не имеет особого смысла.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">За год вся энергия, излучаемая Солнцем, составляет 1,21 10-
+<sup>
+41 
+</sup>
+эрг. Ее 
+хватит, чтобы произвести 2,7 1056 записей одного бита информации, что эквивалентно прогону 187-битного счетчика через все возможные состояния. Если наше довольно &quot;прохладное&quot; Солнце заменить сверхновой звездой, то счет-&pound; 
+чик можно сделать 219-битным.
+</font>
+</p>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Сказанное означает, что атака методом тотального перебора против криптосистемы с 256-битным ключом энергетически 
+неосуществима до тех пор, пока компьютеры являются объектами 
+материального мира и их функционирование подчиняется его законам, в 
+частности — второму закону термодинамики.
+</font></p>
+</font>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font  face="Verdana, Arial, Helvetica, sans-serif">&nbsp;
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="For.gif" border="0" lowsrc="Index2.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<title></title>
+<meta http-equiv="Content-Type" content="text/html;charset=windows-1251">
+</head>
+<link rel="stylesheet" href="../STYLE.css">
+<body TEXT="#000000" BGCOLOR="#E7E3E7" LINK="#004080" VLINK="#004080" olink="#008080" Background="">
+<table BORDER=0   COLS=3 WIDTH="16%" >
+  <tr> 
+    <td><a href="Index6.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index8.html"><img SRC="For.gif" BORDER=0 ></a></td>
+  </tr>
+</table>
+
+ 
+<br>
+<table width="100%" border="0">
+  <tr>
+    <td class="Text_n">
+ 
+<p class="Tit_CN">
+Маршрутизация и атаки DNS</P>
+
+<p class="Text_n">
+Такие атаки DoS основываются на манипуляции записями таблицы маршрутизации, что приводит к прекращению обслуживания легитимных систем или сетей. Большинство протоколов маршрутизации, такие как RIP версии 1 (Routing Information Protocol) и ВОР (Border Gateway Protocol), не имеют вообще или используют слабые алгоритмы аутентификации. Это предоставляет взломщикам прекрасную возможность изменять маршруты, зачастую указывая ложный исходный IP-адрес и вызывая состояние отказа в обслуживании. В результате таких атак трафик целевой сети маршрутизируется через сеть взломщика или в черную дыру, т.е. в никуда — в сеть, которой не существует.
+<br>
+
+Атаки DoS, направленные на серверы DNS, также являются достаточно эффективными. Большинство таких атак приводит к кэшированию на целевом сервере фиктивных адресов. Когда сервер DNS выполняет обратный поиск, взломщик может перенаправить его на требуемый узел или в некоторых случаях в &quot;черную дыру&quot;. Существует несколько типов подобных атак, которые приводят к тому, что большие узлы в течение продолжительного времени оказываются недоступными.
+
+
+<p class="label"><IMG src="1.gif" ><br>
+<br>
+#1 - Запросы клиента передаются на Web-узел компании Microsoft, при этом броузер пытается разрешить имя www microsoft com в IP-адрес
+#2 - Буфер сервера DNS был модифицирован взломщиком, поэтому возвращается IP-адрес сервера www hacker.com, а не сервера компании Microsoft
+#3 - Теперь компьютер взломщика выдает себя за www microsoft.com</p>
+
+
+</p></td>
+  </tr>
+</table>
+<br>
+<table BORDER=0  COLS=3 WIDTH="11%" >
+  <tr> 
+   <td><a href="Index6.html"><img SRC="Back.gif"  BORDER=0 ></a></td>
+    <td WIDTH="10%"><a href="../menu.html"><img SRC="Menu.gif" BORDER=0 ></a></td>
+    <td ALIGN=RIGHT><a href="Index8.html"><img SRC="For.gif" BORDER=0 ></a></td>
+   
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,546 @@
+<html>
+<head>
+<meta http-equiv="Content-Language" content="ru">
+<meta name="GENERATOR" content="Microsoft FrontPage 5.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1251">
+<title>
+Глава 1
+</title>
+</head>
+<body BGCOLOR="#E7E3E7" TEXT="#000000" LINK="#004080" VLINK="#004080" Background=" ">
+<font  face="Verdana, Arial, Helvetica, sans-serif"><table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index4.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="4">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Длина открытого ключа
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Многие современные алгоритмы шифрования с открытым ключом основаны на 
+однонаправленности функции разложения на множители числа, являющегося 
+произведением двух больших простых чисел. Эти алгоритмы также могут быть 
+подвергнуты атаке, подобной методу тотального перебора. применяемому против 
+шифров с секретным ключом, с одним лишь отличием: опробовать каждый ключ не 
+потребуется, достаточно суметь разложить на множители большое число.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Конечно, разложение большого числа на множители — задача трудная. Однако 
+сразу возникает резонный вопрос, насколько трудная. К несчастью для криптографов, 
+сложность ее решения уменьшается. И что еще хуже, эта сложность падает 
+значительно более быстрыми темпами, чем ожидалось ранее. Например, в середине 
+70-х годов считалось, что для разложения на множители числа из 125 цифр 
+потребуются десятки квадрильонов лет. А всего два десятилетия спустя с помощью 
+компьютеров, подключенных к сети Internet удалось разложить на множители число 
+из 129 цифр. Этот прорыв стал возможен благодаря тому, что за прошедшие 20 лет 
+были не только предложены новые, более быстрые, методы разложения на множители 
+больших чисел, но и возросла производительность используемых компьютеров.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Поэтому квалифицированный криптограф должен проявлять очень большую 
+осторожность и осмотрительность, когда речь заходит о длине открытою ключа. 
+Необходимо учитывать, насколько ценна засекречиваемая с его помощью информация и 
+как долго она должна оставаться в тайне для посторонних.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">А почему, спрашивается, не взять 10000-битный ключ
+<sup>
+9 
+ 
+</sup>
+Ведь тогда отпадут все вопросы, связанные со стойкостью асимметричного алгоритма 
+шифрования с открытым ключом, основанном на разложении большого числа па 
+множители. Но дело в том, что обеспечение достаточной стойкости шифра
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+не является единственной заботой криптографа. Имеются дополнительные 
+соображения, влияющие на выбор длины ключа, и среди них — вопросы. связанные с 
+практической реализуемостью алгоритма шифрования при выбранной длине ключа.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Чтобы оценить длину открытого ключа, будем измерять доступную 
+криптоаналитику вычислительную мощь в так называемых 
+<i>
+мопс-годах, 
+</i>
+т. е. количеством 
+операций, которые компьютер, способный работать со скоростью 1 миллион операций 
+в секунду, выполняет за год. Допустим, что хакер имеет доступ к компьютерным 
+ресурсам общей вычислительной мощью 10000 мопс-лет, крупная корпорация — 107 
+мопс-лет, правительство — 109 мопс-лет. Это вполне реальные цифры, если учесть, 
+что при реализации упомянутого выше проекта разложения числа из 129 цифр его 
+участники задействовали всего 0,03% вычислительной мощи Internet, и чтобы 
+добиться этого, им не потребовалось принимать какие-либо экстраординарные меры 
+или выходить за рамки закона.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Предположим еще, что вычислительная мощь возрастает в 10 раз каждые 5 лет, а 
+метод, который используется для разложения больших чисел на множители, позволяет 
+это делать с трудоемкостью, указанной в табл. 6.3.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+<i>
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Таблица 6.3. Трудоемкость разложения больших чисел на множители
+</b>
+</font></p>
+</i>
+</font>
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%">
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="39">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Количество бит в двоичном представлении числа 
+</font>
+</b>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="39">
+<b>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+Количество мопс-лет для разложения на множители 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+768 
+</font>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+3-10
+<sup>
+5
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="25">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+1024 
+</font>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="25">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+3-10
+<sup>
+7
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="25">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+1280 
+</font>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="25">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+3-10
+<sup>
+9
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+1536 
+</font>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="24">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+3-10
+<sup>
+11
+</sup>
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="42%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+2048 
+</font>
+</td>
+<td WIDTH="58%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="28">
+<font face="Verdana, Arial, Helvetica, sans-serif" size="2">
+3-10
+<sup>
+14
+</sup>
+</font>
+</td>
+</tr>
+</table>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Сделанные предположения позволяют оценить длину стойкого открытого ключа в 
+зависимости от срока, в течение которого необходимо хранить зашифрованные с его 
+помощью данные в секрете (табл. 6.4). При этом необходимо помнить, что 
+криптографические алгоритмы с открытым ключом часто применяются для защиты очень 
+ценной информации на весьма долгий период времени. Например, в системах 
+электронных платежей или при нотариальном заверении электронной подписи. Идея 
+потратить несколько месяцев на разложение большого числа на множители может 
+показаться кому-то очень привлекательной, если в результате он получит 
+возможность рассчитываться за свои покупки по вашей кредитной карточке. Кроме 
+того, я думаю, что вам совсем не улыбается перспектива быть вызванным через
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+20 лет на заседание суда, на котором рассматривается дело о наследстве,  
+отстаивать невозможность подделать электронную подпись вашего дедушки. 
+использованную им для составления завещания в вашу пользу.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<i>
+<b>
+<p>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Таблица 6.4. Рекомендуемая длина открытого ключа (в битах)
+</font>
+</b>
+</font></p>
+</i>
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%">
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Год 
+</font>
+</b>
+</td>
+<td WIDTH="18%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Хакер 
+</font>
+</b>
+</td>
+<td WIDTH="35%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Крупная корпорация 
+</font>
+</b>
+</td>
+<td WIDTH="33%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="26">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Правительство 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2000 
+</font>
+</td>
+<td WIDTH="18%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1024 
+</font>
+</td>
+<td WIDTH="35%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1280 
+</font>
+</td>
+<td WIDTH="33%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1536 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2005 
+</font>
+</td>
+<td WIDTH="18%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1280 
+</font>
+</td>
+<td WIDTH="35%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1536 
+</font>
+</td>
+<td WIDTH="33%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2048 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2010 
+</font>
+</td>
+<td WIDTH="18%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1280 
+</font>
+</td>
+<td WIDTH="35%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1536 
+</font>
+</td>
+<td WIDTH="33%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="23">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2048 
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="13%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2015 
+</font>
+</td>
+<td WIDTH="18%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1536 
+</font>
+</td>
+<td WIDTH="35%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2048 
+</font>
+</td>
+<td WIDTH="33%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2048 
+</font>
+</td>
+</tr>
+</table>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">С приведенными в табл. 6.4 данными согласны далеко не все авторитетные 
+криптографы. Некоторые из них наотрез отказываются делать какие-либо 
+долгосрочные прогнозы, считая это бесполезным делом. Другие, например, 
+специалисты из АНБ, чересчур оптимистичны, рекомендуя для систем цифровой 
+подписи длину открытого ключа всего 512—1024 бита, что в свете данных из табл. 
+6.4 является совершенно недостаточным для обеспечения надлежащей долговременной 
+защиты.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<b>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Какой длины должен быть ключ
+</font></p>
+</b>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">Криптоаналитическая атака против алгоритма шифрования обычно своим острием 
+бывает направлена в самое уязвимое место этого алгоритма. Например, для 
+организации шифрованной связи часто используются криптографические алгоритмы как 
+с секретным, так и с открытым ключом. Такая криптосистема называется 
+<i>
+гибридной. 
+</i>
+Стойкость каждого из 
+алгоритмов, входящих в состав гибридной криптосистемы, должна быть достаточной, 
+чтобы успешно противостоять вскрытию. Например, глупо применять симметричный 
+алгоритм с ключом длиной 128 бит совместно с асимметричным алгоритмом, в котором 
+длина ключа составляет всего 386 бит. И наоборот, не имеет смысла задействовать 
+симметричный алгоритм с ключом длиной 56 бит вместе с асимметричным алгоритмом с 
+ключом /шиной 1024 бита.
+</font></p>
+<p>
+<font  face="Verdana, Arial, Helvetica, sans-serif">В табл. 6.5 перечисляются пары длин ключей для симметричного и асимметричного 
+криптографического алгоритма, при которых стойкость обоих алгоритмов против 
+криптоаналитической атаки методом тотального перебора приблизительно одинакова. 
+Из данных, приведенных в табл. 6.5, например, следует, что если используется 
+симметричный алгоритм со 112-битным ключом, то вместе с ним должен применяться 
+асимметричный алгоритм с 1792-битным ключом. Однако на практике ключ для 
+асимметричного алгоритма шифрования обычно выбирают несколько более стойким, чем 
+для
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif" size="3">
+симметричного, поскольку с помощью первого защищаются значительно большие 
+объемы информации и на более продолжительный срок.
+</font></p>
+</font>
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<i>
+<b>
+<p>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Таблица 6.5. Длины ключей для симметричного и асимметричного алгоритмов 
+шифрования с одинаковой стойкостью против криптоаналитической атаки методом тотального перебора
+</font>
+</b>
+</font></p>
+</i>
+<b>
+<table CELLSPACING="1" CELLPADDING="2" WIDTH="100%">
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="40">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Длина ключа для 
+    симметричного алгоритма 
+</font>
+</b>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="40">
+<b>
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+Длина ключа для 
+    асимметричного алгоритма 
+</font>
+</b>
+</td>
+</tr>
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+56
+    
+</font>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="21">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+384
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+64
+    
+</font>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="17">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+512
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+80
+    
+</font>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="20">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+768
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+112
+    
+</font>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="19">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+1792
+    
+</font>
+</td>
+</tr>
+<tr>
+<td WIDTH="49%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+128
+    
+</font>
+</td>
+<td WIDTH="51%" VALIGN="TOP" BGCOLOR="#E7E3E7" HEIGHT="22">
+<font size="2" face="Verdana, Arial, Helvetica, sans-serif">
+2304
+    
+</font>
+</td>
+</tr>
+</table>
+</b>
+</font>
+<table width="14%" border="0" cellspacing="0">
+<tr>
+<td width="9%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index2.htm">
+<img src="Back.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="45%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="../index.html">
+<img src="Menu.gif" border="0" width="73" height="22">
+</a>
+</font>
+</td>
+<td width="46%">
+<font face="Verdana, Arial, Helvetica, sans-serif">
+<a href="Index4.htm">
+<img src="For.gif" border="0" lowsrc="Index4.htm" width="73" height="22">
+</a>
+</font>
+</td>
+</tr>
+</table>
+</body>
+</html>
